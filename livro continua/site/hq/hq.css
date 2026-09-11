@@ -93,52 +93,74 @@ body{
 @keyframes gira{to{transform:rotate(360deg)}}
 .ver{color:#6e6577;letter-spacing:.05em;font-size:11px;text-transform:uppercase}
 /* camada do traço dos rabichos */
-svg.rabichos{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:2}
+svg.rabichos{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:2;
+  pointer-events:none;filter:drop-shadow(0 3px 2px rgba(0,0,0,.28))}
 /*---------------- BALÕES ---------------- */
 .balao{
   position:absolute;z-index:3;
   display:flex;align-items:stretch;justify-content:center;
   text-align:center;
   font-family:"Oswald","Saira Condensed",system-ui,sans-serif;
-  font-weight:600;
-  line-height:1.18;
-  color:#15131a;
+  font-weight:500;
+  line-height:1.22;
+  color:#17141c;
   width:var(--bw,420px);max-width:var(--bw,420px);
+  pointer-events:none; /* cliques atravessam para virar a página */
 }
-.balao .tx{padding:12px 18px;width:100%;border-radius:18px;background:#fbfaf6;
-  border:3px solid #15131a;
-  box-shadow:2px 3px 0 rgba(0,0,0,.35);
+.balao .tx{
+  position:relative;
+  padding:14px 20px;width:100%;
+  border-radius:22px/26px;
+  background:#fbf8f0;
+  border:3px solid #17141c;
+  box-shadow:0 3px 0 rgba(23,20,28,.28), 0 12px 26px rgba(0,0,0,.5);
   font-size:var(--fs,27px);
-  letter-spacing:.01em;
+  letter-spacing:.015em;
+  text-wrap:balance;
 }
-/* Sylvanas: duplo-eco, borda fria */
-.balao.syl .tx{background:#f3eff6;border-color:#2a1d33;
-  box-shadow:2px 3px 0 rgba(0,0,0,.35), inset 0 0 0 1px rgba(122,82,150,.35);}
-.balao.syl{color:#211327}
-.balao.rouca .tx{font-style:italic}
-/* grito — borda irregular */
+/* Sylvanas: duplo-eco — papel frio arroxeado, contorno escuro e halo espectral */
+.balao.syl{color:#20122a}
+.balao.syl .tx{
+  background:#f1ecf7;border-color:#241a2e;border-radius:14px 26px 14px 26px;
+  box-shadow:0 3px 0 rgba(20,12,26,.3), 0 12px 26px rgba(0,0,0,.5),
+             inset 0 0 0 1px rgba(122,82,150,.4), 0 0 0 2px rgba(120,80,150,.15);
+}
+.balao.rouca .tx{font-style:italic;letter-spacing:.03em}
+/* grito — contorno irregular, profundidade por drop-shadow (não sofre clip) */
+.balao.grito{color:#1a1016}
 .balao.grito .tx{
   background:#f6f1e6;
   font-family:"Bangers",cursive;
-  font-size:var(--fs,40px);letter-spacing:.06em;line-height:1.05;
-  padding:16px 22px;
-  clip-path:polygon(0% 12%,8% 0,18% 9%,30% 2%,42% 10%,55% 0,68% 8%,80% 1%,92% 11%,100% 4%,97% 22%,100% 38%,96% 52%,100% 66%,95% 80%,100% 94%,86% 92%,74% 100%,60% 93%,46% 100%,33% 92%,20% 99%,9% 90%,0 97%,4% 80%,0 64%,5% 48%,0 32%,4% 20%);
-  border:3px solid #15131a;border-radius:6px;
+  font-size:var(--fs,40px);letter-spacing:.06em;line-height:1.1;
+  padding:18px 24px;border:none;border-radius:0;
+  clip-path:polygon(0% 14%,7% 2%,17% 11%,29% 0,41% 10%,54% 1%,66% 9%,79% 1%,91% 10%,100% 3%,98% 20%,100% 36%,95% 51%,100% 66%,96% 81%,100% 95%,87% 91%,75% 100%,61% 93%,47% 100%,33% 92%,20% 100%,9% 91%,0% 97%,3% 81%,0% 65%,4% 50%,0% 34%,4% 20%);
+  filter:drop-shadow(3px 4px 0 rgba(23,20,28,.45)) drop-shadow(0 10px 18px rgba(0,0,0,.4));
 }
-/* sussurro */
-.balao.sussurro .tx{background:#e8e6e1;border:3px dashed #4a4650;color:#3f3b45;
-  font-weight:500;font-style:italic}
-/* narração — caixa literária (ancorada pelo canto superior esquerdo) */
+/* sussurro — tracejado esfumaçado */
+.balao.sussurro{color:#47424d}
+.balao.sussurro .tx{
+  background:#ecebe7;border:2.5px dashed #55505c;border-radius:26px;
+  font-weight:500;font-style:italic;letter-spacing:.04em;
+  box-shadow:0 3px 0 rgba(23,20,28,.18), 0 10px 20px rgba(0,0,0,.4);
+}
+/* narração — caixa de crônica: pergaminho escuro com filete de ouro */
 .balao.narra{text-align:left}
 .balao.narra .tx{
   font-family:"Spectral",Georgia,serif;font-style:italic;
-  font-size:var(--fs,24px);line-height:1.42;
-  background:rgba(12,10,16,.9);color:#e4dccb;
-  border:1px solid #6b5836;border-left:5px solid var(--ouro);
-  border-radius:2px;padding:12px 16px;
-  box-shadow:3px 4px 0 rgba(0,0,0,.45);
+  font-size:var(--fs,24px);line-height:1.42;letter-spacing:.01em;
+  text-wrap:pretty;
+  background:linear-gradient(165deg, rgba(19,15,24,.97), rgba(10,8,14,.93));
+  color:#e8dfc8;
+  border:1px solid rgba(200,162,74,.55);border-left:4px solid var(--ouro);
+  border-radius:3px;padding:14px 18px;
+  box-shadow:0 4px 0 rgba(0,0,0,.35), 0 14px 30px rgba(0,0,0,.55), inset 0 0 26px rgba(0,0,0,.5);
 }
-/* SFX */
+.balao.narra .tx::after{
+  content:"✦";position:absolute;top:7px;right:10px;
+  font-size:.55em;font-style:normal;color:rgba(200,162,74,.75);
+  text-shadow:0 1px 2px #000;
+}
+/* SFX — onomatopeias soltas sobre a ação (prática de quadrinhos) */
 .balao.sfx{transform:translate(-50%,-50%) rotate(var(--rot,0deg));z-index:4;pointer-events:none}
 .balao.sfx .tx{
   font-family:"Bangers",cursive!important;
@@ -146,15 +168,33 @@ svg.rabichos{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z
   background:transparent;border:none;box-shadow:none;padding:0;
   color:#e7ecee;
   -webkit-text-stroke:2.5px #0c0b0e;
+  paint-order:stroke fill;
   text-shadow:3px 4px 0 rgba(0,0,0,.55), 0 0 16px rgba(170,200,220,.35);
 }
 .balao.sfx.fogo .tx{color:#e8a15a;-webkit-text-stroke-color:#2a1306}
-/* letreiro final (ancorado pelo topo) */
-.balao.letreiro{}
+/* letreiro final — placa de ouro envelhecido */
 .balao.letreiro .tx{
-  font-family:"Bangers",cursive;letter-spacing:.22em;font-size:var(--fs,44px);
-  color:var(--ouro);background:rgba(8,6,10,.72);border:1px solid var(--ouro);
-  border-radius:2px;padding:14px 30px;
+  font-family:"Bangers",cursive;letter-spacing:.24em;font-size:var(--fs,44px);
+  color:var(--ouro);text-shadow:0 2px 0 #2a1c06, 0 0 22px rgba(200,162,74,.3);
+  background:linear-gradient(180deg, rgba(20,14,8,.85), rgba(8,6,10,.85));
+  border:1px solid var(--ouro);border-radius:3px;padding:16px 34px;
+  box-shadow:0 0 0 3px rgba(8,6,10,.7), 0 0 0 4px rgba(200,162,74,.35), 0 12px 30px rgba(0,0,0,.6);
+}
+.balao.letreiro .tx::before{content:"✦ ";letter-spacing:0}
+.balao.letreiro .tx::after{content:" ✦";letter-spacing:0}
+/* entrada dos balões ao abrir a página (sem mexer no SFX, que tem transform próprio) */
+.pagina.ativa .balao:not(.sfx){
+  animation:surge .5s cubic-bezier(.2,.7,.3,1.15) both;
+  animation-delay:calc(var(--i,0)*70ms);
+}
+.pagina.ativa .balao.sfx{
+  animation:surgeFx .55s ease-out both;
+  animation-delay:calc(var(--i,0)*70ms);
+}
+@keyframes surge{from{opacity:0;transform:translateY(12px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes surgeFx{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .pagina.ativa .balao{animation:none!important}
 }
 /* faixa de página em produção */
 .faixa-rascunho{
