@@ -2,6 +2,7 @@
    Leitor da HQ — páginas 1280x1920, balões em overlay nítido.
    ============================================================ */
 const PW = 1280, PH = 1920;
+const VER = "20260911-3";
 const TIPOS = {
   fala:    {fs:27},
   rouca:   {fs:29},
@@ -40,7 +41,7 @@ function construirPagina(idx){
   pag.className = "pagina";
   pag.dataset.idx = idx;
   pag.innerHTML = `<div class="arte">
-      <img src="${p.img}" alt="" draggable="false">
+      <img src="${p.img}?v=${VER}" alt="" draggable="false">
       <svg class="rabichos" viewBox="0 0 ${PW} ${PH}" preserveAspectRatio="none"></svg>
     </div>`;
   const art = pag.querySelector(".arte");
@@ -128,7 +129,10 @@ function mostrar(i){
   document.querySelectorAll(".dots i").forEach((d,k)=>
     d.classList.toggle("on",k===atual));
   $("#ind").innerHTML = `PÁGINA <b>${atual+1}</b> / ${PAGINAS.length}`;
-  history.replaceState(null,"",`#p${atual+1}`);
+  try { history.replaceState(null,"",`#p${atual+1}`); } catch(e) {}
+  const prox = $("#prox"), ant = $("#ant");
+  prox.style.visibility = atual === PAGINAS.length-1 ? "hidden" : "visible";
+  ant.style.visibility  = atual === 0 ? "hidden" : "visible";
 }
 
 /* ---------------- bootstrap ---------------- */
