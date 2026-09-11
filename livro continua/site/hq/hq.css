@@ -1,0 +1,208 @@
+/* ============================================================
+   O PESO DA GORJA — Leitor de HQ
+   ============================================================ */
+:root{
+  --bg:#07060a;
+  --tinta:#e9e4dc;
+  --rubi:#a3232e;
+  --ouro:#c8a24a;
+  --gelo:#9fb8c9;
+  --sombra:rgba(0,0,0,.85);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:
+    radial-gradient(1200px 800px at 50% -10%, #141019 0%, #0a080d 55%, #050407 100%);
+  color:var(--tinta);
+  font-family:"Oswald","Saira Condensed",system-ui,sans-serif;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/*---------------- CAPA ----------------*/
+#capa{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  transition:opacity .6s ease, visibility .6s;
+  z-index:30;
+}
+#capa.oculta{opacity:0;visibility:hidden;pointer-events:none}
+.capa-img{
+  position:absolute;inset:0;
+  background:url("img/capa.jpg?v=20260911-4") center 30%/cover no-repeat;
+  filter:saturate(.85) brightness(.55);
+}
+.capa-vinheta{position:absolute;inset:0;background:
+  radial-gradient(900px 600px at 50% 55%, rgba(0,0,0,.15), rgba(0,0,0,.92))}
+.capa-inner{position:relative;text-align:center;padding:24px;max-width:900px}
+.selo{
+  font-family:"Bangers",cursive;letter-spacing:.25em;color:var(--ouro);
+  font-size:clamp(13px,1.6vw,18px);text-transform:uppercase;margin-bottom:14px;
+  text-shadow:0 2px 12px #000;
+}
+.capa-inner h1{
+  font-family:"Bangers",cursive;
+  font-size:clamp(46px,9vw,118px);
+  line-height:.95;letter-spacing:.04em;
+  color:#f2ead8;
+  text-shadow:0 0 28px rgba(163,35,46,.55), 0 4px 0 #1c0d10, 0 10px 40px #000;
+}
+.capa-inner h1 .rubi{color:#d9534f}
+.capa-sub{
+  margin:18px auto 6px;font-family:"Spectral",Georgia,serif;font-style:italic;
+  font-size:clamp(16px,2.2vw,24px);color:#cdbfae;max-width:640px;line-height:1.5;
+}
+.capa-cap{
+  margin-top:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gelo);font-size:clamp(12px,1.5vw,16px);
+}
+.capa-cap b{color:var(--ouro)}
+.btn{
+  display:inline-block;margin-top:34px;cursor:pointer;
+  font-family:"Bangers",cursive;letter-spacing:.18em;font-size:clamp(18px,2.4vw,26px);
+  color:#140d0d;background:linear-gradient(180deg,#e6c878,#b9892f);
+  border:none;border-radius:6px;padding:14px 42px;
+  box-shadow:0 6px 0 #5c3f12,0 14px 30px rgba(0,0,0,.6);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 0 #5c3f12,0 18px 36px rgba(0,0,0,.65)}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #5c3f12}
+.capa-nav{margin-top:26px;font-size:13px;color:#8f8396;letter-spacing:.06em}
+.capa-nav a{color:#b9a8c9;text-decoration:none;border-bottom:1px dotted #6b5b78}
+/*---------------- LEITOR ----------------*/
+#leitor{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.palco{position:relative;transform-origin:center center}
+.pagina{
+  position:absolute;left:50%;top:50%;
+  width:1280px;height:1920px;
+  margin-left:-640px;margin-top:-960px;
+  background:#000;
+  box-shadow:0 30px 90px rgba(0,0,0,.9), 0 0 0 3px #1a1720;
+  border-radius:4px;overflow:hidden;
+  opacity:0;visibility:hidden;
+  transition:opacity .28s ease;
+}
+.pagina.ativa{opacity:1;visibility:visible}
+.pagina img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
+.arte{position:absolute;inset:0;background:#0a090d}
+/* indicador de carregamento */
+.carregando{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:#0a090d;z-index:0;transition:opacity .3s}
+.arte.pronta .carregando{opacity:0;pointer-events:none}
+.carregando::before{content:"";width:64px;height:64px;border-radius:50%;
+  border:5px solid #2a2433;border-top-color:var(--ouro);animation:gira .9s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+.ver{color:#6e6577;letter-spacing:.05em;font-size:11px;text-transform:uppercase}
+/* camada do traço dos rabichos */
+svg.rabichos{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:2}
+/*---------------- BALÕES ---------------- */
+.balao{
+  position:absolute;z-index:3;
+  display:flex;align-items:stretch;justify-content:center;
+  text-align:center;
+  font-family:"Oswald","Saira Condensed",system-ui,sans-serif;
+  font-weight:600;
+  line-height:1.18;
+  color:#15131a;
+  width:var(--bw,420px);max-width:var(--bw,420px);
+}
+.balao .tx{padding:12px 18px;width:100%;border-radius:18px;background:#fbfaf6;
+  border:3px solid #15131a;
+  box-shadow:2px 3px 0 rgba(0,0,0,.35);
+  font-size:var(--fs,27px);
+  letter-spacing:.01em;
+}
+/* Sylvanas: duplo-eco, borda fria */
+.balao.syl .tx{background:#f3eff6;border-color:#2a1d33;
+  box-shadow:2px 3px 0 rgba(0,0,0,.35), inset 0 0 0 1px rgba(122,82,150,.35);}
+.balao.syl{color:#211327}
+.balao.rouca .tx{font-style:italic}
+/* grito — borda irregular */
+.balao.grito .tx{
+  background:#f6f1e6;
+  font-family:"Bangers",cursive;
+  font-size:var(--fs,40px);letter-spacing:.06em;line-height:1.05;
+  padding:16px 22px;
+  clip-path:polygon(0% 12%,8% 0,18% 9%,30% 2%,42% 10%,55% 0,68% 8%,80% 1%,92% 11%,100% 4%,97% 22%,100% 38%,96% 52%,100% 66%,95% 80%,100% 94%,86% 92%,74% 100%,60% 93%,46% 100%,33% 92%,20% 99%,9% 90%,0 97%,4% 80%,0 64%,5% 48%,0 32%,4% 20%);
+  border:3px solid #15131a;border-radius:6px;
+}
+/* sussurro */
+.balao.sussurro .tx{background:#e8e6e1;border:3px dashed #4a4650;color:#3f3b45;
+  font-weight:500;font-style:italic}
+/* narração — caixa literária (ancorada pelo canto superior esquerdo) */
+.balao.narra{text-align:left}
+.balao.narra .tx{
+  font-family:"Spectral",Georgia,serif;font-style:italic;
+  font-size:var(--fs,24px);line-height:1.42;
+  background:rgba(12,10,16,.9);color:#e4dccb;
+  border:1px solid #6b5836;border-left:5px solid var(--ouro);
+  border-radius:2px;padding:12px 16px;
+  box-shadow:3px 4px 0 rgba(0,0,0,.45);
+}
+/* SFX */
+.balao.sfx{transform:translate(-50%,-50%) rotate(var(--rot,0deg));z-index:4;pointer-events:none}
+.balao.sfx .tx{
+  font-family:"Bangers",cursive!important;
+  font-size:var(--fs,46px);letter-spacing:.08em;
+  background:transparent;border:none;box-shadow:none;padding:0;
+  color:#e7ecee;
+  -webkit-text-stroke:2.5px #0c0b0e;
+  text-shadow:3px 4px 0 rgba(0,0,0,.55), 0 0 16px rgba(170,200,220,.35);
+}
+.balao.sfx.fogo .tx{color:#e8a15a;-webkit-text-stroke-color:#2a1306}
+/* letreiro final (ancorado pelo topo) */
+.balao.letreiro{}
+.balao.letreiro .tx{
+  font-family:"Bangers",cursive;letter-spacing:.22em;font-size:var(--fs,44px);
+  color:var(--ouro);background:rgba(8,6,10,.72);border:1px solid var(--ouro);
+  border-radius:2px;padding:14px 30px;
+}
+/* faixa de página em produção */
+.faixa-rascunho{
+  position:absolute;right:28px;top:28px;z-index:6;
+  font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:.28em;
+  font-size:22px;color:#d8cda0;background:rgba(20,14,8,.78);
+  border:1px solid rgba(200,162,74,.6);border-radius:3px;
+  padding:9px 18px;transform:rotate(3deg);
+}
+/*---------------- CONTROLES ----------------*/
+.navega{position:fixed;top:50%;transform:translateY(-50%);z-index:25;
+  width:74px;height:128px;border:none;cursor:pointer;
+  background:linear-gradient(180deg,rgba(38,28,42,.82),rgba(14,10,18,.82));
+  color:var(--ouro);font-size:46px;line-height:1;
+  border:2px solid rgba(200,162,74,.6);
+  opacity:.92;transition:opacity .2s, background .2s, transform .15s;
+  display:flex;align-items:center;justify-content:center;border-radius:10px;
+  box-shadow:0 6px 24px rgba(0,0,0,.6)}
+.navega:hover{opacity:1;background:linear-gradient(180deg,rgba(78,56,48,.95),rgba(26,18,20,.95))}
+.navega:active{transform:translateY(-50%) scale(.94)}
+#ant{left:14px}#prox{right:14px;animation:pulsa 2.4s ease-in-out infinite}
+#prox:hover{animation:none}
+@keyframes pulsa{0%,100%{box-shadow:0 6px 24px rgba(0,0,0,.6),0 0 0 rgba(200,162,74,0)}
+ 50%{box-shadow:0 6px 24px rgba(0,0,0,.6),0 0 26px rgba(200,162,74,.55)}}
+.aviso-toque .zona{cursor:pointer}
+.barra-topo{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  display:flex;align-items:center;gap:16px;
+  padding:12px 22px;
+  background:linear-gradient(180deg,rgba(5,4,8,.92),transparent);
+  font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#b7aec0;
+}
+.barra-topo .tit{font-family:"Bangers",cursive;letter-spacing:.2em;font-size:20px;color:var(--ouro)}
+.barra-topo .spacer{flex:1}
+.barra-topo button{
+  background:none;border:1px solid rgba(200,162,74,.4);color:#d7cbb8;
+  font:inherit;letter-spacing:.1em;padding:6px 12px;border-radius:4px;cursor:pointer}
+.barra-topo button:hover{background:rgba(200,162,74,.14)}
+.mini{opacity:.75}
+.indicador{position:fixed;bottom:16px;left:0;right:0;z-index:20;text-align:center;
+  font-size:13px;letter-spacing:.25em;color:#8b8294}
+.indicador b{color:var(--ouro)}
+.dots{position:fixed;bottom:44px;left:0;right:0;z-index:20;display:flex;gap:8px;justify-content:center}
+.dots i{width:8px;height:8px;border-radius:50%;background:#3a3344;cursor:pointer;transition:.2s}
+.dots i.on{background:var(--ouro);transform:scale(1.35)}
+.aviso-toque{position:fixed;inset:0;z-index:15;display:flex}
+.aviso-toque .zona{flex:1}
+@media (max-width:760px){
+  .navega{width:46px;height:84px;font-size:30px}
+  #ant{left:6px}#prox{right:6px}
+}
