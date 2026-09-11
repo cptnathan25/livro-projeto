@@ -1,0 +1,196 @@
+/* ============================================================
+   CAPA — imagem inteira visível + fade para o conteúdo
+   Otimizada: sem background-attachment fixed, sem blur pesado
+   ============================================================ */
+
+.capa-hero{
+  position:relative;
+  width:100%;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;
+  overflow:hidden;
+  /* a altura acompanha a proporção real da arte (1376x768) */
+  aspect-ratio: 1376 / 768;
+  max-height:100vh;
+  min-height:520px;
+}
+
+/* --- a arte: inteira, sem corte --- */
+.capa-arte{
+  position:absolute;inset:0;z-index:0;
+  background-image:image-set(
+    url('img/capa-1280.jpg') 1x,
+    url('img/capa.jpg') 2x);
+  background-image:url('img/capa.jpg');
+  background-position:center center;
+  background-size:contain;          /* mostra a arte COMPLETA */
+  background-repeat:no-repeat;
+  background-color:#0a0705;
+  transform:translateZ(0);
+}
+
+/* preenche as bordas quando a tela é mais larga que a arte */
+.capa-preenche{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(60% 70% at 50% 60%, rgba(122,74,30,.30), transparent 70%),
+    linear-gradient(180deg,#0d0906 0%, #0a0705 100%);
+}
+
+/* --- brilho quente por cima, leve --- */
+.capa-brasa{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(72% 46% at 50% 44%, rgba(var(--c-glow),.34), transparent 70%);
+  mix-blend-mode:screen;
+  animation:brasa-capa 12s ease-in-out infinite;
+}
+@keyframes brasa-capa{ 0%,100%{opacity:.5} 50%{opacity:.85} }
+
+/* --- véu: escurece só o necessário e faz o FADE final --- */
+.capa-veu{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    /* topo: escurece atrás do título */
+    linear-gradient(180deg, rgba(8,5,4,.86) 0%, rgba(8,5,4,.42) 22%,
+                            rgba(8,5,4,.18) 44%, rgba(8,5,4,.24) 62%,
+                            rgba(8,5,4,.70) 84%, rgba(10,7,5,1) 100%);
+}
+/* fade lateral suave, para a arte se fundir ao fundo da página */
+.capa-veu::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(10,7,5,.9) 0%, transparent 12%,
+                                     transparent 88%, rgba(10,7,5,.9) 100%);
+}
+
+/* --- almas subindo (poucas, leves) --- */
+.capa-almas{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.capa-almas u{
+  position:absolute;bottom:-4%;width:4px;height:4px;border-radius:50%;
+  background:#bff6ff;box-shadow:0 0 10px 3px rgba(79,195,217,.7);
+  animation:alma-sobe linear infinite;
+}
+.capa-almas u.quente{background:#f0a35a;box-shadow:0 0 9px 2px rgba(184,100,42,.75)}
+@keyframes alma-sobe{
+  0%  {transform:translate3d(0,0,0) scale(.5);opacity:0}
+  14% {opacity:.9}
+  86% {opacity:.45}
+  100%{transform:translate3d(var(--ax,10px),-108%,0) scale(1.1);opacity:0}
+}
+
+/* --- conteúdo: centralizado de verdade --- */
+.capa-conteudo{
+  position:relative;z-index:4;
+  width:100%;max-width:900px;
+  margin:0 auto;padding:0 24px;
+  display:flex;flex-direction:column;align-items:center;
+}
+.capa-conteudo>*{
+  animation:surgir 1.2s cubic-bezier(.2,.7,.3,1) both;
+  margin-left:auto;margin-right:auto;
+}
+@keyframes surgir{
+  from{opacity:0;transform:translateY(20px)}
+  to  {opacity:1;transform:none}
+}
+.capa-conteudo>*:nth-child(1){animation-delay:.10s}
+.capa-conteudo>*:nth-child(2){animation-delay:.30s}
+.capa-conteudo>*:nth-child(3){animation-delay:.50s}
+.capa-conteudo>*:nth-child(4){animation-delay:.68s}
+.capa-conteudo>*:nth-child(5){animation-delay:.84s}
+.capa-conteudo>*:nth-child(6){animation-delay:1.0s}
+.capa-conteudo>*:nth-child(7){animation-delay:1.15s}
+
+.capa-hero .selo{width:92px;height:92px;margin:0 auto 20px;display:block}
+
+.capa-hero .sub{
+  letter-spacing:.42em;text-transform:uppercase;font-size:.72rem;
+  color:rgba(240,232,224,.9);margin:0 0 14px;
+  text-shadow:0 2px 10px #000, 0 0 26px rgba(0,0,0,.95);
+}
+.capa-hero h1{
+  margin:0;font-weight:400;letter-spacing:.04em;line-height:1.04;
+  font-size:clamp(2.6rem,7.2vw,5.4rem);
+  background:linear-gradient(180deg,#fff8ee 0%,#f0c489 38%,#c9762f 72%,#7a4a1e 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  /* sombra forte: o título precisa vencer a arte atrás */
+  filter:drop-shadow(0 3px 14px rgba(0,0,0,.95)) drop-shadow(0 0 40px rgba(0,0,0,.8));
+}
+.capa-hero h2{
+  margin:16px 0 0;font-weight:400;font-size:clamp(.78rem,2vw,1rem);
+  letter-spacing:.3em;text-transform:uppercase;color:rgba(240,232,224,.86);
+  text-shadow:0 2px 12px #000, 0 0 24px rgba(0,0,0,.9);
+}
+.capa-hero .filete{margin:26px auto}
+.capa-hero .epig{
+  max-width:560px;margin:0 auto;font-style:italic;font-size:clamp(.95rem,1.6vw,1.12rem);
+  color:rgba(244,238,230,.95);
+  text-shadow:0 2px 12px #000, 0 0 28px rgba(0,0,0,.95);
+}
+.capa-hero .autoria{
+  margin-top:34px;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;
+  color:rgba(210,196,182,.8);text-shadow:0 2px 10px #000;
+}
+.btnrow{
+  margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+}
+.btn{
+  padding:14px 28px;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+  color:#f2e8dc;text-decoration:none;
+  border:1px solid rgba(240,196,137,.55);
+  background:rgba(18,12,8,.62);
+  backdrop-filter:none;                 /* removido: pesava */
+  transition:border-color .2s, background .2s, color .2s;
+}
+.btn:hover{border-color:#f0c489;color:#ffe9c9;background:rgba(122,74,30,.42)}
+.btn.forte{
+  border-color:#e5a55e;color:#150c06;
+  background:linear-gradient(180deg,#e8ae66,#b8722c);
+}
+.btn.forte:hover{background:linear-gradient(180deg,#f2bd7a,#c9762f);color:#150c06}
+
+/* seta */
+.capa-seta{
+  position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:5;
+  color:rgba(240,196,137,.9);font-size:1.4rem;text-decoration:none;
+  animation:descer 2.4s ease-in-out infinite;
+  text-shadow:0 2px 10px #000;
+}
+@keyframes descer{
+  0%,100%{transform:translateX(-50%) translateY(0);opacity:.5}
+  50%    {transform:translateX(-50%) translateY(9px);opacity:1}
+}
+
+/* --- faixa das páginas internas --- */
+.faixa{
+  position:relative;height:200px;margin:0 0 -30px;overflow:hidden;
+  border-bottom:1px solid var(--linha);
+}
+.faixa .im{
+  position:absolute;inset:0;
+  background:url('img/capa-wide.jpg') center 42%/cover no-repeat;
+}
+.faixa::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(11,7,6,.42), rgba(11,7,6,.98));
+}
+
+/* ---------- telas largas: garantir centralização ---------- */
+@media (min-width:1100px){
+  .wrap{max-width:900px;margin-left:auto;margin-right:auto}
+  .grade{max-width:900px;margin-left:auto;margin-right:auto}
+}
+/* telas muito largas: a arte cobre, mas sem cortar o essencial */
+@media (min-aspect-ratio: 1376/768){
+  .capa-arte{background-size:cover}
+}
+@media (max-width:640px){
+  .capa-hero{aspect-ratio:auto;min-height:88vh;padding:80px 0}
+  .capa-arte{background-size:cover}
+  .faixa{height:140px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .capa-brasa,.capa-almas u,.capa-seta,.capa-conteudo>*{animation:none!important}
+  .capa-conteudo>*{opacity:1;transform:none}
+}

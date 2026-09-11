@@ -1,0 +1,87 @@
+/* ============================================================
+   VISOR — estilo do visualizador ampliado
+   ============================================================ */
+#lb{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(6,4,3,.965);
+  display:none;align-items:center;justify-content:center;
+  padding:clamp(14px,4vw,54px);
+  cursor:zoom-out;
+}
+#lb.on{display:flex}
+
+.vs-palco{
+  margin:0;padding:0;cursor:default;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  max-width:min(1500px,92vw);
+}
+#lb img{
+  max-width:100%;
+  max-height:78vh;
+  display:block;
+  border:1px solid var(--linha-forte);
+  box-shadow:0 30px 90px #000, 0 0 40px rgba(0,0,0,.8);
+  background:#0a0705;
+}
+@keyframes vs-surge{
+  from{opacity:0;transform:scale(.985)}
+  to  {opacity:1;transform:none}
+}
+#lb img.vs-entra{animation:vs-surge .28s ease-out}
+
+.vs-legenda{
+  text-align:center;max-width:760px;
+  font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tinta-suave);
+}
+
+/* setas */
+.vs-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:clamp(44px,5vw,62px);height:clamp(64px,9vw,96px);
+  display:flex;align-items:center;justify-content:center;
+  font-size:clamp(1.3rem,2.4vw,1.9rem);line-height:1;
+  color:var(--tinta);
+  background:rgba(20,14,10,.72);
+  border:1px solid var(--linha);
+  cursor:pointer;
+  transition:background .18s,border-color .18s,color .18s;
+  z-index:2;
+}
+.vs-nav:hover{
+  background:rgba(122,74,30,.55);
+  border-color:var(--ceu-cl);
+  color:#fff;
+}
+.vs-ant{left:clamp(8px,2vw,26px)}
+.vs-prox{right:clamp(8px,2vw,26px)}
+
+/* fechar */
+.vs-fechar{
+  position:absolute;top:clamp(10px,2vw,22px);right:clamp(10px,2vw,22px);
+  width:42px;height:42px;
+  font-size:1.6rem;line-height:1;
+  color:var(--tinta);
+  background:rgba(20,14,10,.72);
+  border:1px solid var(--linha);
+  cursor:pointer;z-index:3;
+  transition:background .18s,border-color .18s,color .18s;
+}
+.vs-fechar:hover{background:rgba(122,74,30,.55);border-color:var(--ceu-cl);color:#fff}
+
+/* contador */
+.vs-contador{
+  position:absolute;bottom:clamp(12px,2.4vw,26px);left:50%;
+  transform:translateX(-50%);
+  font-size:.72rem;letter-spacing:.28em;
+  color:rgba(200,186,172,.7);
+  background:rgba(20,14,10,.6);
+  border:1px solid var(--linha);
+  padding:6px 16px;
+}
+
+@media (max-width:640px){
+  #lb img{max-height:66vh}
+  .vs-nav{background:rgba(20,14,10,.85)}
+  .vs-legenda{font-size:.7rem}
+}

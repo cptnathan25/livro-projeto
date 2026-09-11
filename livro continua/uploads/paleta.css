@@ -1,0 +1,98 @@
+/* ============================================================
+   FUNDOS E CAMADAS ATMOSFÉRICAS DIRIGIDOS PELA PALETA VIVA
+   Usam as variáveis --c-* (RGB puro) que o motor reescreve
+   quadro a quadro, então a mudança é contínua e sem corte.
+   ============================================================ */
+
+/* valores iniciais: Livro I */
+:root{
+  --c-oxido:74,74,82;   --c-ceu:109,111,122;  --c-ceucl:154,160,173;
+  --c-alma:79,195,217;  --c-almacl:191,240,251;
+  --c-tinta:223,226,230;--c-suave:152,160,169;
+  --c-bgA:16,19,24;     --c-bgB:10,12,16;     --c-bgC:8,9,12;
+  --c-brasa:154,160,173;--c-glow:90,96,110;   --c-flash:150,158,175;
+}
+
+/* o corpo não usa mais transition: o motor já interpola */
+body{
+  transition:none;
+  background:
+    radial-gradient(1400px 630px at 50% 113%, rgba(var(--c-glow),.34), transparent 66%),
+    radial-gradient(900px 520px at 86% -11%, rgba(var(--c-alma),.15), transparent 62%),
+    radial-gradient(780px 480px at 9% -4%,  rgba(var(--c-ceu),.11), transparent 60%),
+    linear-gradient(180deg, rgb(var(--c-bgA)) 0%, rgb(var(--c-bgB)) 57%, rgb(var(--c-bgC)) 100%);
+}
+
+.atm-ceu{
+  background:radial-gradient(1500px 710px at 50% 112%, rgba(var(--c-glow),.42), transparent 66%);
+}
+.atm-alma{
+  background:
+    radial-gradient(880px 520px at 88% -8%, rgba(var(--c-alma),.20), transparent 62%),
+    radial-gradient(700px 460px at 10% 6%,  rgba(var(--c-ceucl),.12), transparent 60%);
+}
+.atm-nevoa i:nth-child(1){
+  background:radial-gradient(closest-side, rgba(var(--c-glow),.32), transparent 72%) 0 50%/46% 100% repeat-x;
+}
+.atm-nevoa i:nth-child(2){
+  background:radial-gradient(closest-side, rgba(var(--c-alma),.13), transparent 72%) 0 50%/38% 100% repeat-x;
+}
+.atm-correntes b{
+  background:linear-gradient(180deg,
+    rgba(var(--c-oxido),.9) 0 7px, transparent 7px 15px,
+    rgba(var(--c-oxido),.9) 15px 22px, transparent 22px 30px);
+  background-size:3px 30px;
+}
+.atm-brasas s{
+  background:rgb(var(--c-brasa));
+  box-shadow:0 0 10px 2px rgba(var(--c-brasa),.75);
+}
+.atm-brasas s.fria{
+  background:rgb(var(--c-almacl));
+  box-shadow:0 0 11px 3px rgba(var(--c-alma),.75);
+}
+.atm-pulso{
+  background:radial-gradient(closest-side, rgba(var(--c-alma),.5), transparent 70%);
+}
+.atm-flash{
+  background:linear-gradient(180deg, rgba(var(--c-flash),.40), transparent 46%);
+}
+
+/* capa e títulos acompanham */
+.capa-brasa{
+  background:
+    radial-gradient(90% 50% at 50% 34%, rgba(var(--c-glow),.44), transparent 68%),
+    radial-gradient(70% 40% at 50% 96%, rgba(var(--c-alma),.22), transparent 70%);
+}
+.capa-hero h1,.hero h1,.capa h1{
+  background:linear-gradient(180deg,
+    rgb(255,246,233) 0%,
+    rgb(var(--c-ceucl)) 42%,
+    rgb(var(--c-ceu)) 74%,
+    rgb(var(--c-oxido)) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.parte h2{
+  background:linear-gradient(180deg, rgb(244,231,216), rgb(var(--c-ceucl)));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.filete{
+  background:linear-gradient(90deg,transparent,
+    rgb(var(--c-oxido)) 28%, rgb(var(--c-alma)) 50%, rgb(var(--c-oxido)) 72%, transparent);
+  background-size:200% 100%;
+}
+
+/* selo: sem filtro de matiz, agora as cores vêm da paleta */
+body.livro-1 .selo,body.livro-2 .selo,body.livro-3 .selo{filter:none}
+.selo #anelExt{stroke:rgb(var(--c-ceucl))}
+.selo #anelInt{stroke:rgb(var(--c-oxido))}
+.selo path[fill="#b8642a"]{fill:rgb(var(--c-ceucl))}
+.selo path[fill="#603922"]{fill:rgb(var(--c-oxido))}
+
+/* etiqueta do livro: troca de texto sem piscar */
+.marcalivro{
+  transition:color .5s ease, border-color .5s ease, opacity .35s ease;
+}
+
+/* as regras antigas por classe de livro ficam só como reserva:
+   o motor tem prioridade porque escreve inline em :root */

@@ -1,0 +1,147 @@
+/* ============================================================
+   COR POR LIVRO — a paleta acompanha o arco emocional
+   I   cinza-ferro e frio ....... a Gorja como prisão, ela distante
+   II  o Vazio entra ............ violeta, o ano sozinho, o Colecionador
+   III âmbar quente ............. os dois juntos, o tempo que sobrou
+   ============================================================ */
+
+/* ---------- LIVRO I — cinza, frio, sem calor nenhum ---------- */
+body.livro-1{
+  --oxido:#4a4a52;
+  --ceu:#6d6f7a;
+  --ceu-cl:#9aa0ad;
+  --alma:#4fc3d9;
+  --alma-cl:#bff0fb;
+  --linha:rgba(154,160,173,.24);
+  --linha-forte:rgba(154,160,173,.46);
+  --tinta:#dfe2e6;
+  --tinta-suave:#98a0a9;
+  background:
+    radial-gradient(1400px 620px at 50% 114%, rgba(90,96,110,.30), transparent 66%),
+    radial-gradient(900px 520px at 86% -12%, rgba(79,195,217,.14), transparent 62%),
+    linear-gradient(180deg,#101318 0%, #0a0c10 58%, #08090c 100%);
+}
+body.livro-1 .atm-ceu{
+  background:radial-gradient(1500px 700px at 50% 112%, rgba(110,116,132,.34), transparent 66%);
+}
+body.livro-1 .atm-alma{
+  background:
+    radial-gradient(880px 520px at 88% -8%, rgba(79,195,217,.26), transparent 62%),
+    radial-gradient(700px 460px at 10% 6%, rgba(79,195,217,.13), transparent 60%);
+}
+body.livro-1 .atm-nevoa i:nth-child(1){
+  background:radial-gradient(closest-side, rgba(90,96,110,.30), transparent 72%) 0 50%/46% 100% repeat-x;
+}
+body.livro-1 .atm-brasas s{
+  background:#9aa0ad; box-shadow:0 0 9px 2px rgba(154,160,173,.6);
+}
+body.livro-1 .atm-flash{
+  background:linear-gradient(180deg, rgba(150,158,175,.34), transparent 46%);
+}
+body.livro-1 .texto{border-right-color:rgba(79,195,217,.20)}
+
+/* ---------- LIVRO II — o Vazio entra ---------- */
+body.livro-2{
+  --oxido:#5b3a86;
+  --ceu:#7c4fbe;
+  --ceu-cl:#a97cf0;
+  --alma:#4fc3d9;
+  --alma-cl:#c9b3ff;
+  --linha:rgba(169,124,240,.24);
+  --linha-forte:rgba(169,124,240,.48);
+  --tinta:#e7e0f0;
+  --tinta-suave:#a99cbc;
+  background:
+    radial-gradient(1400px 620px at 50% 114%, rgba(92,58,134,.36), transparent 66%),
+    radial-gradient(900px 520px at 86% -12%, rgba(124,79,190,.20), transparent 62%),
+    radial-gradient(800px 500px at 8% -6%, rgba(79,195,217,.08), transparent 60%),
+    linear-gradient(180deg,#130f1c 0%, #0b0810 56%, #08060c 100%);
+}
+body.livro-2 .atm-ceu{
+  background:radial-gradient(1500px 700px at 50% 112%, rgba(124,79,190,.40), transparent 66%);
+}
+body.livro-2 .atm-alma{
+  background:
+    radial-gradient(880px 520px at 88% -8%, rgba(169,124,240,.22), transparent 62%),
+    radial-gradient(700px 460px at 10% 6%, rgba(79,195,217,.12), transparent 60%);
+}
+body.livro-2 .atm-nevoa i:nth-child(1){
+  background:radial-gradient(closest-side, rgba(92,58,134,.34), transparent 72%) 0 50%/46% 100% repeat-x;
+}
+body.livro-2 .atm-brasas s{
+  background:#a97cf0; box-shadow:0 0 10px 3px rgba(169,124,240,.75);
+}
+body.livro-2 .atm-flash{
+  background:linear-gradient(180deg, rgba(140,90,215,.42), transparent 46%);
+}
+body.livro-2 .atm-pulso{
+  background:radial-gradient(closest-side, rgba(169,124,240,.55), transparent 70%);
+}
+
+/* ---------- LIVRO III — âmbar, o calor de volta ---------- */
+body.livro-3{
+  --oxido:#7a4a1e;
+  --ceu:#b8722c;
+  --ceu-cl:#e5a55e;
+  --alma:#5fd0e2;
+  --alma-cl:#ffd9a6;
+  --linha:rgba(229,165,94,.26);
+  --linha-forte:rgba(229,165,94,.52);
+  --tinta:#f2e6d6;
+  --tinta-suave:#bba58c;
+  background:
+    radial-gradient(1400px 640px at 50% 112%, rgba(200,120,48,.40), transparent 66%),
+    radial-gradient(900px 520px at 86% -10%, rgba(229,165,94,.16), transparent 62%),
+    radial-gradient(760px 460px at 12% 2%, rgba(95,208,226,.08), transparent 60%),
+    linear-gradient(180deg,#1a120b 0%, #0e0906 56%, #0a0705 100%);
+}
+body.livro-3 .atm-ceu{
+  background:radial-gradient(1500px 720px at 50% 112%, rgba(214,132,54,.48), transparent 66%);
+}
+body.livro-3 .atm-alma{
+  background:
+    radial-gradient(880px 520px at 88% -8%, rgba(95,208,226,.16), transparent 62%),
+    radial-gradient(700px 460px at 10% 6%, rgba(229,165,94,.14), transparent 60%);
+}
+body.livro-3 .atm-nevoa i:nth-child(1){
+  background:radial-gradient(closest-side, rgba(140,84,38,.34), transparent 72%) 0 50%/46% 100% repeat-x;
+}
+body.livro-3 .atm-brasas s{
+  background:#f0b46a; box-shadow:0 0 11px 3px rgba(229,165,94,.8);
+}
+body.livro-3 .atm-flash{
+  background:linear-gradient(180deg, rgba(214,132,54,.40), transparent 46%);
+}
+
+/* transição suave quando muda de livro */
+body{transition:background 1.2s ease}
+
+/* ---------- selo acompanha o livro ---------- */
+body.livro-1 .selo{filter:hue-rotate(-24deg) saturate(.35)}
+body.livro-2 .selo{filter:hue-rotate(232deg) saturate(1.25)}
+body.livro-3 .selo{filter:none}
+
+/* ---------- etiqueta do livro no topo do capítulo ---------- */
+.marcalivro{
+  display:inline-block;margin-bottom:14px;padding:5px 16px;
+  font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--ceu-cl);border:1px solid var(--linha);
+  background:rgba(0,0,0,.28);
+}
+
+/* ---------- índice: cada bloco com sua cor ---------- */
+.livroblk.b1{--ceu-cl:#9aa0ad;--linha:rgba(154,160,173,.26);--linha-forte:rgba(154,160,173,.5)}
+.livroblk.b2{--ceu-cl:#a97cf0;--linha:rgba(169,124,240,.26);--linha-forte:rgba(169,124,240,.5)}
+.livroblk.b3{--ceu-cl:#e5a55e;--linha:rgba(229,165,94,.28);--linha-forte:rgba(229,165,94,.52)}
+.livroblk{border-color:var(--linha)}
+.livroblk h4{color:var(--ceu-cl)}
+.livroblk .capcard .n{color:var(--ceu-cl);opacity:.85}
+.livroblk .capcard:hover{border-left-color:var(--ceu-cl)}
+
+/* faixa lateral de cor no bloco do índice */
+.livroblk{position:relative;overflow:hidden}
+.livroblk::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,transparent,var(--ceu-cl),transparent);
+  opacity:.85;
+}

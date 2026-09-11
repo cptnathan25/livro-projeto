@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="O Peso da Gorja — Estatísticas da obra. Números, palavras e dados sobre a história.">
+<meta name="theme-color" content="#0b0706">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
+<title>Estatísticas — O Peso da Gorja</title><link rel="stylesheet" href="css/tema.css">
+<style>
+.stats{max-width:720px;margin:0 auto;padding:20px}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0}
+.stat-card{background:linear-gradient(135deg,rgba(79,195,217,.06),rgba(11,7,6,.8));border:1px solid var(--linha);border-radius:var(--radius);padding:20px;text-align:center;transition:all var(--transition)}
+.stat-card:hover{border-color:var(--alma);transform:translateY(-2px);box-shadow:0 6px 20px rgba(79,195,217,.15)}
+.stat-num{font-family:var(--font-display);font-size:2.2rem;color:var(--alma);line-height:1;margin-bottom:6px;text-shadow:0 0 20px var(--glow-alma)}
+.stat-label{font-family:var(--font-ui);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tinta-suave)}
+.stat-section{margin:2em 0}
+.stat-section h2{font-family:var(--font-display);color:var(--ceu-cl);font-size:1.1rem;margin-bottom:12px}
+.stat-bar{height:8px;background:var(--ferro);border-radius:4px;overflow:hidden;margin:4px 0 12px}
+.stat-bar-fill{height:100%;border-radius:4px;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+.stat-row{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;margin-bottom:2px}
+.stat-row .name{color:var(--tinta)}
+.stat-row .val{color:var(--alma);font-family:var(--font-ui)}
+.livro-bar-1{background:linear-gradient(90deg,#c9a84c,#e6c85a)}
+.livro-bar-2{background:linear-gradient(90deg,#4a9e6e,#6bc48f)}
+.livro-bar-3{background:linear-gradient(90deg,#4fc3d9,#7fe3f0)}
+</style></head><body class="" data-livro="">
+<a href="#conteudo" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;padding:8px 16px;background:#0b0706;color:#4fc3d9;text-decoration:none;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase">&nbsp;Pular para o conteúdo&nbsp;</a>
+<div class="prog"></div>
+<header class="topbar"><a class="marca" href="index.html">O Peso da Gorja</a><nav><a href="index.html">Início</a><a href="capitulos.html">Capítulos</a><a href="galeria.html">Galeria</a><a href="personagens.html">Personagens</a><a href="mapa.html">Mapa</a><a href="linha-do-tempo.html">Linha do tempo</a></nav></header>
+<main class="wrap" id="conteudo">
+<div class="cabec"><p class="num">Dados</p><h1>Estatísticas da Obra</h1></div>
+<div class="ornamento"><span></span>✦<span></span></div>
+<div class="stats" id="stats-container">
+
+<div class="stat-grid">
+<div class="stat-card"><div class="stat-num" id="total-caps">28</div><div class="stat-label">Capítulos</div></div>
+<div class="stat-card"><div class="stat-num" id="total-words">—</div><div class="stat-label">Palavras</div></div>
+<div class="stat-card"><div class="stat-num" id="total-chars">—</div><div class="stat-label">Caracteres</div></div>
+<div class="stat-card"><div class="stat-num" id="total-time">—</div><div class="stat-label">Min de leitura</div></div>
+</div>
+
+<div class="stat-section">
+<h2>📊 Por Livro</h2>
+<div class="stat-row"><span class="name">Livro I — A História e a Pessoa</span><span class="val" id="livro1-words">—</span></div>
+<div class="stat-bar"><div class="stat-bar-fill livro-bar-1" id="livro1-bar" style="width:0%"></div></div>
+<div class="stat-row"><span class="name">Livro II — O Que Cada Um Se Tornou</span><span class="val" id="livro2-words">—</span></div>
+<div class="stat-bar"><div class="stat-bar-fill livro-bar-2" id="livro2-bar" style="width:0%"></div></div>
+<div class="stat-row"><span class="name">Livro III — O Tempo Que Sobrou</span><span class="val" id="livro3-words">—</span></div>
+<div class="stat-bar"><div class="stat-bar-fill livro-bar-3" id="livro3-bar" style="width:0%"></div></div>
+</div>
+
+<div class="stat-section">
+<h2>📖 Por Capítulo</h2>
+<div id="cap-list"></div>
+</div>
+
+<div class="stat-section">
+<h2>🏷️ Curiosidades</h2>
+<div class="stat-grid">
+<div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Livros</div></div>
+<div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Personagens</div></div>
+<div class="stat-card"><div class="stat-num">361</div><div class="stat-label">Dias de busca</div></div>
+<div class="stat-card"><div class="stat-num">3→3</div><div class="stat-label">Metros → Passos</div></div>
+</div>
+</div>
+
+</div>
+</main>
+<footer><p>O Peso da Gorja © 2024 — Uma história original de World of Warcraft</p></footer>
+<script src="js/site.js"></script>
+<script>
+// Calculate stats dynamically
+(function(){
+  var chapters = [
+    {cap:1,livro:1},{cap:2,livro:1},{cap:3,livro:1},{cap:4,livro:1},{cap:5,livro:1},{cap:6,livro:1},{cap:7,livro:1},{cap:8,livro:1},
+    {cap:9,livro:2},{cap:10,livro:2},{cap:11,livro:2},{cap:12,livro:2},{cap:13,livro:2},{cap:14,livro:2},{cap:15,livro:2},
+    {cap:16,livro:3},{cap:17,livro:3},{cap:18,livro:3},{cap:19,livro:3},{cap:20,livro:3},{cap:21,livro:3},{cap:22,livro:3},{cap:23,livro:3},{cap:24,livro:3},{cap:25,livro:3},{cap:26,livro:3},{cap:27,livro:3}
+  ];
+  
+  var livroWords = {1:0, 2:0, 3:0};
+  var totalWords = 0;
+  var totalChars = 0;
+  var capList = document.getElementById('cap-list');
+  var loaded = 0;
+  
+  chapters.forEach(function(ch){
+    fetch('cap' + ch.cap + '.html')
+      .then(function(r){ return r.text(); })
+      .then(function(html){
+        var match = html.match(/<div class="texto">([\s\S]*?)<div class="fim">/);
+        if(match){
+          var text = match[1].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+          var words = text.split(/\s+/).filter(function(w){return w.length>0}).length;
+          var chars = text.length;
+          
+          livroWords[ch.livro] += words;
+          totalWords += words;
+          totalChars += chars;
+          
+          // Add to list
+          var row = document.createElement('div');
+          row.className = 'stat-row';
+          row.innerHTML = '<span class="name">Cap ' + ch.cap + '</span><span class="val">' + words.toLocaleString('pt-BR') + '</span>';
+          capList.appendChild(row);
+        }
+        loaded++;
+        if(loaded === chapters.length) updateTotals();
+      })
+      .catch(function(){
+        loaded++;
+        if(loaded === chapters.length) updateTotals();
+      });
+  });
+  
+  function updateTotals(){
+    // Add special chapter estimate
+    var specialWords = 1800;
+    totalWords += specialWords;
+    
+    document.getElementById('total-words').textContent = totalWords.toLocaleString('pt-BR');
+    document.getElementById('total-chars').textContent = totalChars.toLocaleString('pt-BR');
+    document.getElementById('total-time').textContent = Math.ceil(totalWords / 220);
+    
+    var maxLivro = Math.max(livroWords[1], livroWords[2], livroWords[3]);
+    
+    document.getElementById('livro1-words').textContent = livroWords[1].toLocaleString('pt-BR') + ' palavras';
+    document.getElementById('livro2-words').textContent = livroWords[2].toLocaleString('pt-BR') + ' palavras';
+    document.getElementById('livro3-words').textContent = livroWords[3].toLocaleString('pt-BR') + ' palavras';
+    
+    setTimeout(function(){
+      document.getElementById('livro1-bar').style.width = (livroWords[1]/maxLivro*100) + '%';
+      document.getElementById('livro2-bar').style.width = (livroWords[2]/maxLivro*100) + '%';
+      document.getElementById('livro3-bar').style.width = (livroWords[3]/maxLivro*100) + '%';
+    }, 300);
+  }
+})();
+</script></body></html>

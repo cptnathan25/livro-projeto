@@ -1,0 +1,142 @@
+/* ============================================================
+   ATMOSFERA DA GORJA — versão otimizada
+   Regras: sem background-attachment:fixed, sem blur em elemento
+   grande, sem mix-blend-mode em camada de tela cheia, tudo
+   animado só por transform/opacity (composita na GPU).
+   ============================================================ */
+
+/* camadas base */
+.atm-ceu,.atm-alma,.atm-nevoa,.atm-correntes,.atm-brasas,.atm-vinheta,.atm-flash{
+  position:fixed;pointer-events:none;
+  contain:strict;                 /* isola: o navegador não recalcula a página */
+}
+.atm-ceu,.atm-alma{inset:-10%;z-index:0;will-change:transform,opacity}
+
+@keyframes respirar-brasa{
+  0%,100%{opacity:.70; transform:translate3d(0,0,0) scale(1)}
+  50%    {opacity:1;   transform:translate3d(0,-12px,0) scale(1.05)}
+}
+@keyframes deriva-fria{
+  0%,100%{opacity:.55; transform:translate3d(0,0,0)}
+  50%    {opacity:.92; transform:translate3d(-30px,18px,0)}
+}
+.atm-ceu{animation:respirar-brasa 14s ease-in-out infinite}
+.atm-alma{animation:deriva-fria 22s ease-in-out infinite}
+
+/* névoa: uma camada só, sem filter:blur (o gradiente já é suave) */
+.atm-nevoa{inset:0;z-index:0;overflow:hidden}
+.atm-nevoa i{
+  position:absolute;left:0;bottom:-6%;width:200%;height:52%;display:block;
+  animation:nevoa-a 90s linear infinite;
+  will-change:transform;opacity:.8;
+}
+@keyframes nevoa-a{ from{transform:translate3d(0,0,0)} to{transform:translate3d(-50%,0,0)} }
+.atm-nevoa i:nth-child(2){display:none}   /* segunda camada removida: pouco ganho, muito custo */
+
+/* correntes */
+.atm-correntes{inset:0;z-index:0;overflow:hidden}
+.atm-correntes b{
+  position:absolute;top:-14%;width:3px;height:70%;display:block;
+  transform-origin:50% 0;opacity:.5;
+  will-change:transform;
+}
+@keyframes balanco{ 0%,100%{transform:rotate(-1.4deg)} 50%{transform:rotate(1.7deg)} }
+.atm-correntes b:nth-child(1){left:6vw;  animation:balanco 12s ease-in-out infinite}
+.atm-correntes b:nth-child(2){left:16vw; height:50%;opacity:.3; animation:balanco 15s ease-in-out infinite -4s}
+.atm-correntes b:nth-child(3){right:8vw; animation:balanco 13s ease-in-out infinite -6s}
+.atm-correntes b:nth-child(4){display:none}   /* 3 correntes bastam */
+
+/* brasas */
+.atm-brasas{inset:0;z-index:0;overflow:hidden}
+.atm-brasas s{
+  position:absolute;bottom:-4vh;width:3px;height:3px;border-radius:50%;
+  animation:subir linear infinite;
+  will-change:transform,opacity;
+}
+@keyframes subir{
+  0%  {transform:translate3d(0,0,0) scale(.6); opacity:0}
+  14% {opacity:.85}
+  80% {opacity:.55}
+  100%{transform:translate3d(var(--dx,20px),-104vh,0) scale(1.05); opacity:0}
+}
+
+/* pulso de alma: mantido, mas sem blur pesado */
+.atm-pulso{
+  position:fixed;z-index:0;pointer-events:none;contain:strict;
+  width:300px;height:300px;border-radius:50%;
+  animation:pulso-alma 18s ease-in-out infinite;
+  will-change:opacity,transform;
+}
+@keyframes pulso-alma{
+  0%,100%{opacity:0; transform:scale(.85)}
+  45%    {opacity:.26; transform:scale(1.04)}
+}
+
+/* vinheta: sombra estática (animá-la forçava repintura constante) */
+.atm-vinheta{
+  inset:0;z-index:1;
+  box-shadow:inset 0 0 min(26vw,300px) min(3vw,46px) rgba(6,4,3,.84);
+}
+
+/* relâmpago */
+.atm-flash{
+  inset:0;z-index:1;
+  animation:relampago 28s linear infinite;
+  will-change:opacity;
+}
+@keyframes relampago{
+  0%,92%,100%{opacity:0}
+  93%{opacity:.42} 94%{opacity:.05} 95%{opacity:.28} 97%{opacity:0}
+}
+
+/* conteúdo acima da atmosfera */
+.wrap,.topbar,.hero,.capa,.capa-hero,main,.livro,#lb{position:relative;z-index:2}
+
+/* ---------- interações ---------- */
+.topbar .marca{transition:text-shadow .3s}
+.topbar .marca:hover{text-shadow:0 0 20px rgba(240,196,137,.9)}
+
+@keyframes brilho-titulo{
+  0%,100%{filter:drop-shadow(0 3px 14px rgba(0,0,0,.9))}
+  50%    {filter:drop-shadow(0 3px 14px rgba(0,0,0,.9)) drop-shadow(0 0 26px rgba(184,100,42,.5))}
+}
+.hero h1,.capa h1{animation:brilho-titulo 8s ease-in-out infinite}
+
+@keyframes girar-selo{ from{transform:rotate(0)} to{transform:rotate(360deg)} }
+.selo #anelExt{transform-origin:60px 60px;animation:girar-selo 48s linear infinite}
+.selo #anelInt{transform-origin:60px 60px;animation:girar-selo 34s linear infinite reverse}
+
+@keyframes correr-filete{
+  0%,100%{background-position:-160% 0}
+  50%    {background-position:160% 0}
+}
+.filete{background-size:200% 100%;animation:correr-filete 10s ease-in-out infinite}
+
+.btn{position:relative;overflow:hidden}
+.btn::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(120deg,transparent 32%,rgba(255,220,180,.20) 50%,transparent 68%);
+  transform:translateX(-120%);transition:transform .6s ease;
+}
+.btn:hover::after{transform:translateX(120%)}
+
+.gcard{transition:border-color .2s, transform .2s}
+.gcard:hover{transform:translateY(-3px)}
+.capcard{transition:background .18s, border-color .18s, padding-left .18s}
+
+/* pinos do mapa */
+@keyframes pino-pulso{ 0%,100%{opacity:1} 50%{opacity:.65} }
+.pino circle:nth-child(2){animation:pino-pulso 3.4s ease-in-out infinite}
+.pino:nth-child(2n) circle:nth-child(2){animation-delay:-1.2s}
+
+/* ---------- economia em telas pequenas ---------- */
+@media (max-width:760px){
+  .atm-correntes,.atm-flash,.atm-pulso{display:none}
+  .atm-nevoa i{animation-duration:120s}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .atm-ceu,.atm-alma,.atm-nevoa i,.atm-correntes b,.atm-brasas s,
+  .atm-pulso,.atm-flash,.hero h1,.capa h1,.filete,
+  .selo #anelExt,.selo #anelInt,.pino circle{animation:none !important}
+}

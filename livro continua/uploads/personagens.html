@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Personagens — O Peso da Gorja</title><style>
+/* ============================================================
+   TEMA "A GORJA" — paleta extraída de capturas oficiais da zona
+   base:  #0d0908 / #1c120f  (negro-terroso)
+   ferro: #45291f / #603922  (óxido, rocha queimada)
+   céu:   #995625 / #b8642a  (laranja doentio)
+   alma:  #4fc3d9 / #7fe3f0  (ciano — única luz do lugar)
+   ============================================================ */
+:root{
+  --breu:      #0b0706;
+  --breu2:     #14100e;
+  --ferro:     #2a1d17;
+  --ferro-cl:  #45291f;
+  --oxido:     #603922;
+  --ceu:       #995625;
+  --ceu-cl:    #b8642a;
+  --alma:      #4fc3d9;
+  --alma-cl:   #9ff0fb;
+  --tinta:     #e6dcd2;
+  --tinta-suave:#a89a8d;
+  --linha:     rgba(153,86,37,.30);
+  --linha-forte:rgba(184,100,42,.55);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  color:var(--tinta);
+  font-family:Georgia,"Times New Roman",serif;
+  line-height:1.78;
+  background:
+    /* brasa alaranjada no horizonte */
+    radial-gradient(1400px 620px at 50% 112%, rgba(153,86,37,.30), transparent 66%),
+    /* luz de alma, fria, no alto */
+    radial-gradient(900px 520px at 88% -12%, rgba(79,195,217,.11), transparent 62%),
+    radial-gradient(800px 500px at 8% -6%,  rgba(184,100,42,.10), transparent 60%),
+    linear-gradient(180deg,#14100e 0%, #0b0706 55%, #0a0605 100%);
+}
+
+.wrap,.topbar,.hero,main,.livro{position:relative;z-index:2}
+
+/* ---------- barra superior: ferro ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;
+  padding:12px 22px;
+  background:linear-gradient(180deg,rgba(20,16,14,.94),rgba(11,7,6,.88));
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--linha);
+  box-shadow:0 1px 0 rgba(184,100,42,.14), 0 10px 30px rgba(0,0,0,.6);
+}
+.topbar .marca{
+  font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--ceu-cl);text-decoration:none;white-space:nowrap;
+  text-shadow:0 0 14px rgba(184,100,42,.5);
+}
+.topbar nav{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
+.topbar nav a{
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--tinta-suave);text-decoration:none;transition:color .2s,text-shadow .2s;
+}
+.topbar nav a:hover,.topbar nav a.on{color:var(--alma);text-shadow:0 0 12px rgba(79,195,217,.55)}
+.prog{
+  position:fixed;top:0;left:0;height:2px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--alma),var(--ceu-cl),var(--oxido));
+  box-shadow:0 0 10px rgba(79,195,217,.7);
+}
+
+/* ---------- capa ---------- */
+.hero,.capa{
+  min-height:88vh;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;padding:70px 20px;position:relative;
+}
+.hero::before,.capa::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(closest-side,rgba(79,195,217,.16),transparent 70%) 50% 40%/560px 560px no-repeat,
+    radial-gradient(closest-side,rgba(153,86,37,.20),transparent 72%) 50% 78%/900px 420px no-repeat;
+  filter:blur(4px);
+}
+.hero .selo,.capa .selo{width:130px;height:130px;margin-bottom:30px;position:relative;z-index:1}
+.hero .sub,.capa .sub{
+  letter-spacing:.42em;text-transform:uppercase;font-size:.7rem;
+  color:var(--tinta-suave);margin:0 0 16px;position:relative;z-index:1;
+}
+.hero h1,.capa h1{
+  position:relative;z-index:1;margin:0;font-weight:400;letter-spacing:.06em;
+  font-size:clamp(2.6rem,7vw,4.6rem);
+  background:linear-gradient(180deg,#f4e7d8 0%, var(--ceu-cl) 52%, #5e3418 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 26px rgba(153,86,37,.45));
+}
+.hero h2,.capa h2{
+  position:relative;z-index:1;margin:18px 0 0;font-weight:400;
+  font-size:clamp(.85rem,2.4vw,1.1rem);color:var(--tinta-suave);
+  letter-spacing:.28em;text-transform:uppercase;
+}
+.filete{
+  width:200px;height:1px;margin:34px auto;position:relative;z-index:1;
+  background:linear-gradient(90deg,transparent,var(--oxido) 30%,var(--alma) 50%,var(--oxido) 70%,transparent);
+  box-shadow:0 0 12px rgba(79,195,217,.28);
+}
+.hero .epig,.capa .epig{
+  max-width:520px;font-style:italic;color:var(--tinta-suave);
+  position:relative;z-index:1;font-size:1.02rem;
+}
+.capa .autoria{
+  margin-top:52px;font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;
+  color:rgba(168,154,141,.62);position:relative;z-index:1;
+}
+.btnrow{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1}
+.btn{
+  display:inline-block;padding:13px 26px;text-decoration:none;font-size:.7rem;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--tinta);
+  border:1px solid var(--linha-forte);background:rgba(42,29,23,.55);
+  transition:all .2s;
+}
+.btn:hover{border-color:var(--alma);color:var(--alma);box-shadow:0 0 20px rgba(79,195,217,.22) inset,0 0 16px rgba(79,195,217,.18)}
+.btn.forte{border-color:var(--ceu-cl);background:linear-gradient(180deg,var(--ceu-cl),var(--oxido));color:#150c06}
+.btn.forte:hover{background:linear-gradient(180deg,#d0752f,var(--ceu));color:#150c06}
+
+/* ---------- seções ---------- */
+h3.sec{
+  margin:80px 0 26px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;
+  font-size:.76rem;color:var(--ceu-cl);text-align:center;
+  text-shadow:0 0 16px rgba(184,100,42,.35);
+}
+
+/* ---------- índice ---------- */
+.sumario,.livroblk{
+  margin:0 0 44px;padding:30px;border:1px solid var(--linha);
+  background:linear-gradient(180deg,rgba(30,21,17,.80),rgba(11,7,6,.42));
+  box-shadow:inset 0 1px 0 rgba(184,100,42,.14);
+}
+.sumario h3{margin:0 0 22px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;font-size:.78rem;color:var(--ceu-cl)}
+.sumario h4,.livroblk h4{margin:26px 0 6px;font-weight:400;letter-spacing:.26em;text-transform:uppercase;font-size:.72rem;color:var(--ceu-cl)}
+.livroblk h4{margin-top:0}
+.livroblk .lt{margin:0 0 22px;color:var(--tinta-suave);font-style:italic;font-size:.95rem}
+.sumario ol{margin:0;padding-left:20px;color:var(--tinta-suave)}
+.sumario li{margin:.4rem 0}
+.sumario li.futuro{opacity:.42;font-style:italic}
+.sumario a{color:var(--tinta);text-decoration:none;border-bottom:1px solid var(--linha);transition:all .2s}
+.sumario a:hover{color:var(--alma);border-color:var(--alma)}
+.capcard{
+  display:flex;align-items:baseline;gap:16px;padding:11px 12px;text-decoration:none;
+  border-left:2px solid transparent;transition:all .18s;
+}
+.capcard:hover{background:rgba(79,195,217,.07);border-left-color:var(--ceu-cl);padding-left:18px}
+.capcard .n{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(184,100,42,.85);min-width:130px}
+.capcard .t{color:var(--tinta)}
+
+/* ---------- leitura ---------- */
+.cabec,.cap{text-align:center}
+.cabec{padding:70px 0 0}
+.cabec .num,.cap .num{letter-spacing:.5em;text-transform:uppercase;font-size:.7rem;color:var(--ceu-cl);margin-bottom:10px}
+.cabec h1,.cap h2{font-weight:400;font-size:clamp(1.9rem,4.6vw,2.7rem);margin:0;letter-spacing:.04em;color:#f0e5d8}
+.ornamento{display:flex;align-items:center;gap:14px;justify-content:center;margin:26px 0 40px;color:var(--ceu-cl)}
+.ornamento span{height:1px;width:110px;background:linear-gradient(90deg,transparent,var(--oxido))}
+.ornamento span:last-child{background:linear-gradient(90deg,var(--oxido),transparent)}
+
+.texto{
+  text-align:left;
+  background:linear-gradient(180deg,rgba(30,21,17,.52),rgba(11,7,6,.20));
+  border-left:1px solid var(--linha-forte);
+  border-right:1px solid rgba(79,195,217,.16);
+  padding:46px clamp(20px,5vw,58px);
+  box-shadow:inset 0 0 60px rgba(0,0,0,.35);
+}
+.texto p{margin:0 0 1.25em;text-align:justify;hyphens:auto;font-size:1.06rem}
+.texto p.primeiro::first-letter{
+  float:left;font-size:4.2rem;line-height:.82;padding:6px 12px 0 0;
+  color:var(--ceu-cl);text-shadow:0 0 22px rgba(184,100,42,.45);
+}
+.texto .dial{text-indent:0}
+.pausa{text-align:center;color:rgba(184,100,42,.65);letter-spacing:1em;margin:34px 0}
+.fim{margin-top:56px;text-align:center;color:var(--tinta-suave);letter-spacing:.32em;text-transform:uppercase;font-size:.7rem}
+.continue{
+  margin-top:26px;text-align:center;font-style:italic;color:rgba(168,154,141,.78);
+  border-top:1px solid var(--linha);padding-top:26px;font-size:.95rem;
+}
+
+/* ---------- ilustrações ---------- */
+figure.ilus{margin:44px 0;padding:0;text-align:center}
+figure.ilus img{
+  width:100%;height:auto;display:block;border:1px solid var(--linha-forte);
+  box-shadow:0 18px 60px rgba(0,0,0,.72), 0 0 26px rgba(153,86,37,.14);
+  cursor:zoom-in;transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+figure.ilus img:hover{transform:scale(1.012);border-color:var(--alma);box-shadow:0 18px 60px rgba(0,0,0,.72),0 0 34px rgba(79,195,217,.30)}
+figure.ilus figcaption{margin-top:12px;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(168,154,141,.68)}
+
+/* ---------- paginação ---------- */
+.pag{display:flex;justify-content:space-between;gap:14px;margin-top:56px;flex-wrap:wrap}
+.pag a{
+  flex:1;min-width:220px;text-decoration:none;padding:18px 22px;
+  border:1px solid var(--linha);background:rgba(30,21,17,.55);transition:all .2s;
+}
+.pag a:hover{border-color:var(--ceu-cl);background:rgba(153,86,37,.10)}
+.pag .rot{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(184,100,42,.85);display:block;margin-bottom:6px}
+.pag .tt{color:var(--tinta)}
+.pag a.dir{text-align:right}
+.voltar{display:block;text-align:center;margin-top:28px;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(168,154,141,.62);text-decoration:none}
+.voltar:hover{color:var(--alma)}
+
+/* ---------- galeria ---------- */
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.gcard{border:1px solid var(--linha);background:rgba(30,21,17,.58);overflow:hidden;text-decoration:none;display:block;transition:border-color .2s}
+.gcard:hover{border-color:var(--ceu-cl)}
+.gcard img{width:100%;display:block;cursor:zoom-in;transition:transform .3s}
+.gcard:hover img{transform:scale(1.04)}
+.gcard .cap{padding:14px 16px}
+.gcard .cap b{display:block;font-weight:400;color:var(--tinta);margin-bottom:4px}
+.gcard .cap span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(168,154,141,.62)}
+
+/* ---------- lightbox ---------- */
+#lb{position:fixed;inset:0;z-index:200;background:rgba(6,4,3,.96);display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:88vh;border:1px solid var(--linha-forte);box-shadow:0 30px 90px #000}
+#lb .lgd{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:var(--tinta-suave);font-size:.76rem;letter-spacing:.2em;text-transform:uppercase}
+
+/* ---------- fichas ---------- */
+.ficha{
+  display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:28px;margin:0 0 54px;
+  border:1px solid var(--linha);
+  background:linear-gradient(180deg,rgba(30,21,17,.80),rgba(11,7,6,.38));
+}
+.ficha img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
+.ficha .corpo{padding:30px 32px}
+.ficha h4{margin:0 0 4px;font-weight:400;font-size:1.7rem;letter-spacing:.03em;color:#f0e5d8}
+.ficha .papel{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ceu-cl);margin-bottom:18px}
+.ficha p{margin:0 0 1em;font-size:.98rem}
+.ficha ul{margin:14px 0 0;padding-left:18px;color:var(--tinta-suave);font-size:.92rem}
+.ficha li{margin:.3em 0}
+@media(max-width:720px){.ficha{grid-template-columns:1fr}.ficha img{max-height:340px}}
+
+/* ---------- linha do tempo ---------- */
+.tl{position:relative;margin:0;padding:0 0 0 34px;list-style:none}
+.tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:1px;
+  background:linear-gradient(180deg,transparent,var(--oxido),var(--alma),transparent)}
+.tl li{position:relative;margin:0 0 30px;cursor:pointer}
+.tl li::before{content:"";position:absolute;left:-30px;top:8px;width:9px;height:9px;
+  background:var(--breu);border:1px solid var(--ceu-cl);transform:rotate(45deg);transition:all .2s}
+.tl li:hover::before{background:var(--alma);box-shadow:0 0 14px rgba(79,195,217,.85)}
+.tl .q{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(184,100,42,.9)}
+.tl .e{display:block;margin:5px 0 4px;color:var(--tinta);font-size:1.05rem}
+.tl .d{color:var(--tinta-suave);font-size:.9rem;max-height:0;overflow:hidden;transition:max-height .3s}
+.tl li.aberto .d{max-height:220px}
+
+/* ---------- mapa ---------- */
+.mapa{position:relative;border:1px solid var(--linha);background:rgba(11,7,6,.66);overflow:hidden}
+.mapabox{position:relative;line-height:0}
+.mapabox img{width:100%;display:block}
+.mapabox svg{position:absolute;inset:0;width:100%;height:100%}
+.pino{cursor:pointer}
+.pino circle{transition:all .18s}
+.pino:hover circle:nth-child(2){r:10;fill:var(--alma)}
+.pino:hover circle:nth-child(1){r:20}
+#mapinfo{padding:20px 24px;border-top:1px solid var(--linha);min-height:86px;color:var(--tinta-suave);font-size:.95rem}
+#mapinfo b{color:var(--ceu-cl);font-weight:400;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;display:block;margin-bottom:6px}
+
+/* ---------- divisória de livro ---------- */
+.parte{
+  margin:120px 0 0;text-align:center;padding:70px 20px;
+  border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);
+  background:radial-gradient(closest-side,rgba(153,86,37,.16),transparent 70%);
+}
+.parte .rot{letter-spacing:.5em;text-transform:uppercase;font-size:.72rem;color:var(--ceu-cl)}
+.parte h2{
+  font-size:clamp(1.9rem,5vw,3rem);font-weight:400;margin:16px 0 0;letter-spacing:.05em;
+  background:linear-gradient(180deg,#f4e7d8,var(--ceu-cl));-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.parte p{margin:18px auto 0;max-width:460px;font-style:italic;color:var(--tinta-suave)}
+
+.rodape{margin-top:90px;padding-top:26px;border-top:1px solid var(--linha);
+  text-align:center;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(168,154,141,.45)}
+
+/* ============================================================
+   COR POR LIVRO — a paleta acompanha o arco emocional
+   I   cinza-ferro e frio ....... a Gorja como prisão, ela distante
+   II  o Vazio entra ............ violeta, o ano sozinho, o Colecionador
+   III âmbar quente ............. os dois juntos, o tempo que sobrou
+   ============================================================ */
+
+/* ---------- LIVRO I — cinza, frio, sem calor nenhum ---------- */
+body.livro-1{
+  --oxido:#4a4a52;
+  --ceu:#6d6f7a;
+  --ceu-cl:#9aa0ad;
+  --alma:#4fc3d9;
+  --alma-cl:#bff0fb;
+  --linha:rgba(154,160,173,.24);
+  --linha-forte:rgba(154,160,173,.46);
+  --tinta:#dfe2e6;
+  --tinta-suave:#98a0a9;
+  background:
+    radial-gradient(1400px 620px at 50% 114%, rgba(90,96,110,.30), transparent 66%),
+    radial-gradient(900px 520px at 86% -12%, rgba(79,195,217,.14), transparent 62%),
+    linear-gradient(180deg,#101318 0%, #0a0c10 58%, #08090c 100%);
+}
+body.livro-1 .atm-ceu{
+  background:radial-gradient(1500px 700px at 50% 112%, rgba(110,116,132,.34), transparent 66%);
+}
+body.livro-1 .atm-alma{
+  background:
+    radial-gradient(880px 520px at 88% -8%, rgba(79,195,217,.26), transparent 62%),
+    radial-gradient(700px 460px at 10% 6%, rgba(79,195,217,.13), transparent 60%);
+}
+body.livro-1 .atm-nevoa i:nth-child(1){
+  background:radial-gradient(closest-side, rgba(90,96,110,.30), transparent 72%) 0 50%/46% 100% repeat-x;
+}
+body.livro-1 .atm-brasas s{
+  background:#9aa0ad; box-shadow:0 0 9px 2px rgba(154,160,173,.6);
+}
+body.livro-1 .atm-flash{
+  background:linear-gradient(180deg, rgba(150,158,175,.34), transparent 46%);
+}
+body.livro-1 .texto{border-right-color:rgba(79,195,217,.20)}
+
+/* ---------- LIVRO II — o Vazio entra ---------- */
+body.livro-2{
+  --oxido:#5b3a86;
+  --ceu:#7c4fbe;
+  --ceu-cl:#a97cf0;
+  --alma:#4fc3d9;
+  --alma-cl:#c9b3ff;
+  --linha:rgba(169,124,240,.24);
+  --linha-forte:rgba(169,124,240,.48);
+  --tinta:#e7e0f0;
+  --tinta-suave:#a99cbc;
+  background:
+    radial-gradient(1400px 620px at 50% 114%, rgba(92,58,134,.36), transparent 66%),
+    radial-gradient(900px 520px at 86% -12%, rgba(124,79,190,.20), transparent 62%),
+    radial-gradient(800px 500px at 8% -6%, rgba(79,195,217,.08), transparent 60%),
+    linear-gradient(180deg,#130f1c 0%, #0b0810 56%, #08060c 100%);
+}
+body.livro-2 .atm-ceu{
+  background:radial-gradient(1500px 700px at 50% 112%, rgba(124,79,190,.40), transparent 66%);
+}
+body.livro-2 .atm-alma{
+  background:
+    radial-gradient(880px 520px at 88% -8%, rgba(169,124,240,.22), transparent 62%),
+    radial-gradient(700px 460px at 10% 6%, rgba(79,195,217,.12), transparent 60%);
+}
+body.livro-2 .atm-nevoa i:nth-child(1){
+  background:radial-gradient(closest-side, rgba(92,58,134,.34), transparent 72%) 0 50%/46% 100% repeat-x;
+}
+body.livro-2 .atm-brasas s{
+  background:#a97cf0; box-shadow:0 0 10px 3px rgba(169,124,240,.75);
+}
+body.livro-2 .atm-flash{
+  background:linear-gradient(180deg, rgba(140,90,215,.42), transparent 46%);
+}
+body.livro-2 .atm-pulso{
+  background:radial-gradient(closest-side, rgba(169,124,240,.55), transparent 70%);
+}
+
+/* ---------- LIVRO III — âmbar, o calor de volta ---------- */
+body.livro-3{
+  --oxido:#7a4a1e;
+  --ceu:#b8722c;
+  --ceu-cl:#e5a55e;
+  --alma:#5fd0e2;
+  --alma-cl:#ffd9a6;
+  --linha:rgba(229,165,94,.26);
+  --linha-forte:rgba(229,165,94,.52);
+  --tinta:#f2e6d6;
+  --tinta-suave:#bba58c;
+  background:
+    radial-gradient(1400px 640px at 50% 112%, rgba(200,120,48,.40), transparent 66%),
+    radial-gradient(900px 520px at 86% -10%, rgba(229,165,94,.16), transparent 62%),
+    radial-gradient(760px 460px at 12% 2%, rgba(95,208,226,.08), transparent 60%),
+    linear-gradient(180deg,#1a120b 0%, #0e0906 56%, #0a0705 100%);
+}
+body.livro-3 .atm-ceu{
+  background:radial-gradient(1500px 720px at 50% 112%, rgba(214,132,54,.48), transparent 66%);
+}
+body.livro-3 .atm-alma{
+  background:
+    radial-gradient(880px 520px at 88% -8%, rgba(95,208,226,.16), transparent 62%),
+    radial-gradient(700px 460px at 10% 6%, rgba(229,165,94,.14), transparent 60%);
+}
+body.livro-3 .atm-nevoa i:nth-child(1){
+  background:radial-gradient(closest-side, rgba(140,84,38,.34), transparent 72%) 0 50%/46% 100% repeat-x;
+}
+body.livro-3 .atm-brasas s{
+  background:#f0b46a; box-shadow:0 0 11px 3px rgba(229,165,94,.8);
+}
+body.livro-3 .atm-flash{
+  background:linear-gradient(180deg, rgba(214,132,54,.40), transparent 46%);
+}
+
+/* transição suave quando muda de livro */
+body{transition:background 1.2s ease}
+
+/* ---------- selo acompanha o livro ---------- */
+body.livro-1 .selo{filter:hue-rotate(-24deg) saturate(.35)}
+body.livro-2 .selo{filter:hue-rotate(232deg) saturate(1.25)}
+body.livro-3 .selo{filter:none}
+
+/* ---------- etiqueta do livro no topo do capítulo ---------- */
+.marcalivro{
+  display:inline-block;margin-bottom:14px;padding:5px 16px;
+  font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--ceu-cl);border:1px solid var(--linha);
+  background:rgba(0,0,0,.28);
+}
+
+/* ---------- índice: cada bloco com sua cor ---------- */
+.livroblk.b1{--ceu-cl:#9aa0ad;--linha:rgba(154,160,173,.26);--linha-forte:rgba(154,160,173,.5)}
+.livroblk.b2{--ceu-cl:#a97cf0;--linha:rgba(169,124,240,.26);--linha-forte:rgba(169,124,240,.5)}
+.livroblk.b3{--ceu-cl:#e5a55e;--linha:rgba(229,165,94,.28);--linha-forte:rgba(229,165,94,.52)}
+.livroblk{border-color:var(--linha)}
+.livroblk h4{color:var(--ceu-cl)}
+.livroblk .capcard .n{color:var(--ceu-cl);opacity:.85}
+.livroblk .capcard:hover{border-left-color:var(--ceu-cl)}
+
+/* faixa lateral de cor no bloco do índice */
+.livroblk{position:relative;overflow:hidden}
+.livroblk::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,transparent,var(--ceu-cl),transparent);
+  opacity:.85;
+}
+
+/* ============================================================
+   ATMOSFERA DA GORJA — versão otimizada
+   Regras: sem background-attachment:fixed, sem blur em elemento
+   grande, sem mix-blend-mode em camada de tela cheia, tudo
+   animado só por transform/opacity (composita na GPU).
+   ============================================================ */
+
+/* camadas base */
+.atm-ceu,.atm-alma,.atm-nevoa,.atm-correntes,.atm-brasas,.atm-vinheta,.atm-flash{
+  position:fixed;pointer-events:none;
+  contain:strict;                 /* isola: o navegador não recalcula a página */
+}
+.atm-ceu,.atm-alma{inset:-10%;z-index:0;will-change:transform,opacity}
+
+@keyframes respirar-brasa{
+  0%,100%{opacity:.70; transform:translate3d(0,0,0) scale(1)}
+  50%    {opacity:1;   transform:translate3d(0,-12px,0) scale(1.05)}
+}
+@keyframes deriva-fria{
+  0%,100%{opacity:.55; transform:translate3d(0,0,0)}
+  50%    {opacity:.92; transform:translate3d(-30px,18px,0)}
+}
+.atm-ceu{animation:respirar-brasa 14s ease-in-out infinite}
+.atm-alma{animation:deriva-fria 22s ease-in-out infinite}
+
+/* névoa: uma camada só, sem filter:blur (o gradiente já é suave) */
+.atm-nevoa{inset:0;z-index:0;overflow:hidden}
+.atm-nevoa i{
+  position:absolute;left:0;bottom:-6%;width:200%;height:52%;display:block;
+  animation:nevoa-a 90s linear infinite;
+  will-change:transform;opacity:.8;
+}
+@keyframes nevoa-a{ from{transform:translate3d(0,0,0)} to{transform:translate3d(-50%,0,0)} }
+.atm-nevoa i:nth-child(2){display:none}   /* segunda camada removida: pouco ganho, muito custo */
+
+/* correntes */
+.atm-correntes{inset:0;z-index:0;overflow:hidden}
+.atm-correntes b{
+  position:absolute;top:-14%;width:3px;height:70%;display:block;
+  transform-origin:50% 0;opacity:.5;
+  will-change:transform;
+}
+@keyframes balanco{ 0%,100%{transform:rotate(-1.4deg)} 50%{transform:rotate(1.7deg)} }
+.atm-correntes b:nth-child(1){left:6vw;  animation:balanco 12s ease-in-out infinite}
+.atm-correntes b:nth-child(2){left:16vw; height:50%;opacity:.3; animation:balanco 15s ease-in-out infinite -4s}
+.atm-correntes b:nth-child(3){right:8vw; animation:balanco 13s ease-in-out infinite -6s}
+.atm-correntes b:nth-child(4){display:none}   /* 3 correntes bastam */
+
+/* brasas */
+.atm-brasas{inset:0;z-index:0;overflow:hidden}
+.atm-brasas s{
+  position:absolute;bottom:-4vh;width:3px;height:3px;border-radius:50%;
+  animation:subir linear infinite;
+  will-change:transform,opacity;
+}
+@keyframes subir{
+  0%  {transform:translate3d(0,0,0) scale(.6); opacity:0}
+  14% {opacity:.85}
+  80% {opacity:.55}
+  100%{transform:translate3d(var(--dx,20px),-104vh,0) scale(1.05); opacity:0}
+}
+
+/* pulso de alma: mantido, mas sem blur pesado */
+.atm-pulso{
+  position:fixed;z-index:0;pointer-events:none;contain:strict;
+  width:300px;height:300px;border-radius:50%;
+  animation:pulso-alma 18s ease-in-out infinite;
+  will-change:opacity,transform;
+}
+@keyframes pulso-alma{
+  0%,100%{opacity:0; transform:scale(.85)}
+  45%    {opacity:.26; transform:scale(1.04)}
+}
+
+/* vinheta: sombra estática (animá-la forçava repintura constante) */
+.atm-vinheta{
+  inset:0;z-index:1;
+  box-shadow:inset 0 0 min(26vw,300px) min(3vw,46px) rgba(6,4,3,.84);
+}
+
+/* relâmpago */
+.atm-flash{
+  inset:0;z-index:1;
+  animation:relampago 28s linear infinite;
+  will-change:opacity;
+}
+@keyframes relampago{
+  0%,92%,100%{opacity:0}
+  93%{opacity:.42} 94%{opacity:.05} 95%{opacity:.28} 97%{opacity:0}
+}
+
+/* conteúdo acima da atmosfera */
+.wrap,.topbar,.hero,.capa,.capa-hero,main,.livro,#lb{position:relative;z-index:2}
+
+/* ---------- interações ---------- */
+.topbar .marca{transition:text-shadow .3s}
+.topbar .marca:hover{text-shadow:0 0 20px rgba(240,196,137,.9)}
+
+@keyframes brilho-titulo{
+  0%,100%{filter:drop-shadow(0 3px 14px rgba(0,0,0,.9))}
+  50%    {filter:drop-shadow(0 3px 14px rgba(0,0,0,.9)) drop-shadow(0 0 26px rgba(184,100,42,.5))}
+}
+.hero h1,.capa h1{animation:brilho-titulo 8s ease-in-out infinite}
+
+@keyframes girar-selo{ from{transform:rotate(0)} to{transform:rotate(360deg)} }
+.selo #anelExt{transform-origin:60px 60px;animation:girar-selo 48s linear infinite}
+.selo #anelInt{transform-origin:60px 60px;animation:girar-selo 34s linear infinite reverse}
+
+@keyframes correr-filete{
+  0%,100%{background-position:-160% 0}
+  50%    {background-position:160% 0}
+}
+.filete{background-size:200% 100%;animation:correr-filete 10s ease-in-out infinite}
+
+.btn{position:relative;overflow:hidden}
+.btn::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(120deg,transparent 32%,rgba(255,220,180,.20) 50%,transparent 68%);
+  transform:translateX(-120%);transition:transform .6s ease;
+}
+.btn:hover::after{transform:translateX(120%)}
+
+.gcard{transition:border-color .2s, transform .2s}
+.gcard:hover{transform:translateY(-3px)}
+.capcard{transition:background .18s, border-color .18s, padding-left .18s}
+
+/* pinos do mapa */
+@keyframes pino-pulso{ 0%,100%{opacity:1} 50%{opacity:.65} }
+.pino circle:nth-child(2){animation:pino-pulso 3.4s ease-in-out infinite}
+.pino:nth-child(2n) circle:nth-child(2){animation-delay:-1.2s}
+
+/* ---------- economia em telas pequenas ---------- */
+@media (max-width:760px){
+  .atm-correntes,.atm-flash,.atm-pulso{display:none}
+  .atm-nevoa i{animation-duration:120s}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .atm-ceu,.atm-alma,.atm-nevoa i,.atm-correntes b,.atm-brasas s,
+  .atm-pulso,.atm-flash,.hero h1,.capa h1,.filete,
+  .selo #anelExt,.selo #anelInt,.pino circle{animation:none !important}
+}
+
+/* ============================================================
+   CAPA — imagem inteira visível + fade para o conteúdo
+   Otimizada: sem background-attachment fixed, sem blur pesado
+   ============================================================ */
+
+.capa-hero{
+  position:relative;
+  width:100%;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;
+  overflow:hidden;
+  /* a altura acompanha a proporção real da arte (1376x768) */
+  aspect-ratio: 1376 / 768;
+  max-height:100vh;
+  min-height:520px;
+}
+
+/* --- a arte: inteira, sem corte --- */
+.capa-arte{
+  position:absolute;inset:0;z-index:0;
+  background-image:image-set(
+    url('img/capa-1280.jpg') 1x,
+    url('img/capa.jpg') 2x);
+  background-image:url('img/capa.jpg');
+  background-position:center center;
+  background-size:contain;          /* mostra a arte COMPLETA */
+  background-repeat:no-repeat;
+  background-color:#0a0705;
+  transform:translateZ(0);
+}
+
+/* preenche as bordas quando a tela é mais larga que a arte */
+.capa-preenche{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(60% 70% at 50% 60%, rgba(122,74,30,.30), transparent 70%),
+    linear-gradient(180deg,#0d0906 0%, #0a0705 100%);
+}
+
+/* --- brilho quente por cima, leve --- */
+.capa-brasa{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(72% 46% at 50% 44%, rgba(var(--c-glow),.34), transparent 70%);
+  mix-blend-mode:screen;
+  animation:brasa-capa 12s ease-in-out infinite;
+}
+@keyframes brasa-capa{ 0%,100%{opacity:.5} 50%{opacity:.85} }
+
+/* --- véu: escurece só o necessário e faz o FADE final --- */
+.capa-veu{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    /* topo: escurece atrás do título */
+    linear-gradient(180deg, rgba(8,5,4,.86) 0%, rgba(8,5,4,.42) 22%,
+                            rgba(8,5,4,.18) 44%, rgba(8,5,4,.24) 62%,
+                            rgba(8,5,4,.70) 84%, rgba(10,7,5,1) 100%);
+}
+/* fade lateral suave, para a arte se fundir ao fundo da página */
+.capa-veu::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(10,7,5,.9) 0%, transparent 12%,
+                                     transparent 88%, rgba(10,7,5,.9) 100%);
+}
+
+/* --- almas subindo (poucas, leves) --- */
+.capa-almas{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.capa-almas u{
+  position:absolute;bottom:-4%;width:4px;height:4px;border-radius:50%;
+  background:#bff6ff;box-shadow:0 0 10px 3px rgba(79,195,217,.7);
+  animation:alma-sobe linear infinite;
+}
+.capa-almas u.quente{background:#f0a35a;box-shadow:0 0 9px 2px rgba(184,100,42,.75)}
+@keyframes alma-sobe{
+  0%  {transform:translate3d(0,0,0) scale(.5);opacity:0}
+  14% {opacity:.9}
+  86% {opacity:.45}
+  100%{transform:translate3d(var(--ax,10px),-108%,0) scale(1.1);opacity:0}
+}
+
+/* --- conteúdo: centralizado de verdade --- */
+.capa-conteudo{
+  position:relative;z-index:4;
+  width:100%;max-width:900px;
+  margin:0 auto;padding:0 24px;
+  display:flex;flex-direction:column;align-items:center;
+}
+.capa-conteudo>*{
+  animation:surgir 1.2s cubic-bezier(.2,.7,.3,1) both;
+  margin-left:auto;margin-right:auto;
+}
+@keyframes surgir{
+  from{opacity:0;transform:translateY(20px)}
+  to  {opacity:1;transform:none}
+}
+.capa-conteudo>*:nth-child(1){animation-delay:.10s}
+.capa-conteudo>*:nth-child(2){animation-delay:.30s}
+.capa-conteudo>*:nth-child(3){animation-delay:.50s}
+.capa-conteudo>*:nth-child(4){animation-delay:.68s}
+.capa-conteudo>*:nth-child(5){animation-delay:.84s}
+.capa-conteudo>*:nth-child(6){animation-delay:1.0s}
+.capa-conteudo>*:nth-child(7){animation-delay:1.15s}
+
+.capa-hero .selo{width:92px;height:92px;margin:0 auto 20px;display:block}
+
+.capa-hero .sub{
+  letter-spacing:.42em;text-transform:uppercase;font-size:.72rem;
+  color:rgba(240,232,224,.9);margin:0 0 14px;
+  text-shadow:0 2px 10px #000, 0 0 26px rgba(0,0,0,.95);
+}
+.capa-hero h1{
+  margin:0;font-weight:400;letter-spacing:.04em;line-height:1.04;
+  font-size:clamp(2.6rem,7.2vw,5.4rem);
+  background:linear-gradient(180deg,#fff8ee 0%,#f0c489 38%,#c9762f 72%,#7a4a1e 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  /* sombra forte: o título precisa vencer a arte atrás */
+  filter:drop-shadow(0 3px 14px rgba(0,0,0,.95)) drop-shadow(0 0 40px rgba(0,0,0,.8));
+}
+.capa-hero h2{
+  margin:16px 0 0;font-weight:400;font-size:clamp(.78rem,2vw,1rem);
+  letter-spacing:.3em;text-transform:uppercase;color:rgba(240,232,224,.86);
+  text-shadow:0 2px 12px #000, 0 0 24px rgba(0,0,0,.9);
+}
+.capa-hero .filete{margin:26px auto}
+.capa-hero .epig{
+  max-width:560px;margin:0 auto;font-style:italic;font-size:clamp(.95rem,1.6vw,1.12rem);
+  color:rgba(244,238,230,.95);
+  text-shadow:0 2px 12px #000, 0 0 28px rgba(0,0,0,.95);
+}
+.capa-hero .autoria{
+  margin-top:34px;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;
+  color:rgba(210,196,182,.8);text-shadow:0 2px 10px #000;
+}
+.btnrow{
+  margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+}
+.btn{
+  padding:14px 28px;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+  color:#f2e8dc;text-decoration:none;
+  border:1px solid rgba(240,196,137,.55);
+  background:rgba(18,12,8,.62);
+  backdrop-filter:none;                 /* removido: pesava */
+  transition:border-color .2s, background .2s, color .2s;
+}
+.btn:hover{border-color:#f0c489;color:#ffe9c9;background:rgba(122,74,30,.42)}
+.btn.forte{
+  border-color:#e5a55e;color:#150c06;
+  background:linear-gradient(180deg,#e8ae66,#b8722c);
+}
+.btn.forte:hover{background:linear-gradient(180deg,#f2bd7a,#c9762f);color:#150c06}
+
+/* seta */
+.capa-seta{
+  position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:5;
+  color:rgba(240,196,137,.9);font-size:1.4rem;text-decoration:none;
+  animation:descer 2.4s ease-in-out infinite;
+  text-shadow:0 2px 10px #000;
+}
+@keyframes descer{
+  0%,100%{transform:translateX(-50%) translateY(0);opacity:.5}
+  50%    {transform:translateX(-50%) translateY(9px);opacity:1}
+}
+
+/* --- faixa das páginas internas --- */
+.faixa{
+  position:relative;height:200px;margin:0 0 -30px;overflow:hidden;
+  border-bottom:1px solid var(--linha);
+}
+.faixa .im{
+  position:absolute;inset:0;
+  background:url('img/capa-wide.jpg') center 42%/cover no-repeat;
+}
+.faixa::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(11,7,6,.42), rgba(11,7,6,.98));
+}
+
+/* ---------- telas largas: garantir centralização ---------- */
+@media (min-width:1100px){
+  .wrap{max-width:900px;margin-left:auto;margin-right:auto}
+  .grade{max-width:900px;margin-left:auto;margin-right:auto}
+}
+/* telas muito largas: a arte cobre, mas sem cortar o essencial */
+@media (min-aspect-ratio: 1376/768){
+  .capa-arte{background-size:cover}
+}
+@media (max-width:640px){
+  .capa-hero{aspect-ratio:auto;min-height:88vh;padding:80px 0}
+  .capa-arte{background-size:cover}
+  .faixa{height:140px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .capa-brasa,.capa-almas u,.capa-seta,.capa-conteudo>*{animation:none!important}
+  .capa-conteudo>*{opacity:1;transform:none}
+}
+
+/* ============================================================
+   FUNDOS E CAMADAS ATMOSFÉRICAS DIRIGIDOS PELA PALETA VIVA
+   Usam as variáveis --c-* (RGB puro) que o motor reescreve
+   quadro a quadro, então a mudança é contínua e sem corte.
+   ============================================================ */
+
+/* valores iniciais: Livro I */
+:root{
+  --c-oxido:74,74,82;   --c-ceu:109,111,122;  --c-ceucl:154,160,173;
+  --c-alma:79,195,217;  --c-almacl:191,240,251;
+  --c-tinta:223,226,230;--c-suave:152,160,169;
+  --c-bgA:16,19,24;     --c-bgB:10,12,16;     --c-bgC:8,9,12;
+  --c-brasa:154,160,173;--c-glow:90,96,110;   --c-flash:150,158,175;
+}
+
+/* o corpo não usa mais transition: o motor já interpola */
+body{
+  transition:none;
+  background:
+    radial-gradient(1400px 630px at 50% 113%, rgba(var(--c-glow),.34), transparent 66%),
+    radial-gradient(900px 520px at 86% -11%, rgba(var(--c-alma),.15), transparent 62%),
+    radial-gradient(780px 480px at 9% -4%,  rgba(var(--c-ceu),.11), transparent 60%),
+    linear-gradient(180deg, rgb(var(--c-bgA)) 0%, rgb(var(--c-bgB)) 57%, rgb(var(--c-bgC)) 100%);
+}
+
+.atm-ceu{
+  background:radial-gradient(1500px 710px at 50% 112%, rgba(var(--c-glow),.42), transparent 66%);
+}
+.atm-alma{
+  background:
+    radial-gradient(880px 520px at 88% -8%, rgba(var(--c-alma),.20), transparent 62%),
+    radial-gradient(700px 460px at 10% 6%,  rgba(var(--c-ceucl),.12), transparent 60%);
+}
+.atm-nevoa i:nth-child(1){
+  background:radial-gradient(closest-side, rgba(var(--c-glow),.32), transparent 72%) 0 50%/46% 100% repeat-x;
+}
+.atm-nevoa i:nth-child(2){
+  background:radial-gradient(closest-side, rgba(var(--c-alma),.13), transparent 72%) 0 50%/38% 100% repeat-x;
+}
+.atm-correntes b{
+  background:linear-gradient(180deg,
+    rgba(var(--c-oxido),.9) 0 7px, transparent 7px 15px,
+    rgba(var(--c-oxido),.9) 15px 22px, transparent 22px 30px);
+  background-size:3px 30px;
+}
+.atm-brasas s{
+  background:rgb(var(--c-brasa));
+  box-shadow:0 0 10px 2px rgba(var(--c-brasa),.75);
+}
+.atm-brasas s.fria{
+  background:rgb(var(--c-almacl));
+  box-shadow:0 0 11px 3px rgba(var(--c-alma),.75);
+}
+.atm-pulso{
+  background:radial-gradient(closest-side, rgba(var(--c-alma),.5), transparent 70%);
+}
+.atm-flash{
+  background:linear-gradient(180deg, rgba(var(--c-flash),.40), transparent 46%);
+}
+
+/* capa e títulos acompanham */
+.capa-brasa{
+  background:
+    radial-gradient(90% 50% at 50% 34%, rgba(var(--c-glow),.44), transparent 68%),
+    radial-gradient(70% 40% at 50% 96%, rgba(var(--c-alma),.22), transparent 70%);
+}
+.capa-hero h1,.hero h1,.capa h1{
+  background:linear-gradient(180deg,
+    rgb(255,246,233) 0%,
+    rgb(var(--c-ceucl)) 42%,
+    rgb(var(--c-ceu)) 74%,
+    rgb(var(--c-oxido)) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.parte h2{
+  background:linear-gradient(180deg, rgb(244,231,216), rgb(var(--c-ceucl)));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.filete{
+  background:linear-gradient(90deg,transparent,
+    rgb(var(--c-oxido)) 28%, rgb(var(--c-alma)) 50%, rgb(var(--c-oxido)) 72%, transparent);
+  background-size:200% 100%;
+}
+
+/* selo: sem filtro de matiz, agora as cores vêm da paleta */
+body.livro-1 .selo,body.livro-2 .selo,body.livro-3 .selo{filter:none}
+.selo #anelExt{stroke:rgb(var(--c-ceucl))}
+.selo #anelInt{stroke:rgb(var(--c-oxido))}
+.selo path[fill="#b8642a"]{fill:rgb(var(--c-ceucl))}
+.selo path[fill="#603922"]{fill:rgb(var(--c-oxido))}
+
+/* etiqueta do livro: troca de texto sem piscar */
+.marcalivro{
+  transition:color .5s ease, border-color .5s ease, opacity .35s ease;
+}
+
+/* as regras antigas por classe de livro ficam só como reserva:
+   o motor tem prioridade porque escreve inline em :root */
+
+
+/* ============================================================
+   VISOR — estilo do visualizador ampliado
+   ============================================================ */
+#lb{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(6,4,3,.965);
+  display:none;align-items:center;justify-content:center;
+  padding:clamp(14px,4vw,54px);
+  cursor:zoom-out;
+}
+#lb.on{display:flex}
+
+.vs-palco{
+  margin:0;padding:0;cursor:default;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  max-width:min(1500px,92vw);
+}
+#lb img{
+  max-width:100%;
+  max-height:78vh;
+  display:block;
+  border:1px solid var(--linha-forte);
+  box-shadow:0 30px 90px #000, 0 0 40px rgba(0,0,0,.8);
+  background:#0a0705;
+}
+@keyframes vs-surge{
+  from{opacity:0;transform:scale(.985)}
+  to  {opacity:1;transform:none}
+}
+#lb img.vs-entra{animation:vs-surge .28s ease-out}
+
+.vs-legenda{
+  text-align:center;max-width:760px;
+  font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tinta-suave);
+}
+
+/* setas */
+.vs-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:clamp(44px,5vw,62px);height:clamp(64px,9vw,96px);
+  display:flex;align-items:center;justify-content:center;
+  font-size:clamp(1.3rem,2.4vw,1.9rem);line-height:1;
+  color:var(--tinta);
+  background:rgba(20,14,10,.72);
+  border:1px solid var(--linha);
+  cursor:pointer;
+  transition:background .18s,border-color .18s,color .18s;
+  z-index:2;
+}
+.vs-nav:hover{
+  background:rgba(122,74,30,.55);
+  border-color:var(--ceu-cl);
+  color:#fff;
+}
+.vs-ant{left:clamp(8px,2vw,26px)}
+.vs-prox{right:clamp(8px,2vw,26px)}
+
+/* fechar */
+.vs-fechar{
+  position:absolute;top:clamp(10px,2vw,22px);right:clamp(10px,2vw,22px);
+  width:42px;height:42px;
+  font-size:1.6rem;line-height:1;
+  color:var(--tinta);
+  background:rgba(20,14,10,.72);
+  border:1px solid var(--linha);
+  cursor:pointer;z-index:3;
+  transition:background .18s,border-color .18s,color .18s;
+}
+.vs-fechar:hover{background:rgba(122,74,30,.55);border-color:var(--ceu-cl);color:#fff}
+
+/* contador */
+.vs-contador{
+  position:absolute;bottom:clamp(12px,2.4vw,26px);left:50%;
+  transform:translateX(-50%);
+  font-size:.72rem;letter-spacing:.28em;
+  color:rgba(200,186,172,.7);
+  background:rgba(20,14,10,.6);
+  border:1px solid var(--linha);
+  padding:6px 16px;
+}
+
+@media (max-width:640px){
+  #lb img{max-height:66vh}
+  .vs-nav{background:rgba(20,14,10,.85)}
+  .vs-legenda{font-size:.7rem}
+}
+
+</style></head><body class="" data-livro="">
+<div class="prog"></div>
+<header class="topbar"><a class="marca" href="index.html">O Peso da Gorja</a><nav><a href="index.html">Início</a><a href="capitulos.html">Capítulos</a><a href="galeria.html">Galeria</a><a href="personagens.html" class=on>Personagens</a><a href="mapa.html">Mapa</a><a href="linha-do-tempo.html">Linha do tempo</a></nav></header>
+<div class="faixa"><div class="im"></div></div>
+<div class="wrap"><h3 class="sec">Personagens</h3><div class="ficha"><img src="img/nathan.jpg" alt="Nathan">
+<div class="corpo"><h4>Nathan</h4><p class="papel">Humano · do outro mundo</p><p>Jogava World of Warcraft havia anos quando adormeceu no próprio quarto e acordou na Gorja de pijama e uma meia só. Trouxe consigo caratê desde os oito anos, o hábito de sentar de frente para a porta e o rosto de Sylvanas tatuado no antebraço direito.</p><ul><li>Braço esquerdo perdido durante o ano de desaparecimento</li><li>Prótese articulada construída por ele mesmo — a oitava, feita a quatro mãos</li><li>Tatuagem do rosto de Sylvanas no antebraço direito, natural</li><li>Chifres e asas de energia do Vazio — sem uma única pena</li><li>Sobretudo escuro sem mangas, sem capa, capuz integrado à gola</li><li>Sob o capuz erguido só aparecem dois pontos de luz azul</li></ul></div></div><div class="ficha"><img src="img/sylvanas.jpg" alt="Sylvanas Windrunner">
+<div class="corpo"><h4>Sylvanas Windrunner</h4><p class="papel">Banshee · penitência na Gorja</p><p>Procura e liberta almas injustamente condenadas. Reservada, exata, incapaz de pedir qualquer coisa — porque tudo o que pediu na vida ela acabou tomando quando não lhe deram. Conta tudo: dias, setores, flechas, segundos de silêncio e sorrisos.</p><ul><li>Trezentos e sessenta e um dias procurando Nathan sem prova de que estivesse vivo</li><li>Admitiu para si mesma no dia 304 da busca</li><li>Não percebeu por sete meses que Varokh e Elyra eram um casal</li><li>Larga o arco uma única vez em toda a história</li><li>Ri de verdade quatro vezes — e ele conta todas</li></ul></div></div><div class="ficha"><img src="img/varokh.jpg" alt="Varokh">
+<div class="corpo"><h4>Varokh</h4><p class="papel">Orc morto-vivo · o centro da linha</p><p>Quatrocentos anos, pragmático, humor seco e uma capacidade quase ofensiva de entender as pessoas antes delas. Segura a passagem, resmunga, e percebeu a aproximação dos dois na primeira noite.</p><ul><li>Perdeu a aposta sobre quanto tempo os dois demorariam — e achou que valeu</li><li>Abandonou a posição uma vez, por Elyra</li><li>Só puxou Nathan para uma conversa a sós uma vez em toda a história</li></ul></div></div><div class="ficha"><img src="img/elyra.jpg" alt="Elyra">
+<div class="corpo"><h4>Elyra</h4><p class="papel">Elfa noturna · a que fala</p><p>Habilidosa, perceptiva, alta demais para aquele lugar. Carrega objetos que não fazem o menor sentido carregar há oitenta anos — o que se revelou providencial.</p><ul><li>Formou casal com Varokh durante o ano da busca</li><li>Ensinou Nathan a lançar facas; ele foi horrível por duas semanas</li><li>Segurou a tábua para que ele pregasse reto pela primeira vez em um ano</li></ul></div></div><div class="ficha"><img src="img/colecionador.jpg" alt="O Colecionador">
+<div class="corpo"><h4>O Colecionador</h4><p class="papel">Desconhecido · educado</p><p>Coleciona coisas que não deveriam existir onde existem. Abriu a porta que trouxe Nathan, corrigiu o próprio erro no poço, pede desculpas por um braço com a cortesia de quem ajusta uma conta.</p><ul><li>A projeção foi destruída; ele não estava dentro dela</li><li>Levou dois anos para abrir a primeira porta</li><li>Observou o ano inteiro de Nathan e não entendeu nada</li></ul></div></div>
+<h3 class="sec">Fichas de referência</h3>
+<p style="text-align:center;color:var(--tinta-suave);font-style:italic;max-width:640px;margin:0 auto 34px">
+Modelos usados para manter os personagens idênticos em todas as ilustrações.</p>
+<figure class="ilus"><img src="img/ficha_nathan.jpg" alt="Ficha de referência de Nathan">
+<figcaption>Nathan — três vistas</figcaption></figure>
+<figure class="ilus"><img src="img/ficha_sylvanas.jpg" alt="Ficha de Sylvanas sem capuz">
+<figcaption>Sylvanas — capuz abaixado</figcaption></figure>
+<figure class="ilus"><img src="img/ficha_sylvanas_capuz.jpg" alt="Ficha de Sylvanas com capuz">
+<figcaption>Sylvanas — capuz erguido, cabelo recolhido</figcaption></figure>
+</div>
+<div id="lb"><img alt=""><div class="lgd"></div></div>
+<script>
+
+// progresso
+(function(){
+  var b=document.querySelector('.prog'); if(!b) return;
+  function up(){var h=document.documentElement;
+    var m=(h.scrollTop)/(h.scrollHeight-h.clientHeight||1);
+    b.style.width=(m*100)+'%';}
+  document.addEventListener('scroll',up,{passive:true}); up();
+})();
+// setas teclado
+(function(){
+  var p=document.querySelector('.pag a.esq'), n=document.querySelector('.pag a.dir');
+  document.addEventListener('keydown',function(e){
+    if(e.target.tagName==='INPUT')return;
+    if(e.key==='ArrowLeft'&&p)location.href=p.href;
+    if(e.key==='ArrowRight'&&n)location.href=n.href;
+  });
+})();
+// timeline
+(function(){
+  document.querySelectorAll('.tl li').forEach(function(li){
+    li.addEventListener('click',function(){li.classList.toggle('aberto');});
+  });
+})();
+// mapa
+(function(){
+  var info=document.getElementById('mapinfo'); if(!info) return;
+  document.querySelectorAll('.pino').forEach(function(g){
+    g.addEventListener('click',function(){
+      info.innerHTML='<b>'+g.getAttribute('data-t')+'</b>'+g.getAttribute('data-d');
+    });
+    g.addEventListener('mouseenter',function(){
+      info.innerHTML='<b>'+g.getAttribute('data-t')+'</b>'+g.getAttribute('data-d');
+    });
+  });
+})();
+
+/* ===== ATMOSFERA — geração enxuta e sem trabalho por quadro ===== */
+(function(){
+  if (document.querySelector('.atm-ceu')) return;
+
+  var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var estreito = window.innerWidth < 760;
+  // respeita aparelhos fracos
+  var fraco = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4)
+           || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+
+  function el(cls, html){
+    var d=document.createElement('div'); d.className=cls;
+    if(html) d.innerHTML=html;
+    d.setAttribute('aria-hidden','true');
+    return d;
+  }
+
+  var frag=document.createDocumentFragment();
+  frag.appendChild(el('atm-ceu'));
+  frag.appendChild(el('atm-alma'));
+  frag.appendChild(el('atm-nevoa','<i></i>'));
+
+  if(!estreito){
+    frag.appendChild(el('atm-correntes','<b></b><b></b><b></b>'));
+    var p1=el('atm-pulso');
+    p1.style.left=(10+Math.random()*20)+'vw';
+    p1.style.top=(20+Math.random()*28)+'vh';
+    frag.appendChild(p1);
+  }
+
+  // brasas: quantidade adaptada ao aparelho
+  if(!reduz){
+    var N = estreito ? 10 : (fraco ? 14 : 22);
+    var brasas=el('atm-brasas');
+    for(var i=0;i<N;i++){
+      var s=document.createElement('s');
+      if(Math.random()<0.22) s.className='fria';
+      s.style.left=(Math.random()*100)+'vw';
+      var dur=(11+Math.random()*15).toFixed(1);
+      s.style.animationDuration=dur+'s';
+      s.style.animationDelay=(-Math.random()*dur)+'s';
+      s.style.setProperty('--dx',((Math.random()*100)-50).toFixed(0)+'px');
+      var sz=(2+Math.random()*2.2).toFixed(1);
+      s.style.width=sz+'px'; s.style.height=sz+'px';
+      brasas.appendChild(s);
+    }
+    frag.appendChild(brasas);
+  }
+
+  frag.appendChild(el('atm-vinheta'));
+  if(!estreito && !reduz) frag.appendChild(el('atm-flash'));
+
+  document.body.insertBefore(frag, document.body.firstChild);
+
+  /* Parallax: apenas na capa, e só enquanto ela está visível.
+     Nada de recalcular camadas fixas a cada rolagem. */
+  if(reduz) return;
+  var arte=document.querySelector('.capa-arte'),
+      cont=document.querySelector('.capa-conteudo'),
+      capa=document.querySelector('.capa-hero'),
+      faixa=document.querySelector('.faixa .im');
+  if(!arte && !faixa) return;
+
+  var visivel = true;
+  if(capa && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ visivel = es[0].isIntersecting; },
+      {rootMargin:'80px'}).observe(capa);
+  }
+
+  var tick=false;
+  function mover(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    if(visivel){
+      if(arte) arte.style.transform='translate3d(0,'+(y*0.16)+'px,0)';
+      if(cont){
+        cont.style.transform='translate3d(0,'+(y*0.09)+'px,0)';
+        cont.style.opacity=Math.max(0,1-y/520);
+      }
+    }
+    if(faixa) faixa.style.transform='translate3d(0,'+(y*0.12)+'px,0)';
+    tick=false;
+  }
+  document.addEventListener('scroll',function(){
+    if(!tick){ tick=true; requestAnimationFrame(mover); }
+  },{passive:true});
+  mover();
+})();
+
+/* ===== almas da capa ===== */
+(function(){
+  var box=document.querySelector('.capa-almas');
+  if(!box) return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var N = window.innerWidth<760 ? 8 : 16;
+  for(var i=0;i<N;i++){
+    var u=document.createElement('u');
+    if(Math.random()<0.25) u.className='quente';
+    u.style.left=(Math.random()*100)+'%';
+    var d=(12+Math.random()*14).toFixed(1);
+    u.style.animationDuration=d+'s';
+    u.style.animationDelay=(-Math.random()*d)+'s';
+    u.style.setProperty('--ax',((Math.random()*80)-40).toFixed(0)+'px');
+    var z=(2.5+Math.random()*2.5).toFixed(1);
+    u.style.width=z+'px'; u.style.height=z+'px';
+    box.appendChild(u);
+  }
+})();
+
+/* ============================================================
+   MOTOR DE PALETA — interpolação contínua entre os três livros
+   Gradientes CSS não animam com transition; então recalculamos
+   as cores a cada quadro e reescrevemos as variáveis.
+   ============================================================ */
+(function(){
+  var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 0 = Livro I (cinza frio) · 1 = Livro II (Vazio) · 2 = Livro III (âmbar)
+  var P = [
+    { oxido:[74,74,82],    ceu:[109,111,122], ceucl:[154,160,173], alma:[79,195,217],
+      almacl:[191,240,251], tinta:[223,226,230], suave:[152,160,169],
+      bgA:[16,19,24], bgB:[10,12,16], bgC:[8,9,12],
+      brasa:[154,160,173], glow:[90,96,110], flash:[150,158,175] },
+    { oxido:[91,58,134],   ceu:[124,79,190],  ceucl:[169,124,240], alma:[79,195,217],
+      almacl:[201,179,255], tinta:[231,224,240], suave:[169,156,188],
+      bgA:[19,15,28], bgB:[11,8,16], bgC:[8,6,12],
+      brasa:[169,124,240], glow:[124,79,190], flash:[140,90,215] },
+    { oxido:[122,74,30],   ceu:[184,114,44],  ceucl:[229,165,94],  alma:[95,208,226],
+      almacl:[255,217,166], tinta:[242,230,214], suave:[187,165,140],
+      bgA:[26,18,11], bgB:[14,9,6], bgC:[10,7,5],
+      brasa:[240,180,106], glow:[214,132,54], flash:[214,132,54] }
+  ];
+  var CHAVES = Object.keys(P[0]);
+
+  // mistura em espaço quadrático: evita meio-termo "sujo"
+  function mix(a,b,t){
+    return [
+      Math.round(Math.sqrt(a[0]*a[0]*(1-t) + b[0]*b[0]*t)),
+      Math.round(Math.sqrt(a[1]*a[1]*(1-t) + b[1]*b[1]*t)),
+      Math.round(Math.sqrt(a[2]*a[2]*(1-t) + b[2]*b[2]*t))
+    ];
+  }
+  function paleta(pos){
+    pos = Math.max(0, Math.min(P.length-1, pos));
+    var i = Math.floor(pos), t = pos - i;
+    if(i >= P.length-1){ i = P.length-2; t = 1; }
+    var out = {};
+    for(var k=0;k<CHAVES.length;k++){
+      var c = CHAVES[k];
+      out[c] = mix(P[i][c], P[i+1][c], t);
+    }
+    return out;
+  }
+  function rgb(c){ return c[0]+','+c[1]+','+c[2]; }
+
+  function aplicar(pos){
+    var p = paleta(pos), r = document.documentElement.style;
+    for(var k=0;k<CHAVES.length;k++){
+      var c = CHAVES[k];
+      r.setProperty('--c-'+c, rgb(p[c]));
+    }
+    // variáveis do tema apontam para as interpoladas
+    r.setProperty('--oxido',      'rgb('+rgb(p.oxido)+')');
+    r.setProperty('--ceu',        'rgb('+rgb(p.ceu)+')');
+    r.setProperty('--ceu-cl',     'rgb('+rgb(p.ceucl)+')');
+    r.setProperty('--alma',       'rgb('+rgb(p.alma)+')');
+    r.setProperty('--alma-cl',    'rgb('+rgb(p.almacl)+')');
+    r.setProperty('--tinta',      'rgb('+rgb(p.tinta)+')');
+    r.setProperty('--tinta-suave','rgb('+rgb(p.suave)+')');
+    r.setProperty('--linha',      'rgba('+rgb(p.ceucl)+',.26)');
+    r.setProperty('--linha-forte','rgba('+rgb(p.ceucl)+',.50)');
+  }
+
+  // ---------- suavização ----------
+  var alvo = 0, atual = null, rodando = false;
+  function laco(){
+    var d = alvo - atual;
+    if(Math.abs(d) < 0.0015){ atual = alvo; aplicar(atual); rodando = false; return; }
+    atual += d * 0.085;              // amortecimento: chega sem estalar
+    aplicar(atual);
+    requestAnimationFrame(laco);
+  }
+  function irPara(p, imediato){
+    alvo = p;
+    if(atual === null || imediato){ atual = p; aplicar(atual); return; }
+    if(!rodando){ rodando = true; requestAnimationFrame(laco); }
+  }
+
+  // ---------- posição a partir da rolagem (arquivo único) ----------
+  var caps = [].slice.call(document.querySelectorAll('.cap[data-livro]'));
+
+  function suave(a,b,x){                       // smoothstep
+    var t = Math.max(0, Math.min(1, (x-a)/(b-a)));
+    return t*t*(3-2*t);
+  }
+
+  if(caps.length){
+    var marcos = [];
+    function medir(){
+      marcos = caps.map(function(el){
+        var r = el.getBoundingClientRect();
+        return { y: r.top + window.pageYOffset, v: (+el.getAttribute('data-livro'))-1 };
+      });
+    }
+    function calcular(){
+      var y = window.pageYOffset + window.innerHeight*0.40;
+      if(y < marcos[0].y) return marcos[0].v;
+      for(var i=0;i<marcos.length;i++){
+        var ini = marcos[i].y;
+        var fim = (i+1 < marcos.length) ? marcos[i+1].y : ini + 4000;
+        if(y >= ini && y < fim){
+          var v = marcos[i].v;
+          var prox = (i+1 < marcos.length) ? marcos[i+1].v : v;
+          if(prox === v) return v;
+          // vira devagar ao longo dos últimos 55% do capítulo
+          var t = (y-ini)/(fim-ini);
+          return v + (prox-v)*suave(0.45, 1.0, t);
+        }
+      }
+      return marcos[marcos.length-1].v;
+    }
+    var trav=false;
+    function aoRolar(){
+      if(trav) return;
+      trav=true;
+      requestAnimationFrame(function(){ irPara(calcular()); trav=false; });
+    }
+    medir();
+    irPara(calcular(), true);
+    document.addEventListener('scroll', aoRolar, {passive:true});
+    window.addEventListener('resize', function(){ medir(); aoRolar(); });
+    if(document.readyState!=='complete'){
+      window.addEventListener('load', function(){ medir(); aoRolar(); });
+    }
+  } else {
+    // ---------- páginas soltas do site ----------
+    var b = document.body.getAttribute('data-livro');
+    var pos = b ? (+b)-1 : 0;
+    aplicar(pos); atual = pos; alvo = pos;
+    if(!reduz){
+      // pequena entrada: a cor "acende" ao abrir a página
+      atual = pos - 0.22;
+      irPara(pos);
+    }
+  }
+})();
+
+
+/* ============================================================
+   VISOR — galeria ampliada com navegação
+   Substitui o lightbox simples: setas, teclado, toque e contador
+   ============================================================ */
+(function(){
+  var lb = document.getElementById('lb');
+  if(!lb) return;
+
+  // reconstrói a estrutura do visor
+  lb.innerHTML =
+    '<button class="vs-fechar" aria-label="Fechar">&times;</button>' +
+    '<button class="vs-nav vs-ant" aria-label="Anterior">&#10094;</button>' +
+    '<figure class="vs-palco"><img alt=""><figcaption class="vs-legenda"></figcaption></figure>' +
+    '<button class="vs-nav vs-prox" aria-label="Próxima">&#10095;</button>' +
+    '<div class="vs-contador"></div>';
+
+  var img   = lb.querySelector('img'),
+      leg   = lb.querySelector('.vs-legenda'),
+      cont  = lb.querySelector('.vs-contador'),
+      bAnt  = lb.querySelector('.vs-ant'),
+      bProx = lb.querySelector('.vs-prox'),
+      bFech = lb.querySelector('.vs-fechar');
+
+  // coleta todas as imagens visíveis da página, na ordem
+  var alvos = [].slice.call(document.querySelectorAll(
+    'figure.ilus img, .gcard img, .ficha img'));
+  if(!alvos.length) return;
+
+  var itens = alvos.map(function(el){
+    var fc = el.closest('figure') && el.closest('figure').querySelector('figcaption');
+    var cd = el.closest('.gcard') && el.closest('.gcard').querySelector('.cap b');
+    return {
+      src: el.getAttribute('data-full') || el.src,
+      txt: (fc && fc.textContent.trim()) || (cd && cd.textContent.trim()) ||
+           el.getAttribute('alt') || ''
+    };
+  });
+
+  var i = 0, aberto = false;
+
+  function mostrar(n){
+    i = (n + itens.length) % itens.length;
+    var it = itens[i];
+    img.classList.remove('vs-entra');
+    void img.offsetWidth;              // reinicia a animação
+    img.src = it.src;
+    img.alt = it.txt;
+    img.classList.add('vs-entra');
+    leg.textContent = it.txt;
+    cont.textContent = (i+1) + ' / ' + itens.length;
+    var só = itens.length < 2;
+    bAnt.style.display = só ? 'none' : '';
+    bProx.style.display = só ? 'none' : '';
+  }
+
+  function abrir(n){
+    aberto = true;
+    mostrar(n);
+    lb.classList.add('on');
+    document.body.style.overflow = 'hidden';
+  }
+  function fechar(){
+    aberto = false;
+    lb.classList.remove('on');
+    document.body.style.overflow = '';
+  }
+
+  alvos.forEach(function(el, n){
+    el.style.cursor = 'zoom-in';
+    el.addEventListener('click', function(e){ e.preventDefault(); abrir(n); });
+  });
+
+  bAnt.addEventListener('click',  function(e){ e.stopPropagation(); mostrar(i-1); });
+  bProx.addEventListener('click', function(e){ e.stopPropagation(); mostrar(i+1); });
+  bFech.addEventListener('click', function(e){ e.stopPropagation(); fechar(); });
+  lb.querySelector('.vs-palco').addEventListener('click', function(e){ e.stopPropagation(); });
+  lb.addEventListener('click', fechar);
+
+  document.addEventListener('keydown', function(e){
+    if(!aberto) return;
+    if(e.key === 'Escape')     fechar();
+    if(e.key === 'ArrowLeft')  { e.preventDefault(); mostrar(i-1); }
+    if(e.key === 'ArrowRight') { e.preventDefault(); mostrar(i+1); }
+  });
+
+  // arrastar no celular
+  var x0 = null;
+  lb.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', function(e){
+    if(x0 === null) return;
+    var d = e.changedTouches[0].clientX - x0;
+    if(Math.abs(d) > 45) mostrar(d > 0 ? i-1 : i+1);
+    x0 = null;
+  }, {passive:true});
+})();
+
+</script></body></html>
