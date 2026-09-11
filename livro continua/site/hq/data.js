@@ -37,7 +37,7 @@ const PAGINAS = [
    {r:[540,545,685,490], rostos:[[590,645,105,105]], zonas:[[890,595,240,170]]},// 2 soco
    {r:[25,1060,390,800], rostos:[[95,1235,95,95]], zonas:[[205,1085,200,210]]},// 3 raspão
    {r:[430,1050,825,445], rostos:[[710,1095,85,85]]},                          // 4 corrida
-   {r:[430,1510,825,370], rostos:[[895,1570,95,95]], zonas:[[465,1535,310,270]]}// 5 martelada
+   {r:[430,1510,825,370], rostos:[[808,1610,130,112]], zonas:[[465,1535,310,270],[955,1690,165,125]]}// 5 martelada
   ],
   elementos:[
    {t:"sfx", x:380, y:590, w:200, texto:"CRRRR", rot:-4, tamanho:40},
@@ -45,7 +45,7 @@ const PAGINAS = [
    {t:"fala", p:0, de:"nathan", ancora:[805,255], texto:"Filho da—! Parece uma porta de aço!"},
    {t:"sfx", x:25, y:1265, w:180, texto:"PÁ!", rot:-10, tamanho:44},
    {t:"narra", p:4, texto:"Você não tem arma. Não tem armadura. Você tem talvez dez segundos."},
-   {t:"fala", p:5, de:"nathan", ancora:[975,1625], texto:"Mais... força...!"},
+   {t:"fala", p:5, de:"nathan", ancora:[945,1630], texto:"Mais... força...!"},
    {t:"sfx", x:550, y:1830, w:300, texto:"CRRRAC", rot:-6, tamanho:42}
   ]},
 /* ==================== PÁGINA 3 — As três flechas (arte: page03.jpg) ==================== */
@@ -74,7 +74,7 @@ const PAGINAS = [
    {r:[545,660,700,270], rostos:[[550,665,690,260]]},                                              // 2 olhos dela
    {r:[30,950,1215,440], rostos:[[372,1052,55,80],[890,1022,45,65]], zonas:[[325,1050,140,255],[900,1125,44,66]]}, // 3 dois no quadro
    {r:[30,1400,500,490], rostos:[[400,1478,50,78]], zonas:[[18,1418,228,448]]},                   // 4 OTS ombro dela
-   {r:[545,1400,700,490], rostos:[[745,1412,130,180]], zonas:[[878,1643,110,125]]}                 // 5 close aceno
+   {r:[545,1400,700,490], rostos:[[595,1478,215,245]], zonas:[[950,1728,145,162]]}                 // 5 close aceno
   ],
   elementos:[
    {t:"fala", p:0, de:"sylvanas", ancora:[885,150], texto:"Você sabe meu nome."},
@@ -85,8 +85,8 @@ const PAGINAS = [
    {t:"fala", p:3, de:"nathan", ancora:[400,1110], texto:"Você não vai acreditar."},
    {t:"fala", p:3, de:"sylvanas", ancora:[900,1115], texto:"Isso é irrelevante. Diga mesmo assim."},
    {t:"fala", p:4, de:"nathan", ancora:[430,1530], texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada."},
-   {t:"fala", p:5, de:"nathan", ancora:[890,1720], texto:"Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
-   {t:"fala", p:5, de:"nathan", ancora:[890,1725], texto:"Obrigado, aliás. Por isso."},
+   {t:"fala", p:5, de:"nathan", ancora:[820,1545], texto:"Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
+   {t:"fala", p:5, de:"nathan", ancora:[820,1660], texto:"Obrigado, aliás. Por isso."},
    {t:"narra", p:3, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
   ]},
 /* ==================== PÁGINA 5 — O jogo (quadros provisórios) ==================== */
