@@ -123,7 +123,7 @@ const PAGINAS = [
    {r:[30,30,1215,510], rostos:[[325,30,70,70],[460,140,55,60]], zonas:[[200,95,180,330]]},
    {r:[30,560,590,370], rostos:[[85,635,60,70],[350,735,50,60]], zonas:[[60,700,140,220]]},
    {r:[650,560,600,370], rostos:[[785,645,70,90],[1085,635,80,90]]},
-   {r:[30,950,1215,440], rostos:[[100,995,140,190],[500,1085,65,90]], zonas:[[480,1170,150,220],[230,1230,290,160]]},
+   {r:[30,950,1215,440], rostos:[[100,995,140,190],[500,1085,65,90]], zonas:[[480,1170,150,220],[230,1230,290,160],[225,1215,265,185]]},
    {r:[30,1410,1215,480], rostos:[[100,1425,165,230],[355,1415,150,210]], zonas:[[265,1675,100,110],[150,1700,150,160]]}
  ],
  elementos:[
@@ -134,12 +134,12 @@ const PAGINAS = [
    {t:"fala", p:2, de:"nathan", ancora:[820, 740], texto:"Você quer uma prova?"},
    {t:"fala", p:2, de:"sylvanas", ancora:[1120, 725], texto:"Quero."},
    {t:"narra", p:3, texto:"A terceira hesitação foi diferente. As outras foram cautela. Aquela era vergonha. Ele arregaçou a manga direita."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[530, 1175], texto:"Isso está na sua pele."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[560, 1110], texto:"Isso está na sua pele."},
    {t:"fala", p:3, de:"nathan", ancora:[170, 1185], texto:"Está."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[170, 1190], texto:"Permanentemente."},
-   {t:"fala", p:3, de:"nathan", ancora:[530, 1180], texto:"Permanentemente."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[170, 1160], texto:"Permanentemente."},
+   {t:"fala", p:3, de:"nathan", ancora:[560, 1115], texto:"Permanentemente."},
    {t:"narra", p:4, texto:"A mão dela era fria. Não fria de morto — fria de coisa que parou de precisar ser quente."},
-   {t:"fala", p:4, de:"sylvanas", ancora:[430, 1605], texto:"Por quê?"}
+   {t:"fala", p:4, de:"sylvanas", ancora:[455, 1585], texto:"Por quê?"}
  ]},
 /* ==================== PÁGINA 7 — A resposta (quadros provisórios) ==================== */
 /* ==================== PÁGINA 7 — A resposta (arte real) ==================== */
