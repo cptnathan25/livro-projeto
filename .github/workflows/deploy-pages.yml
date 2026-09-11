@@ -2,7 +2,7 @@ name: Publicar site no GitHub Pages
 
 on:
   push:
-    branches: [arena/01a09212-livro-projeto]
+    branches: [arena/01a09212-livro-projeto, main]
   workflow_dispatch:
 
 permissions:
