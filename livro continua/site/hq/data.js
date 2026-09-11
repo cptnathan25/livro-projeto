@@ -90,142 +90,147 @@ const PAGINAS = [
    {t:"narra", p:3, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
   ]},
 /* ==================== PÁGINA 5 — O jogo (quadros provisórios) ==================== */
-{ img:"img/page05.jpg", rascunho:true,
-  paineis:[
-   {r:[30,30,1215,330]},       // 0 wide dois
-   {r:[30,380,590,300]},       // 1 close dela
-   {r:[640,380,610,300]},      // 2 close dele
-   {r:[30,700,600,380]},       // 3 OTS
-   {r:[650,700,600,150]},      // 4 "um jogo"
-   {r:[650,865,600,265]},      // 5 rígida (revelação — precisa de altura p/ balões)
-   {r:[30,1145,1215,745]}      // 6 julgamento
-  ],
-  elementos:[
-   {t:"fala", p:0, de:"sylvanas", ancora:[400,330], texto:"Seu mundo."},
-   {t:"fala", p:0, de:"nathan", ancora:[880,330], texto:"Outro mundo. Não Azeroth. Não... nada disso."},
-   {t:"fala", p:1, de:"sylvanas", ancora:[330,645], texto:"E nesse outro mundo... as pessoas conhecem o meu nome."},
-   {t:"fala", p:2, de:"nathan", ancora:[905,645], texto:"Conhecem. Milhões delas."},
+/* ==================== PÁGINA 5 — O jogo (arte real) ==================== */
+{ img:"img/page05.jpg",
+ paineis:[
+   {r:[30,30,1215,585], rostos:[[195,95,75,85],[420,180,65,75]]},
+   {r:[30,630,590,310], rostos:[[95,700,190,185]]},
+   {r:[650,630,600,310], rostos:[[842,702,138,170]]},
+   {r:[30,960,630,410], rostos:[[425,1085,70,80]]},
+   {r:[670,960,580,200], rostos:[[730,975,420,175]]},
+   {r:[670,1180,580,190], rostos:[[795,1195,110,110]], zonas:[[690,1185,90,180]]},
+   {r:[30,1390,1215,500], rostos:[[425,1445,70,90],[675,1625,70,80]], zonas:[[390,1530,150,330],[650,1700,130,170]]}
+ ],
+ elementos:[
+   {t:"fala", p:0, de:"sylvanas", ancora:[230, 185], texto:"Seu mundo."},
+   {t:"fala", p:0, de:"nathan", ancora:[450, 225], texto:"Outro mundo. Não Azeroth. Não... nada disso."},
+   {t:"fala", p:1, de:"sylvanas", ancora:[190, 880], texto:"E nesse outro mundo... as pessoas conhecem o meu nome."},
+   {t:"fala", p:2, de:"nathan", ancora:[900, 880], texto:"Conhecem. Milhões delas."},
    {t:"narra", p:2, texto:"O silêncio ficou muito mais frio."},
-   {t:"fala", p:2, de:"sylvanas", ancora:[965,655], texto:"Explique."},
-   {t:"fala", p:3, de:"nathan", ancora:[335,1045], texto:"No meu mundo, Azeroth existe dentro de um jogo. Chama-se World of Warcraft. As pessoas se sentam diante de uma máquina, controlam personagens, viajam por Ventobravo, Orgrimmar, Tirisfal... Eu passei anos fazendo isso."},
-   {t:"fala", p:4, de:"sylvanas", ancora:[800,855], texto:"Um jogo."},
-   {t:"fala", p:4, de:"nathan", ancora:[1095,860], texto:"Um jogo."},
-   {t:"fala", p:5, de:"sylvanas", ancora:[845,1055], texto:"E dentro desse jogo existe alguém chamada Sylvanas Windrunner."},
-   {t:"fala", p:5, de:"nathan", ancora:[1150,1060], texto:"Existe a sua história inteira. Desde Quel'Thalas."},
-   {t:"fala", p:6, de:"sylvanas", ancora:[350,1795], texto:"Você é uma armadilha, um espião ou um lunático. Nenhuma das três hipóteses recomenda que eu o deixe vivo."},
-   {t:"fala", p:6, de:"nathan", ancora:[905,1815], texto:"Se eu fosse uma armadilha... eu teria vindo com sapatos."}
-  ]},
+   {t:"fala", p:2, de:"sylvanas", ancora:[900, 870], texto:"Explique."},
+   {t:"fala", p:3, de:"nathan", ancora:[235, 1290], texto:"No meu mundo, Azeroth existe dentro de um jogo. Chama-se World of Warcraft. As pessoas se sentam diante de uma máquina, controlam personagens, viajam por Ventobravo, Orgrimmar, Tirisfal... Eu passei anos fazendo isso."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[460, 1120], texto:"Um jogo."},
+   {t:"fala", p:3, de:"nathan", ancora:[240, 1250], texto:"Um jogo."},
+   {t:"fala", p:6, de:"sylvanas", ancora:[460, 1470], texto:"E dentro desse jogo existe alguém chamada Sylvanas Windrunner."},
+   {t:"fala", p:6, de:"nathan", ancora:[460, 1475], texto:"Existe a sua história inteira. Desde Quel'Thalas."},
+   {t:"fala", p:6, de:"sylvanas", ancora:[460, 1535], texto:"Você é uma armadilha, um espião ou um lunático. Nenhuma das três hipóteses recomenda que eu o deixe vivo."},
+   {t:"fala", p:6, de:"nathan", ancora:[710, 1700], texto:"Se eu fosse uma armadilha... eu teria vindo com sapatos."}
+ ]},
 /* ==================== PÁGINA 6 — A tatuagem (quadros provisórios) ==================== */
-{ img:"img/page06.jpg", rascunho:true,
-  paineis:[
-   {r:[30,30,1215,430]},    // 0 levante-se/contorno
-   {r:[30,480,600,470]},    // 1 roupas absurdas
-   {r:[650,480,600,470]},   // 2 prova
-   {r:[30,970,1215,500]},   // 3 tatuagem
-   {r:[30,1490,1215,400]}   // 4 mão fria
-  ],
-  elementos:[
-   {t:"grito", p:0, de:"sylvanas", ancora:[300,410], texto:"Levante-se."},
+/* ==================== PÁGINA 6 — A tatuagem (arte real) ==================== */
+{ img:"img/page06.jpg",
+ paineis:[
+   {r:[30,30,1215,510], rostos:[[325,30,70,70],[460,140,55,60]], zonas:[[200,95,180,330]]},
+   {r:[30,560,590,370], rostos:[[85,635,60,70],[350,735,50,60]], zonas:[[60,700,140,220]]},
+   {r:[650,560,600,370], rostos:[[785,645,70,90],[1085,635,80,90]]},
+   {r:[30,950,1215,440], rostos:[[100,995,140,190],[500,1085,65,90]], zonas:[[480,1170,150,220],[230,1230,290,160]]},
+   {r:[30,1410,1215,480], rostos:[[100,1425,165,230],[355,1415,150,210]], zonas:[[265,1675,100,110],[150,1700,150,160]]}
+ ],
+ elementos:[
+   {t:"grito", p:0, de:"sylvanas", ancora:[355, 105], texto:"Levante-se."},
    {t:"narra", p:0, texto:"Ela o contornou por completo, avaliando o tecido do moletom, o zíper, a etiqueta na nuca, a meia imunda — e a ausência total de arma."},
-   {t:"fala", p:1, de:"sylvanas", ancora:[250,905], texto:"Suas roupas são absurdas."},
-   {t:"fala", p:1, de:"nathan", ancora:[525,910], texto:"Elas são de dormir."},
-   {t:"fala", p:2, de:"nathan", ancora:[755,905], texto:"Você quer uma prova?"},
-   {t:"fala", p:2, de:"sylvanas", ancora:[1155,910], texto:"Quero."},
+   {t:"fala", p:1, de:"sylvanas", ancora:[115, 705], texto:"Suas roupas são absurdas."},
+   {t:"fala", p:2, de:"nathan", ancora:[820, 735], texto:"Elas são de dormir."},
+   {t:"fala", p:2, de:"nathan", ancora:[820, 740], texto:"Você quer uma prova?"},
+   {t:"fala", p:2, de:"sylvanas", ancora:[1120, 725], texto:"Quero."},
    {t:"narra", p:3, texto:"A terceira hesitação foi diferente. As outras foram cautela. Aquela era vergonha. Ele arregaçou a manga direita."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[700,1405], texto:"Isso está na sua pele."},
-   {t:"fala", p:3, de:"nathan", ancora:[395,1420], texto:"Está."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[700,1425], texto:"Permanentemente."},
-   {t:"fala", p:3, de:"nathan", ancora:[395,1435], texto:"Permanentemente."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[530, 1175], texto:"Isso está na sua pele."},
+   {t:"fala", p:3, de:"nathan", ancora:[170, 1185], texto:"Está."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[170, 1190], texto:"Permanentemente."},
+   {t:"fala", p:3, de:"nathan", ancora:[530, 1180], texto:"Permanentemente."},
    {t:"narra", p:4, texto:"A mão dela era fria. Não fria de morto — fria de coisa que parou de precisar ser quente."},
-   {t:"fala", p:4, de:"sylvanas", ancora:[905,1845], texto:"Por quê?"}
-  ]},
+   {t:"fala", p:4, de:"sylvanas", ancora:[430, 1605], texto:"Por quê?"}
+ ]},
 /* ==================== PÁGINA 7 — A resposta (quadros provisórios) ==================== */
-{ img:"img/page07.jpg", rascunho:true,
-  paineis:[
-   {r:[30,30,1215,600]},    // 0 vulnerável
-   {r:[30,650,390,380]},    // 1 "Personagem."
-   {r:[440,650,390,380]},   // 2 palavra errada
-   {r:[850,650,400,380]},   // 3 palavra exata
-   {r:[30,1050,600,840]},   // 4 cansada
-   {r:[650,1050,600,840]}   // 5 então você sabe
-  ],
-  elementos:[
-   {t:"fala", p:0, de:"nathan", ancora:[890,580], texto:"Porque a sua história me acompanhou num período em que eu não estava bem. Você era a personagem que não pedia desculpa por continuar existindo depois de ter perdido tudo. Isso importava pra mim. Numa época em que eu não sabia como fazer isso."},
-   {t:"fala", p:1, de:"sylvanas", ancora:[195,995], texto:"Personagem."},
-   {t:"fala", p:2, de:"nathan", ancora:[595,1000], texto:"É a palavra errada. Eu sei."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[995,995], texto:"É a palavra exata. E é por isso que ela é insuportável."},
+/* ==================== PÁGINA 7 — A resposta (arte real) ==================== */
+{ img:"img/page07.jpg",
+ paineis:[
+   {r:[30,55,1215,550], rostos:[[245,115,180,220]], zonas:[[430,270,120,120]]},
+   {r:[30,620,380,500], rostos:[[85,675,180,280]]},
+   {r:[430,620,390,500], rostos:[[535,655,170,250]]},
+   {r:[840,620,405,500], rostos:[[895,675,210,280]]},
+   {r:[30,1140,590,750], rostos:[[95,1235,90,100],[315,1555,45,55]], zonas:[[60,1330,180,400]]},
+   {r:[650,1140,595,750], rostos:[[695,1285,180,280],[1045,1295,160,270]]}
+ ],
+ elementos:[
+   {t:"fala", p:0, de:"nathan", ancora:[335, 335], texto:"Porque a sua história me acompanhou num período em que eu não estava bem. Você era a personagem que não pedia desculpa por continuar existindo depois de ter perdido tudo. Isso importava pra mim. Numa época em que eu não sabia como fazer isso."},
+   {t:"fala", p:1, de:"sylvanas", ancora:[175, 905], texto:"Personagem."},
+   {t:"fala", p:2, de:"nathan", ancora:[625, 855], texto:"É a palavra errada. Eu sei."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[1000, 885], texto:"É a palavra exata. E é por isso que ela é insuportável."},
    {t:"narra", p:4, texto:"Ela se afastou dois passos e olhou para o horizonte de costelas de ferro. Por um momento, ele viu — realmente viu — o quanto ela estava cansada."},
-   {t:"fala", p:5, de:"sylvanas", ancora:[945,1845], texto:"Então você sabe. Sobre Quel'Thalas. Sobre Arthas. Sobre o que eu fiz depois. Sobre a Torre de Lordaeron. Sobre tudo."},
-   {t:"fala", p:5, de:"nathan", ancora:[700,1855], texto:"Sei."}
-  ]},
+   {t:"fala", p:5, de:"sylvanas", ancora:[790, 1455], texto:"Então você sabe. Sobre Quel'Thalas. Sobre Arthas. Sobre o que eu fiz depois. Sobre a Torre de Lordaeron. Sobre tudo."},
+   {t:"fala", p:5, de:"nathan", ancora:[1125, 1455], texto:"Sei."}
+ ]},
 /* ==================== PÁGINA 8 — História e pessoa (quadros provisórios) ==================== */
-{ img:"img/page08.jpg", rascunho:true,
-  paineis:[
-   {r:[30,30,600,420]},     // 0 rosto dela
-   {r:[650,30,600,420]},    // 1 "Sim."
-   {r:[30,470,1215,300]},   // 2 quem eu sou
-   {r:[30,790,600,420]},    // 3 não faço mesmo
-   {r:[650,790,600,420]},   // 4 nunca ouvi respirar
-   {r:[30,1230,1215,660]}   // 5 vento
-  ],
-  elementos:[
-   {t:"fala", p:0, de:"sylvanas", ancora:[320,405], texto:"E ainda assim escolheu carregar o meu rosto no seu corpo."},
-   {t:"fala", p:1, de:"nathan", ancora:[930,410], texto:"Sim."},
-   {t:"fala", p:2, de:"sylvanas", ancora:[400,730], texto:"Você não faz ideia de quem eu sou."},
+/* ==================== PÁGINA 8 — História e pessoa (arte real) ==================== */
+{ img:"img/page08.jpg",
+ paineis:[
+   {r:[30,30,590,580], rostos:[[145,95,90,100]], zonas:[[110,190,180,400]]},
+   {r:[650,30,600,580], rostos:[[795,105,220,260]]},
+   {r:[30,630,1215,330], rostos:[[240,655,430,290]]},
+   {r:[30,980,590,410], rostos:[[175,1015,190,250]]},
+   {r:[650,980,600,410], rostos:[[855,1015,150,215]]},
+   {r:[30,1420,1215,470], rostos:[[175,1555,40,45],[435,1545,40,50]]}
+ ],
+ elementos:[
+   {t:"fala", p:0, de:"sylvanas", ancora:[190, 185], texto:"E ainda assim escolheu carregar o meu rosto no seu corpo."},
+   {t:"fala", p:1, de:"nathan", ancora:[900, 305], texto:"Sim."},
+   {t:"fala", p:2, de:"sylvanas", ancora:[440, 755], texto:"Você não faz ideia de quem eu sou."},
    {t:"narra", p:2, texto:"Havia nos olhos dela algo que ele só entenderia meses depois: desprezo — não por ele, mas pela possibilidade de ser admirada."},
-   {t:"fala", p:3, de:"nathan", ancora:[310,1165], texto:"Não. Não faço mesmo."},
+   {t:"fala", p:3, de:"nathan", ancora:[270, 1205], texto:"Não. Não faço mesmo."},
    {t:"narra", p:3, texto:"Ela franziu a testa, minimamente. Não era a resposta esperada."},
-   {t:"fala", p:4, de:"nathan", ancora:[950,1160], texto:"Eu conheço a sua história — isso é diferente. Sei datas, nomes, batalhas, coisas que você fez, coisas que fizeram com você. Mas conhecer a história de alguém não significa conhecer a pessoa. Eu nunca ouvi você respirar antes de hoje."},
+   {t:"fala", p:4, de:"nathan", ancora:[920, 1155], texto:"Eu conheço a sua história — isso é diferente. Sei datas, nomes, batalhas, coisas que você fez, coisas que fizeram com você. Mas conhecer a história de alguém não significa conhecer a pessoa. Eu nunca ouvi você respirar antes de hoje."},
    {t:"narra", p:5, texto:"O vento da Gorja passou entre eles. Sylvanas não respondeu. Levou muito tempo para não responder."}
-  ]},
+ ]},
 /* ==================== PÁGINA 9 — A caminhada (quadros provisórios) ==================== */
-{ img:"img/page09.jpg", rascunho:true,
-  paineis:[
-   {r:[30,30,600,300]},     // 0 não pode ficar
-   {r:[650,30,600,300]},    // 1 como eu saio
-   {r:[30,350,1215,330]},   // 2 não há portas
-   {r:[30,700,1215,330]},   // 3 você luta
-   {r:[30,1050,600,330]},   // 4 caratê
-   {r:[650,1050,600,330]},  // 5 vem comigo
-   {r:[30,1400,1215,490]}   // 6 regras de caminhada
-  ],
-  elementos:[
-   {t:"fala", p:0, de:"sylvanas", ancora:[310,300], texto:"Você não pode ficar aqui."},
-   {t:"fala", p:1, de:"nathan", ancora:[940,300], texto:"Concordo plenamente. Como eu saio?"},
-   {t:"fala", p:2, de:"sylvanas", ancora:[365,655], texto:"Você não sai. Isto é a Gorja — não há portas. Aquela criatura tinha companhia. Elas sempre têm."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[370,1005], texto:"Você luta. Desviou do primeiro golpe, não recuou depois, atacou uma articulação. Foi tudo terrivelmente insuficiente. Mas não foi burro."},
-   {t:"fala", p:3, de:"nathan", ancora:[945,1010], texto:"Eu treinei caratê desde os oito anos. Serve para brigas de rua... não para aquilo."},
-   {t:"fala", p:4, de:"sylvanas", ancora:[305,1350], texto:"O corpo já sabe obedecer. Isso poupa meses."},
-   {t:"grito", p:5, de:"sylvanas", ancora:[795,1355], texto:"Você vem comigo."},
-   {t:"fala", p:5, de:"nathan", ancora:[1150,1360], texto:"Assim? Sem mais interrogatório?"},
-   {t:"fala", p:6, de:"sylvanas", ancora:[360,1800], texto:"O interrogatório continua. Simplesmente vai continuar enquanto caminhamos."},
-   {t:"fala", p:6, de:"sylvanas", ancora:[610,1820], texto:"Você anda três passos atrás de mim. À esquerda — não à direita."},
-   {t:"fala", p:6, de:"nathan", ancora:[860,1840], texto:"Por que não à direita?"},
-   {t:"fala", p:6, de:"sylvanas", ancora:[1010,1850], texto:"Porque é o lado do qual eu atiro."},
-   {t:"fala", p:6, de:"sylvanas", ancora:[1150,1830], texto:"Se eu mandar você correr, você corre. E não volta."},
-   {t:"fala", p:6, de:"nathan", ancora:[1180,1865], texto:"Essa eu não prometo."}
-  ]},
+/* ==================== PÁGINA 9 — A caminhada (arte real) ==================== */
+{ img:"img/page09.jpg",
+ paineis:[
+   {r:[30,30,590,450], rostos:[[130,105,45,55],[220,100,70,80]]},
+   {r:[650,30,600,450], rostos:[[785,85,170,185]]},
+   {r:[30,500,1215,300], rostos:[[145,555,75,110]], zonas:[[215,600,120,90]]},
+   {r:[30,820,1215,310], rostos:[[155,865,80,100],[385,875,60,70]], zonas:[[230,900,150,80],[380,860,90,60]]},
+   {r:[30,1150,590,320], rostos:[[75,1175,110,160],[245,1225,50,65]]},
+   {r:[650,1150,600,320], rostos:[[695,1175,100,130],[1075,1195,60,70]], zonas:[[780,1230,140,80]]},
+   {r:[30,1490,1215,400], rostos:[[195,1525,55,70],[345,1495,85,95]], zonas:[[150,1680,140,60],[330,1600,160,260]]}
+ ],
+ elementos:[
+   {t:"fala", p:0, de:"sylvanas", ancora:[255, 175], texto:"Você não pode ficar aqui."},
+   {t:"fala", p:1, de:"nathan", ancora:[700, 445], texto:"Concordo plenamente. Como eu saio?"},
+   {t:"fala", p:2, de:"sylvanas", ancora:[180, 645], texto:"Você não sai. Isto é a Gorja — não há portas. Aquela criatura tinha companhia. Elas sempre têm."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[195, 945], texto:"Você luta. Desviou do primeiro golpe, não recuou depois, atacou uma articulação. Foi tudo terrivelmente insuficiente. Mas não foi burro."},
+   {t:"fala", p:3, de:"nathan", ancora:[415, 925], texto:"Eu treinei caratê desde os oito anos. Serve para brigas de rua... não para aquilo."},
+   {t:"fala", p:4, de:"sylvanas", ancora:[130, 1315], texto:"O corpo já sabe obedecer. Isso poupa meses."},
+   {t:"grito", p:5, de:"sylvanas", ancora:[745, 1295], texto:"Você vem comigo."},
+   {t:"fala", p:5, de:"nathan", ancora:[1105, 1255], texto:"Assim? Sem mais interrogatório?"},
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1550], tamanho:20, texto:"O interrogatório continua. Simplesmente vai continuar enquanto caminhamos."},
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1555], tamanho:20, texto:"Você anda três passos atrás de mim. À esquerda — não à direita."},
+   {t:"fala", p:6, de:"nathan", ancora:[222, 1580], tamanho:20, texto:"Por que não à direita?"},
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1560], tamanho:20, texto:"Porque é o lado do qual eu atiro."},
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1565], tamanho:20, texto:"Se eu mandar você correr, você corre. E não volta."},
+   {t:"fala", p:6, de:"nathan", ancora:[222, 1585], tamanho:20, texto:"Essa eu não prometo."}
+ ]},
 /* ==================== PÁGINA 10 — Fechamento (quadros provisórios) ==================== */
-{ img:"img/page10.jpg", rascunho:true,
-  paineis:[
-   {r:[30,30,1215,430]},    // 0 sem condições
-   {r:[30,480,600,380]},    // 1 olhar preciso
-   {r:[650,480,600,380]},   // 2 promessa
-   {r:[30,880,600,330]},    // 3 "Hm."
-   {r:[650,880,600,330]},   // 4 não o assustou
-   {r:[30,1230,1215,420]},  // 5 quatro anos
-   {r:[30,1670,1215,220]}   // 6 letreiro
-  ],
-  elementos:[
-   {t:"fala", p:0, de:"sylvanas", ancora:[360,415], texto:"Você entende que não tem absolutamente nenhuma condição de me ajudar."},
-   {t:"fala", p:0, de:"nathan", ancora:[900,420], texto:"Entendo perfeitamente. Hoje."},
-   {t:"narra", p:1, texto:"O olhar que ela deu não tinha raiva nem surpresa — só uma atenção súbita e muito precisa. Como quem reajusta a mira ao descobrir que o vento mudou."},
-   {t:"fala", p:2, de:"nathan", ancora:[905,830], texto:"Prometer que eu vou correr e não voltar é uma promessa sobre a pessoa que eu sou. E eu prefiro não mentir sobre isso... no meu primeiro dia."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[310,1165], texto:"Hm."},
-   {t:"narra", p:3, texto:"Muito baixo. Quase inaudível. Ela voltou a andar. Ele a seguiu — três passos atrás, à esquerda."},
-   {t:"narra", p:4, texto:"Estranhamente, isso não o assustou."},
-   {t:"narra", p:4, texto:"Isso o deixou curioso."},
+/* ==================== PÁGINA 10 — Fecho (arte real) ==================== */
+{ img:"img/page10.jpg",
+ paineis:[
+   {r:[40,40,1200,520], rostos:[[175,85,95,110],[385,75,75,90]]},
+   {r:[30,580,590,370], rostos:[[100,600,450,330]]},
+   {r:[650,580,600,370], rostos:[[825,615,130,140]], zonas:[[750,750,320,180]]},
+   {r:[30,970,590,330], rostos:[[80,980,480,310]]},
+   {r:[650,970,600,330], rostos:[[785,995,90,100]], zonas:[[700,1080,250,200]]},
+   {r:[30,1320,1215,570], rostos:[[350,1375,65,80],[155,1555,70,80]], zonas:[[330,1450,220,260],[200,1620,260,170]]}
+ ],
+ elementos:[
+   {t:"fala", p:0, de:"sylvanas", ancora:[220, 185], texto:"Você entende que não tem absolutamente nenhuma condição de me ajudar."},
+   {t:"fala", p:0, de:"nathan", ancora:[420, 165], texto:"Entendo perfeitamente. Hoje."},
+   {t:"narra", p:0, texto:"O olhar que ela deu não tinha raiva nem surpresa — só uma atenção súbita e muito precisa. Como quem reajusta a mira ao descobrir que o vento mudou."},
+   {t:"fala", p:0, de:"nathan", ancora:[430, 150], texto:"Prometer que eu vou correr e não voltar é uma promessa sobre a pessoa que eu sou. E eu prefiro não mentir sobre isso... no meu primeiro dia."},
+   {t:"fala", p:4, de:"sylvanas", ancora:[830, 1060], texto:"Hm."},
+   {t:"narra", p:4, texto:"Muito baixo. Quase inaudível. Ela voltou a andar. Ele a seguiu — três passos atrás, à esquerda."},
+   {t:"narra", p:5, texto:"Estranhamente, isso não o assustou."},
+   {t:"narra", p:5, texto:"Isso o deixou curioso."},
    {t:"narra", p:5, texto:"Durante quatro anos, ele carregara o rosto dela no braço. E naquela noite, a primeira de muitas, percebeu que não sabia absolutamente nada sobre a mulher que tinha salvo sua vida."},
-   {t:"letreiro", x:337, y:1782, w:600, texto:"FIM DO CAPÍTULO UM"}
-  ]}
+   {t:"letreiro", x:655, y:1335, w:580, texto:"FIM DO CAPÍTULO UM"}
+ ]},
 ];

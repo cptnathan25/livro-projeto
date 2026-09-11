@@ -23,7 +23,7 @@
 const LIMITES = { fala:25, rouca:25, sussurro:25, grito:25, narra:30 };
 const FS_BASE = { fala:24, rouca:26, sussurro:21, grito:38, narra:19 };
 const FS_MIN  = { fala:16, rouca:16, sussurro:15, grito:24, narra:15 };
-const PADX    = { fala:46, rouca:46, sussurro:44, grito:52, narra:42 };
+const PADX    = { fala:38, rouca:38, sussurro:36, grito:46, narra:34 };
 const PADV    = { fala:34, rouca:34, sussurro:32, grito:44, narra:32 };
 const LH      = { fala:1.22, rouca:1.22, sussurro:1.22, grito:1.10, narra:1.42 };
 
@@ -109,6 +109,7 @@ function computarLayout(PAGINAS, medir){
       const uw = R.w*(1-2*MARG), uh = R.h*(1-2*MARG);
       const rostos   = (P.rostos||[]).map(z=>({x:z[0],y:z[1],w:z[2],h:z[3]}));
       const zonas    = (P.zonas||[]).map(z=>({x:z[0],y:z[1],w:z[2],h:z[3]}));
+      const amax = Math.max(AREA_MAX*R.w*R.h, 27000); // piso absoluto: painéis pequenos precisam de orçamento mínimo p/ balão legível
       const rostosInf = rostos.map(q=>inflar(q, R.w*PROT_ROSTO));
       const zonasInf  = zonas.map(q=>inflar(q, R.w*PROT_ZONA));
       const ancora = e.ancora ? {x:e.ancora[0], y:e.ancora[1]} : null;
@@ -118,7 +119,7 @@ function computarLayout(PAGINAS, medir){
       partes.forEach((parte, ki) => {
         const fsBase = Math.min(e.tamanho || FS_BASE[e.t] || 24, FS_BASE[e.t] || 24);
         let colocado = null;
-        const tentativas = [[1,false,GAP],[0.92,false,10],[0.84,true,10],[0.76,true,8]];
+        const tentativas = [[1,false,GAP],[0.92,false,10],[0.84,true,10],[0.76,true,8],[0.66,false,8]];
 
         for(const [mul, ignZ, gap] of tentativas){
           const fs = Math.max(FS_MIN[e.t]||16, fsBase*mul);
@@ -127,20 +128,20 @@ function computarLayout(PAGINAS, medir){
           const wIdeal = Math.max(150, Math.min(Math.ceil(m1.w1)+PADX[e.t], Math.round(uw*0.62)));
           const larguras = [...new Set([wIdeal, Math.round(wIdeal*0.82), Math.round(wIdeal*0.66),
             Math.round(uw*0.62), Math.round(uw*0.40), Math.round(uw*0.30),
-            Math.round(uw*0.24), Math.round(uw*0.19), Math.round(uw*0.15)])].filter(x=>x>=110);
+            Math.round(uw*0.24), Math.round(uw*0.19), Math.round(uw*0.15), 110])].filter(x=>x>=110);
           const filaW = e.xpref==='dir' ? larguras.slice().reverse() : larguras;
           for(const w of filaW){
             const m = medir(parte, fs, e.t, Math.max(60, w-PADX[e.t]));
             const h = m.h;
-            if(w*h > AREA_MAX*R.w*R.h) continue;          // ≤ 25% do quadro
-            if(h > uh*0.72) continue;                     // não dominar o quadro
+            if(w*h > amax) continue;                      // ≤ 25% do quadro (com piso absoluto)
+            if(h > uh*0.80) continue;                     // não dominar o quadro
             let melhor = null;
 
             const xsDir = e.xpref==='dir';
             const xs=[];
-            if(xsDir){ for(let x=R.x+R.w-R.w*MARG-w; x>=ux; x-=18) xs.push(x); }
-            else{ for(let x=ux; x+w <= R.x+R.w-R.w*MARG+0.5; x+=18) xs.push(x); }
-            for(let y=uy; y+h <= R.y+R.h-R.h*MARG+0.5; y+=18){
+            if(xsDir){ for(let x=R.x+R.w-R.w*MARG-w; x>=ux; x-=9) xs.push(x); }
+            else{ for(let x=ux; x+w <= R.x+R.w-R.w*MARG+0.5; x+=9) xs.push(x); }
+            for(let y=uy; y+h <= R.y+R.h-R.h*MARG+0.5; y+=9){
               for(const x of xs){
                 const r = {x:Math.round(x), y:Math.round(y), w, h};
                 let ruim = false;
