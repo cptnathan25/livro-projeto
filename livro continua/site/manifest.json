@@ -2,7 +2,7 @@
   "name": "O Peso da Gorja",
   "short_name": "Gorja",
   "description": "Crônicas das Sombras Exteriores — uma história original de World of Warcraft. Conhecer a história de alguém não significa conhecer a pessoa.",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0b0706",

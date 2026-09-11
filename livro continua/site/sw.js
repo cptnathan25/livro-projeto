@@ -3,24 +3,24 @@
 // (garante que atualizações — ex.: correções dos balões da HQ — apareçam
 //  imediatamente; o cache fica como fallback offline e para imagens)
 const CACHE_NAME = 'gorja-v2';
-const OFFLINE_URL = '/index.html';
+const OFFLINE_URL = './index.html';
 
 // Assets to cache on install
 const PRECACHE = [
-  '/',
-  '/index.html',
-  '/capitulos.html',
-  '/personagens.html',
-  '/galeria.html',
-  '/mapa.html',
-  '/linha-do-tempo.html',
-  '/css/tema.css',
-  '/js/site.js'
+  './',
+  './index.html',
+  './capitulos.html',
+  './personagens.html',
+  './galeria.html',
+  './mapa.html',
+  './linha-do-tempo.html',
+  './css/tema.css',
+  './js/site.js'
 ];
 
 // Add all chapter pages
 for(let i = 1; i <= 27; i++){
-  PRECACHE.push('/cap' + i + '.html');
+  PRECACHE.push('./cap' + i + '.html');
 }
 
 // Install — precache essential assets
@@ -87,7 +87,7 @@ self.addEventListener('fetch', event => {
       return caches.match(event.request).then(cached => {
         if(cached) return cached;
         if(event.request.mode === 'navigate'){
-          return caches.match(OFFLINE_URL) || caches.match('/index.html');
+          return caches.match(OFFLINE_URL) || caches.match('./index.html');
         }
         return new Response('Offline', {status: 503, statusText: 'Offline'});
       });
