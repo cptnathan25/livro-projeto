@@ -72,3 +72,8 @@ O posicionamento de fala/narração agora é **automático** (`layout.js` + `dat
 2. Mapear `rostos` e `zonas` de cada quadro (usar as previews de validação).
 3. Conferir com o validador (Node): rodar `layout.computarLayout` com
    `criarMedidorEstimado` e auditar margens/rostos/zonas/área/sobreposição.
+
+## Site publicado
+
+GitHub Pages (via workflow `deploy-pages.yml`): https://cptnathan25.github.io/livro-projeto/
+— capa do site; HQ em `/hq/ler.html`.
