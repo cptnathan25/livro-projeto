@@ -28,7 +28,7 @@ body{
 #capa.oculta{opacity:0;visibility:hidden;pointer-events:none}
 .capa-img{
   position:absolute;inset:0;
-  background:url("img/capa.jpg?v=20260911-3") center 30%/cover no-repeat;
+  background:url("img/capa.jpg?v=20260911-4") center 30%/cover no-repeat;
   filter:saturate(.85) brightness(.55);
 }
 .capa-vinheta{position:absolute;inset:0;background:
@@ -83,7 +83,15 @@ body{
 }
 .pagina.ativa{opacity:1;visibility:visible}
 .pagina img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
-.arte{position:absolute;inset:0}
+.arte{position:absolute;inset:0;background:#0a090d}
+/* indicador de carregamento */
+.carregando{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:#0a090d;z-index:0;transition:opacity .3s}
+.arte.pronta .carregando{opacity:0;pointer-events:none}
+.carregando::before{content:"";width:64px;height:64px;border-radius:50%;
+  border:5px solid #2a2433;border-top-color:var(--ouro);animation:gira .9s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+.ver{color:#6e6577;letter-spacing:.05em;font-size:11px;text-transform:uppercase}
 /* camada do traço dos rabichos */
 svg.rabichos{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:2}
 /*---------------- BALÕES ---------------- */

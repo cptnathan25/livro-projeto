@@ -2,7 +2,7 @@
    Leitor da HQ — páginas 1280x1920, balões em overlay nítido.
    ============================================================ */
 const PW = 1280, PH = 1920;
-const VER = "20260911-3";
+const VER = "20260911-4";
 const TIPOS = {
   fala:    {fs:27},
   rouca:   {fs:29},
@@ -43,8 +43,13 @@ function construirPagina(idx){
   pag.innerHTML = `<div class="arte">
       <img src="${p.img}?v=${VER}" alt="" draggable="false">
       <svg class="rabichos" viewBox="0 0 ${PW} ${PH}" preserveAspectRatio="none"></svg>
+      <div class="carregando"></div>
     </div>`;
   const art = pag.querySelector(".arte");
+  const imgEl = pag.querySelector("img");
+  imgEl.addEventListener("load", () => art.classList.add("pronta"));
+  imgEl.addEventListener("error", () => art.classList.add("erro-img"));
+  if (imgEl.complete) art.classList.add("pronta");
   const svg = pag.querySelector("svg");
   const NS = "http://www.w3.org/2000/svg";
 
@@ -128,7 +133,7 @@ function mostrar(i){
     p.classList.toggle("ativa", +p.dataset.idx===atual));
   document.querySelectorAll(".dots i").forEach((d,k)=>
     d.classList.toggle("on",k===atual));
-  $("#ind").innerHTML = `PÁGINA <b>${atual+1}</b> / ${PAGINAS.length}`;
+  $("#ind").innerHTML = `PÁGINA <b>${atual+1}</b> / ${PAGINAS.length} <span class="ver">· ${VER}</span>`;
   try { history.replaceState(null,"",`#p${atual+1}`); } catch(e) {}
   const prox = $("#prox"), ant = $("#ant");
   prox.style.visibility = atual === PAGINAS.length-1 ? "hidden" : "visible";
