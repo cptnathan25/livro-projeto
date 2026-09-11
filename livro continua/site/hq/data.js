@@ -96,9 +96,9 @@ const PAGINAS = [
    {r:[30,380,590,300]},       // 1 close dela
    {r:[640,380,610,300]},      // 2 close dele
    {r:[30,700,600,380]},       // 3 OTS
-   {r:[650,700,600,180]},      // 4 "um jogo"
-   {r:[650,900,600,180]},      // 5 rígida
-   {r:[30,1100,1215,790]}      // 6 julgamento
+   {r:[650,700,600,150]},      // 4 "um jogo"
+   {r:[650,865,600,265]},      // 5 rígida (revelação — precisa de altura p/ balões)
+   {r:[30,1145,1215,745]}      // 6 julgamento
   ],
   elementos:[
    {t:"fala", p:0, de:"sylvanas", ancora:[400,330], texto:"Seu mundo."},
