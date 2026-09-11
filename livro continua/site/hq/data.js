@@ -69,23 +69,24 @@ const PAGINAS = [
 /* ==================== PÁGINA 4 — Sylvanas (arte: page04.jpg) ==================== */
 { img:"img/page04.jpg",
   paineis:[
-   {r:[30,30,1215,610], rostos:[[220,220,105,105],[640,50,105,105]], zonas:[[495,165,340,95]]}, // 0 encontro
-   {r:[30,660,500,270], rostos:[[35,660,460,265]]},                                             // 1 close Nathan
-   {r:[545,660,700,270], rostos:[[550,660,690,265]]},                                           // 2 olhos dela
-   {r:[30,950,1215,440], rostos:[[340,1020,95,100],[720,990,95,105]]},                          // 3 dois no quadro
-   {r:[30,1400,500,490], rostos:[[385,1465,85,85]]},                 // 4 OTS ombro dela
-   {r:[545,1400,700,490], rostos:[[555,1410,365,345]], zonas:[[865,1645,360,225]]}              // 5 close aceno
+   {r:[30,30,1215,610], rostos:[[195,165,70,90],[795,42,50,75]], zonas:[[600,105,290,78]]},   // 0 encontro
+   {r:[30,660,500,270], rostos:[[40,665,450,260]]},                                                // 1 close Nathan
+   {r:[545,660,700,270], rostos:[[550,665,690,260]]},                                              // 2 olhos dela
+   {r:[30,950,1215,440], rostos:[[372,1052,55,80],[890,1022,45,65]], zonas:[[325,1050,140,255],[900,1125,44,66]]}, // 3 dois no quadro
+   {r:[30,1400,500,490], rostos:[[400,1478,50,78]], zonas:[[18,1418,228,448]]},                   // 4 OTS ombro dela
+   {r:[545,1400,700,490], rostos:[[745,1412,130,180]], zonas:[[878,1643,110,125]]}                 // 5 close aceno
   ],
   elementos:[
-   {t:"fala", p:0, de:"sylvanas", ancora:[700,130], texto:"Você sabe meu nome."},
-   {t:"fala", p:0, de:"nathan", rouca:1, ancora:[268,295], texto:"Sylvanas."},
+   {t:"fala", p:0, de:"sylvanas", ancora:[885,150], texto:"Você sabe meu nome."},
+   {t:"fala", p:0, de:"nathan", rouca:1, ancora:[250,275], texto:"Sylvanas."},
    {t:"narra", p:3, texto:"A garganta fechou. Não de medo — ou não só. Aquilo era um curto-circuito entre o que é real e o que é história."},
-   {t:"fala", p:3, de:"nathan", ancora:[385,1090], texto:"Sei."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[770,1080], texto:"Diga como."},
-   {t:"fala", p:3, de:"nathan", ancora:[385,1095], texto:"Você não vai acreditar."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[770,1085], texto:"Isso é irrelevante. Diga mesmo assim."},
-   {t:"fala", p:4, de:"nathan", ancora:[420,1520], texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada. Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
-   {t:"fala", p:5, de:"nathan", ancora:[880,1595], texto:"Obrigado, aliás. Por isso."},
+   {t:"fala", p:3, de:"nathan", ancora:[400,1105], texto:"Sei."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[900,1110], texto:"Diga como."},
+   {t:"fala", p:3, de:"nathan", ancora:[400,1110], texto:"Você não vai acreditar."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[900,1115], texto:"Isso é irrelevante. Diga mesmo assim."},
+   {t:"fala", p:4, de:"nathan", ancora:[430,1530], texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada."},
+   {t:"fala", p:5, de:"nathan", ancora:[890,1720], texto:"Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
+   {t:"fala", p:5, de:"nathan", ancora:[890,1725], texto:"Obrigado, aliás. Por isso."},
    {t:"narra", p:3, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
   ]},
 /* ==================== PÁGINA 5 — O jogo (quadros provisórios) ==================== */

@@ -125,7 +125,9 @@ function computarLayout(PAGINAS, medir){
           // largura ideal: texto em ~1 linha, sem exagero; alternativas menores
           const m1 = medir(parte, fs, e.t, 5000);
           const wIdeal = Math.max(150, Math.min(Math.ceil(m1.w1)+PADX[e.t], Math.round(uw*0.62)));
-          const larguras = [...new Set([wIdeal, Math.round(wIdeal*0.82), Math.round(wIdeal*0.66), Math.round(uw*0.62), Math.round(uw*0.40), Math.round(uw*0.30)])];
+          const larguras = [...new Set([wIdeal, Math.round(wIdeal*0.82), Math.round(wIdeal*0.66),
+            Math.round(uw*0.62), Math.round(uw*0.40), Math.round(uw*0.30),
+            Math.round(uw*0.24), Math.round(uw*0.19), Math.round(uw*0.15)])].filter(x=>x>=110);
           for(const w of larguras){
             const m = medir(parte, fs, e.t, Math.max(60, w-PADX[e.t]));
             const h = m.h;
