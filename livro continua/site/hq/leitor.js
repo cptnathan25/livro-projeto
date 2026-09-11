@@ -6,7 +6,7 @@
    Rabichos são desenhados sobre os balões REAIS medidos no DOM.
    ============================================================ */
 const PW = 1280, PH = 1920;
-const VER = "20260911-7";
+const VER = "20260911-8";
 const NS = "http://www.w3.org/2000/svg";
 const COM_RABICHO = ["fala","grito","rouca","sussurro"];
 
@@ -204,6 +204,15 @@ function boot(){
   if(!cover.classList.contains("oculta") && m) mostrar(+m[1]-1);
 }
 window.addEventListener("resize", escalar);
+
+/* botão LER O CAPÍTULO (existe no HTML estático — vincula no carregamento) */
+$("#iniciar").addEventListener("click", ()=>{
+  if(!bootFeito){ try{ boot(); }catch(e){ console.error("HQ: boot no clique falhou", e); } }
+  cover.classList.add("oculta");
+  const m=location.hash.match(/#p(\d+)/);
+  mostrar(m?+m[1]-1:0);
+});
+
 /* construção imediata — fontes depois apenas refinam rabichos */
 try { boot(); }
 catch(e){ console.error("HQ: falha no boot, tentando novamente", e); bootFeito=false; setTimeout(()=>{ try{boot();}catch(e2){console.error(e2);} }, 800); }
