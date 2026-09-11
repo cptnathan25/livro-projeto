@@ -6,7 +6,7 @@
    Rabichos são desenhados sobre os balões REAIS medidos no DOM.
    ============================================================ */
 const PW = 1280, PH = 1920;
-const VER = "20260911-6";
+const VER = "20260911-7";
 const NS = "http://www.w3.org/2000/svg";
 const COM_RABICHO = ["fala","grito","rouca","sussurro"];
 
@@ -166,9 +166,9 @@ function mostrar(i){
 /* ---------------- bootstrap: fontes → layout → páginas ---------------- */
 function boot(){
   if(bootFeito) return;
-  bootFeito = true;
   const itensPorPagina = LayoutHQ.computarLayout(PAGINAS, LayoutHQ.criarMedidorCanvas());
   for(let i=0;i<PAGINAS.length;i++) construirPagina(i, itensPorPagina[i]);
+  bootFeito = true;                     // só marca sucesso após construir
   escalar();
   requestAnimationFrame(medirTodos);
   if(document.fonts && document.fonts.ready)
@@ -204,5 +204,7 @@ function boot(){
   if(!cover.classList.contains("oculta") && m) mostrar(+m[1]-1);
 }
 window.addEventListener("resize", escalar);
-if(document.fonts && document.fonts.ready){ document.fonts.ready.then(boot); setTimeout(boot, 1600); }
-else boot();
+/* construção imediata — fontes depois apenas refinam rabichos */
+try { boot(); }
+catch(e){ console.error("HQ: falha no boot, tentando novamente", e); bootFeito=false; setTimeout(()=>{ try{boot();}catch(e2){console.error(e2);} }, 800); }
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>{ try{ medirTodos(); }catch(e){} });
