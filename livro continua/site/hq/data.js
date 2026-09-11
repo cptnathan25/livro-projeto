@@ -12,37 +12,37 @@ const PAGINAS = [
  {t:"sfx", x:1080, y:1700, w:180, texto:"CRRRACK", rot:-12, tamanho:34}
 ]},
 /* ============================ PÁGINA 2 ============================ */
-{ img:"img/page02.jpg", rascunho:true, elementos:[
+{ img:"img/page02.jpg", elementos:[
  {t:"sfx", x:70, y:500, w:220, texto:"CRRRR", rot:-4, tamanho:40},
- {t:"sfx", x:820, y:660, w:200, texto:"VVVUSH", rot:8, tamanho:36},
- {t:"fala", x:830, y:980, w:380, texto:"Filho da—! Parece uma porta de aço!", tx:900, ty:900, de:"nathan"},
- {t:"sfx", x:60, y:1230, w:180, texto:"PÁ!", rot:-10, tamanho:44},
- {t:"narra", x:480, y:1240, w:520, texto:"Você não tem arma. Não tem armadura. Você tem talvez dez segundos."},
- {t:"fala", x:60, y:1640, w:300, texto:"Uma... duas... TRÊS!", tx:470, ty:1750, de:"nathan"},
- {t:"sfx", x:560, y:1620, w:360, texto:"TAC  TAC  TAC", rot:0, tamanho:40}
+ {t:"sfx", x:130, y:700, w:210, texto:"VVVUSH", rot:-8, tamanho:36},
+ {t:"fala", x:770, y:940, w:420, texto:"Filho da—! Parece uma porta de aço!", tx:720, ty:830, de:"nathan"},
+ {t:"sfx", x:60, y:1218, w:180, texto:"PÁ!", rot:-10, tamanho:44},
+ {t:"narra", x:480, y:1218, w:560, texto:"Você não tem arma. Não tem armadura. Você tem talvez dez segundos."},
+ {t:"fala", x:80, y:1720, w:340, texto:"Mais... força...!", tx:840, ty:1680, de:"nathan"},
+ {t:"sfx", x:420, y:1660, w:300, texto:"CRRRAC", rot:-6, tamanho:42}
 ]},
 /* ============================ PÁGINA 3 ============================ */
-{ img:"img/page03.jpg", rascunho:true, elementos:[
+{ img:"img/page03.jpg", elementos:[
  {t:"narra", x:40, y:40, w:560, texto:"Ele não viu a flecha chegar. Viu o resultado."},
  {t:"narra", x:800, y:60, w:420, texto:"Inútil. Ele sabia que era inútil."},
- {t:"sfx", x:40, y:760, w:200, texto:"THWIP", rot:-8, tamanho:34},
- {t:"sfx", x:300, y:760, w:200, texto:"THWIP", rot:-8, tamanho:34},
- {t:"sfx", x:560, y:760, w:200, texto:"THWIP", rot:-8, tamanho:34},
+ {t:"sfx", x:40, y:712, w:200, texto:"THWIP", rot:-8, tamanho:34},
+ {t:"sfx", x:285, y:712, w:200, texto:"THWIP", rot:-8, tamanho:34},
+ {t:"sfx", x:530, y:712, w:200, texto:"THWIP", rot:-8, tamanho:34},
  {t:"narra", x:60, y:1400, w:520, texto:"O corpo virou a mesma névoa cinza que pairava sobre tudo. Como se nunca tivesse sido outra coisa além de poeira organizada com má intenção."},
  {t:"narra", x:700, y:1360, w:520, texto:"Passos leves, muito leves — o tipo de passo que só faz barulho quando quer fazer barulho."}
 ]},
 /* ============================ PÁGINA 4 ============================ */
-{ img:"img/page04.jpg", rascunho:true, elementos:[
- {t:"fala", x:120, y:150, w:470, texto:"Sylvanas.", tx:500, ty:470, de:"nathan", rouca:1},
- {t:"narra", x:120, y:330, w:430, texto:"A garganta fechou. Não de medo — ou não só. Aquilo era um curto-circuito entre o que é real e o que é história."},
- {t:"fala", x:720, y:120, w:440, texto:"Você sabe meu nome.", tx:520, ty:560, de:"sylvanas"},
- {t:"fala", x:720, y:300, w:300, texto:"Sei.", tx:480, ty:720, de:"nathan"},
- {t:"fala", x:700, y:420, w:460, texto:"Diga como.", tx:540, ty:640, de:"sylvanas"},
- {t:"fala", x:120, y:880, w:480, texto:"Você não vai acreditar.", tx:560, ty:950, de:"nathan"},
- {t:"fala", x:660, y:900, w:520, texto:"Isso é irrelevante. Diga mesmo assim.", tx:640, ty:1020, de:"sylvanas"},
- {t:"fala", x:90, y:1280, w:1100, texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada. Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio.", tx:900, ty:1450, de:"nathan"},
- {t:"fala", x:120, y:1660, w:430, texto:"Obrigado, aliás. Por isso.", tx:520, ty:1760, de:"nathan"},
- {t:"narra", x:620, y:1700, w:540, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
+{ img:"img/page04.jpg", elementos:[
+ {t:"fala", x:60, y:50, w:300, texto:"Sylvanas.", tx:360, ty:390, de:"nathan", rouca:1},
+ {t:"fala", x:620, y:50, w:430, texto:"Você sabe meu nome.", tx:830, ty:175, de:"sylvanas"},
+ {t:"narra", x:110, y:290, w:415, texto:"A garganta fechou. Não de medo — ou não só. Aquilo era um curto-circuito entre o que é real e o que é história."},
+ {t:"fala", x:70, y:850, w:210, texto:"Sei.", tx:290, ty:1030, de:"nathan"},
+ {t:"fala", x:720, y:860, w:380, texto:"Diga como.", tx:905, ty:1020, de:"sylvanas"},
+ {t:"fala", x:55, y:1150, w:360, texto:"Você não vai acreditar.", tx:470, ty:1265, de:"nathan"},
+ {t:"fala", x:700, y:1150, w:490, texto:"Isso é irrelevante. Diga mesmo assim.", tx:920, ty:1265, de:"sylvanas"},
+ {t:"fala", x:45, y:1475, w:600, texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada. Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio.", tx:500, ty:1600, de:"nathan"},
+ {t:"fala", x:730, y:1500, w:430, texto:"Obrigado, aliás. Por isso.", tx:880, ty:1640, de:"nathan"},
+ {t:"narra", x:700, y:1760, w:520, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
 ]},
 /* ============================ PÁGINA 5 ============================ */
 { img:"img/page05.jpg", rascunho:true, elementos:[
