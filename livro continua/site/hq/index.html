@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>O Peso da Gorja — HQ · Capítulo Um</title>
+<meta name="description" content="HQ de dark fantasy: adaptação do Capítulo Um de 'O Peso da Gorja' — Nathan acorda na Gorja e é salvo por Sylvanas.">
+<meta name="theme-color" content="#07060a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Spectral:ital,wght@1,400;1,500;1,600" rel="stylesheet">
+<link rel="stylesheet" href="hq.css">
+</head>
+<body>
+
+<!-- ===================== CAPA DA HQ ===================== -->
+<div id="capa">
+  <div class="capa-img"></div>
+  <div class="capa-vinheta"></div>
+  <div class="capa-inner">
+    <div class="selo">✦ Adaptação em Quadrinhos ✦</div>
+    <h1>O PESO DA GORJA</h1>
+    <div class="capa-sub">"O Homem Que Não Pertencia àquele Céu"</div>
+    <div class="capa-cap">Livro I · A História e a Pessoa &mdash; <b>Capítulo Um</b></div>
+    <button class="btn" id="iniciar">▶ LER O CAPÍTULO</button>
+    <div class="capa-nav">Setas ← → ou toque nas laterais para navegar · Personagens fiéis às fichas oficiais</div>
+  </div>
+</div>
+
+<!-- ===================== BARRA SUPERIOR ===================== -->
+<div class="barra-topo">
+  <span class="tit">O PESO DA GORJA</span>
+  <span class="mini">HQ · Capítulo Um</span>
+  <span class="spacer"></span>
+  <button id="capaBt" title="Capa">✦ Capa</button>
+</div>
+
+<!-- ===================== LEITOR ===================== -->
+<div id="leitor">
+  <div class="aviso-toque">
+    <div class="zona" id="zonaE"></div>
+    <div class="zona" id="zonaD"></div>
+  </div>
+  <div class="palco" id="palco"></div>
+</div>
+
+<button class="navega" id="ant" aria-label="Página anterior">‹</button>
+<button class="navega" id="prox" aria-label="Próxima página">›</button>
+<div class="dots" id="dots"></div>
+<div class="indicador" id="ind"></div>
+
+<script src="data.js"></script>
+<script src="leitor.js"></script>
+<script>
+document.getElementById("capaBt").addEventListener("click",()=>{
+  document.getElementById("capa").classList.remove("oculta");
+});
+</script>
+</body>
+</html>
