@@ -50,3 +50,25 @@ Ver prompts completos no histórico; arquivos-alvo: p02_1..p02_6.jpg conforme c�
 
 ### Págs. 4–9 — uma chamada full-page cada, portrait, ~5-7 quadros, ver ROTEIRO-HQ.md.
 Deixar áreas escuras/negativas nas posições dos balões (coordenadas em `data.js`).
+
+---
+
+## AUTO-LAYOUT DOS BALÕES (2026-09-11)
+
+O posicionamento de fala/narração agora é **automático** (`layout.js` + `data.js`):
+
+- Cada página declara `paineis` — um retângulo `r:[x,y,w,h]` por quadro, mais
+  `rostos:[[x,y,w,h],...]` e `zonas:[[...],...]` (mãos, armas, elementos-chave).
+- Cada balão declara apenas `p` (painel), `ancora:[x,y]` (boca do falante) e `texto`.
+- O motor garante: margem de **5%** das bordas do quadro, proteção de rostos de
+  **5%** e de zonas de **3%**, máx. **25 palavras** por fala / **30** por narração
+  (textos maiores são **divididos** em pontos naturais), área máx. **25%** do quadro,
+  fonte mínima por tipo, sem sobreposição e sem cauda cruzando rosto alheio.
+- Narras são posicionadas antes das falas; a renderização segue a ordem de leitura.
+- SFX e letreiro continuam manuais (efeitos pintados na ação).
+
+### Quando novas artes chegarem (páginas 5–10)
+1. Ajustar os retângulos `paineis` da página ao grid real da arte.
+2. Mapear `rostos` e `zonas` de cada quadro (usar as previews de validação).
+3. Conferir com o validador (Node): rodar `layout.computarLayout` com
+   `criarMedidorEstimado` e auditar margens/rostos/zonas/área/sobreposição.
