@@ -128,15 +128,20 @@ function computarLayout(PAGINAS, medir){
           const larguras = [...new Set([wIdeal, Math.round(wIdeal*0.82), Math.round(wIdeal*0.66),
             Math.round(uw*0.62), Math.round(uw*0.40), Math.round(uw*0.30),
             Math.round(uw*0.24), Math.round(uw*0.19), Math.round(uw*0.15)])].filter(x=>x>=110);
-          for(const w of larguras){
+          const filaW = e.xpref==='dir' ? larguras.slice().reverse() : larguras;
+          for(const w of filaW){
             const m = medir(parte, fs, e.t, Math.max(60, w-PADX[e.t]));
             const h = m.h;
             if(w*h > AREA_MAX*R.w*R.h) continue;          // ≤ 25% do quadro
             if(h > uh*0.72) continue;                     // não dominar o quadro
             let melhor = null;
 
+            const xsDir = e.xpref==='dir';
+            const xs=[];
+            if(xsDir){ for(let x=R.x+R.w-R.w*MARG-w; x>=ux; x-=18) xs.push(x); }
+            else{ for(let x=ux; x+w <= R.x+R.w-R.w*MARG+0.5; x+=18) xs.push(x); }
             for(let y=uy; y+h <= R.y+R.h-R.h*MARG+0.5; y+=18){
-              for(let x=ux; x+w <= R.x+R.w-R.w*MARG+0.5; x+=18){
+              for(const x of xs){
                 const r = {x:Math.round(x), y:Math.round(y), w, h};
                 let ruim = false;
                 for(const q of porPainel[e.p||0]) if(inter(inflar(r,gap), q)){ ruim=true; break; }
@@ -154,7 +159,7 @@ function computarLayout(PAGINAS, medir){
                 let custo;
                 if(ancora) custo = distPontoRet(ancora, r);          // perto de quem fala
                 else       custo = (r.x-ux)*0.10 + (r.y-uy)*0.16;    // narração: canto sup. esq.
-                custo += (r.x-ux)*0.04 + (r.y-uy)*0.06;              // ordem de leitura
+                custo += (xsDir ? (R.x+R.w-R.w*MARG-(r.x+r.w))*0.04 : (r.x-ux)*0.04) + (r.y-uy)*0.06; // ordem de leitura
                 if(anterior)                                         // partes divididas: empilhar
                   custo = custo*0.45 + Math.abs(centro(r).x-centro(anterior).x)*0.5
                         + Math.abs(r.y-(anterior.y+anterior.h))*0.8;

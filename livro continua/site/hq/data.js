@@ -84,9 +84,9 @@ const PAGINAS = [
    {t:"fala", p:3, de:"sylvanas", ancora:[900,1110], texto:"Diga como."},
    {t:"fala", p:3, de:"nathan", ancora:[400,1110], texto:"Você não vai acreditar."},
    {t:"fala", p:3, de:"sylvanas", ancora:[900,1115], texto:"Isso é irrelevante. Diga mesmo assim."},
-   {t:"fala", p:4, de:"nathan", ancora:[430,1530], texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada."},
-   {t:"fala", p:5, de:"nathan", ancora:[820,1545], texto:"Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
-   {t:"fala", p:5, de:"nathan", ancora:[820,1660], texto:"Obrigado, aliás. Por isso."},
+   {t:"fala", p:4, de:"nathan", ancora:[430,1530], xpref:"dir", tamanho:20, texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada."},
+   {t:"fala", p:5, de:"nathan", ancora:[805,1655], texto:"Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
+   {t:"fala", p:5, de:"nathan", ancora:[700,1700], texto:"Obrigado, aliás. Por isso."},
    {t:"narra", p:3, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
   ]},
 /* ==================== PÁGINA 5 — O jogo (quadros provisórios) ==================== */
