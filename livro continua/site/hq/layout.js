@@ -121,7 +121,13 @@ function computarLayout(PAGINAS, medir){
         let colocado = null;
         const tentativas = [[1,false,GAP],[0.92,false,10],[0.84,true,10],[0.76,true,8],[0.66,false,8]];
 
+        if(e.fixo){ // posição manual: [x, y, largura] — pula a busca automática
+          const fs = Math.max(FS_MIN[e.t]||16, Math.min(e.tamanho||FS_BASE[e.t]||24, FS_BASE[e.t]||24));
+          const m = medir(parte, fs, e.t, Math.max(60, e.fixo[2]-PADX[e.t]));
+          colocado = {x:e.fixo[0], y:e.fixo[1], w:e.fixo[2], h:Math.round(m.h), fs:Math.round(fs)};
+        }
         for(const [mul, ignZ, gap] of tentativas){
+          if(colocado) break;
           const fs = Math.max(FS_MIN[e.t]||16, fsBase*mul);
           // largura ideal: texto em ~1 linha, sem exagero; alternativas menores
           const m1 = medir(parte, fs, e.t, 5000);
