@@ -28,7 +28,7 @@ const PADV    = { fala:34, rouca:34, sussurro:32, grito:44, narra:32 };
 const LH      = { fala:1.22, rouca:1.22, sussurro:1.22, grito:1.10, narra:1.42 };
 
 const MARG = 0.05;        // margem das bordas do quadro (5%)
-const PROT_ROSTO = 0.05;  // distância segura de rostos (5% da largura)
+const PROT_ROSTO = 0.08;  // distância segura de rostos (8% da largura)
 const PROT_ZONA = 0.03;   // distância de mãos/armas/objetos (3%)
 const AREA_MAX = 0.25;    // balão ≤ 25% da área do quadro
 const GAP = 14;           // respiro mínimo entre balões

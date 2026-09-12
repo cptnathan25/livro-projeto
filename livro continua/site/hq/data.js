@@ -96,7 +96,7 @@ const PAGINAS = [
    {r:[30,30,1215,585], rostos:[[195,95,75,85],[420,180,65,75]]},
    {r:[30,630,590,310], rostos:[[95,700,190,185]]},
    {r:[650,630,600,310], rostos:[[842,702,138,170]]},
-   {r:[30,960,630,410], rostos:[[425,1085,70,80]]},
+   {r:[30,960,630,410], rostos:[[855,1075,105,105],[30,1265,185,110]], zonas:[[810,1075,160,260]]},
    {r:[670,960,580,200], rostos:[[730,975,420,175]]},
    {r:[670,1180,580,190], rostos:[[795,1195,110,110]], zonas:[[690,1185,90,180]]},
    {r:[30,1390,1215,500], rostos:[[425,1445,70,90],[675,1625,70,80]], zonas:[[390,1530,150,330],[650,1700,130,170]]}
@@ -108,9 +108,9 @@ const PAGINAS = [
    {t:"fala", p:2, de:"nathan", ancora:[900, 880], texto:"Conhecem. Milhões delas."},
    {t:"narra", p:2, texto:"O silêncio ficou muito mais frio."},
    {t:"fala", p:2, de:"sylvanas", ancora:[900, 870], texto:"Explique."},
-   {t:"fala", p:3, de:"nathan", ancora:[235, 1290], texto:"No meu mundo, Azeroth existe dentro de um jogo. Chama-se World of Warcraft. As pessoas se sentam diante de uma máquina, controlam personagens, viajam por Ventobravo, Orgrimmar, Tirisfal... Eu passei anos fazendo isso."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[460, 1120], texto:"Um jogo."},
-   {t:"fala", p:3, de:"nathan", ancora:[240, 1250], texto:"Um jogo."},
+   {t:"fala", p:3, de:"nathan", ancora:[120, 1300], texto:"No meu mundo, Azeroth existe dentro de um jogo. Chama-se World of Warcraft. As pessoas se sentam diante de uma máquina, controlam personagens, viajam por Ventobravo, Orgrimmar, Tirisfal... Eu passei anos fazendo isso."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[908, 1105], texto:"Um jogo."},
+   {t:"fala", p:3, de:"nathan", ancora:[125, 1305], texto:"Um jogo."},
    {t:"fala", p:6, de:"sylvanas", ancora:[460, 1470], texto:"E dentro desse jogo existe alguém chamada Sylvanas Windrunner."},
    {t:"fala", p:6, de:"nathan", ancora:[460, 1475], texto:"Existe a sua história inteira. Desde Quel'Thalas."},
    {t:"fala", p:6, de:"sylvanas", ancora:[460, 1535], texto:"Você é uma armadilha, um espião ou um lunático. Nenhuma das três hipóteses recomenda que eu o deixe vivo."},
@@ -169,7 +169,7 @@ const PAGINAS = [
    {r:[650,30,600,580], rostos:[[795,105,220,260]]},
    {r:[30,630,1215,330], rostos:[[240,655,430,290]]},
    {r:[30,980,590,410], rostos:[[175,1015,190,250]]},
-   {r:[650,980,600,410], rostos:[[855,1015,150,215]]},
+   {r:[650,980,600,410], rostos:[[985,1035,125,115]], zonas:[[940,1150,310,240]]},
    {r:[30,1420,1215,470], rostos:[[175,1555,40,45],[435,1545,40,50]]}
  ],
  elementos:[
@@ -179,7 +179,9 @@ const PAGINAS = [
    {t:"narra", p:2, texto:"Havia nos olhos dela algo que ele só entenderia meses depois: desprezo — não por ele, mas pela possibilidade de ser admirada."},
    {t:"fala", p:3, de:"nathan", ancora:[270, 1205], texto:"Não. Não faço mesmo."},
    {t:"narra", p:3, texto:"Ela franziu a testa, minimamente. Não era a resposta esperada."},
-   {t:"fala", p:4, de:"nathan", ancora:[920, 1155], texto:"Eu conheço a sua história — isso é diferente. Sei datas, nomes, batalhas, coisas que você fez, coisas que fizeram com você. Mas conhecer a história de alguém não significa conhecer a pessoa. Eu nunca ouvi você respirar antes de hoje."},
+   {t:"fala", p:4, de:"nathan", ancora:[1062, 1115], tamanho:20, texto:"Eu conheço a sua história — isso é diferente."},
+  {t:"fala", p:4, de:"nathan", ancora:[1062, 1125], tamanho:20, texto:"Sei datas, nomes, batalhas, coisas que você fez, coisas que fizeram com você."},
+  {t:"fala", p:5, de:"nathan", ancora:[455, 1545], texto:"Mas conhecer a história de alguém não significa conhecer a pessoa. Eu nunca ouvi você respirar antes de hoje."},
    {t:"narra", p:5, texto:"O vento da Gorja passou entre eles. Sylvanas não respondeu. Levou muito tempo para não responder."}
  ]},
 /* ==================== PÁGINA 9 — A caminhada (quadros provisórios) ==================== */
