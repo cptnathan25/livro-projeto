@@ -6,7 +6,7 @@
    Rabichos são desenhados sobre os balões REAIS medidos no DOM.
    ============================================================ */
 const PW = 1280, PH = 1920;
-const VER = "20260911-20";
+const VER = "20260911-21";
 const NS = "http://www.w3.org/2000/svg";
 const COM_RABICHO = ["fala","grito","rouca","sussurro"];
 
@@ -165,12 +165,137 @@ function mostrar(i){
   $("#ant").style.visibility  = atual === 0 ? "hidden" : "visible";
 }
 
+
+/* ---------------- editor de balões (mover / redimensionar) ---------------- */
+const EDIT = { on:false, alvo:null, modo:null, sx:0, sy:0, x0:0, y0:0, w0:0, h0:0 };
+const LS_KEY = "hq_baloes_v1";
+
+function carregarOverrides(){
+  try{
+    const dados = JSON.parse(localStorage.getItem(LS_KEY)||"{}");
+    document.querySelectorAll(".pagina").forEach(pag=>{
+      const idx = pag.dataset.idx;
+      (dados[idx]||[]).forEach(o=>{
+        const b = [...pag.querySelectorAll(".balao")].find(x=>
+          x.dataset.tipo!=="sfx" && x.querySelector(".tx") &&
+          x.querySelector(".tx").textContent.trim()===o.tx);
+        if(!b) return;
+        b.style.left=o.x+"px"; b.style.top=o.y+"px";
+        b.style.width=o.w+"px";
+        if(o.h) b.style.height=o.h+"px"; else b.style.height="";
+      });
+    });
+  }catch(e){ console.warn("HQ: overrides de balões ignorados", e); }
+}
+function salvarOverrides(){
+  try{
+    const dados = {};
+    document.querySelectorAll(".pagina").forEach(pag=>{
+      const idx = pag.dataset.idx; const lista=[];
+      pag.querySelectorAll(".balao").forEach(b=>{
+        if(b.dataset.tipo==="sfx"||!b.dataset.ed) return;
+        lista.push({ tx:b.querySelector(".tx").textContent.trim(),
+          x:Math.round(parseFloat(b.style.left)||0),
+          y:Math.round(parseFloat(b.style.top)||0),
+          w:Math.round(parseFloat(b.style.width)||0),
+          h:b.style.height?Math.round(parseFloat(b.style.height)):null });
+      });
+      if(lista.length) dados[idx]=lista;
+    });
+    localStorage.setItem(LS_KEY, JSON.stringify(dados));
+  }catch(e){ console.warn("HQ: falha ao salvar overrides", e); }
+}
+function prepararEdicao(b){
+  if(b.dataset.ed) return;
+  b.dataset.ed="1";
+  const rx=document.createElement("div");  rx.className="rng rng-x";  rx.title="Largura";
+  const rxy=document.createElement("div"); rxy.className="rng rng-xy"; rxy.title="Altura e largura";
+  b.appendChild(rx); b.appendChild(rxy);
+}
+function iniciarArrasto(b, modo, ev){
+  EDIT.alvo=b; EDIT.modo=modo;
+  EDIT.sx=ev.clientX; EDIT.sy=ev.clientY;
+  EDIT.x0=parseFloat(b.style.left)||b.offsetLeft;
+  EDIT.y0=parseFloat(b.style.top)||b.offsetTop;
+  EDIT.w0=parseFloat(b.style.width)||b.offsetWidth;
+  EDIT.h0=b.offsetHeight;
+  b.setPointerCapture && b.setPointerCapture(ev.pointerId);
+  ev.preventDefault(); ev.stopPropagation();
+}
+function ativarEditor(){
+  document.querySelectorAll(".pagina .balao").forEach(b=>{
+    if(b.dataset.tipo==="sfx") return;
+    prepararEdicao(b);
+    if(b.dataset.evt) return;
+    b.dataset.evt="1";
+    b.addEventListener("pointerdown", ev=>{
+      if(!EDIT.on) return;
+      const modo = ev.target.classList.contains("rng-xy") ? "xy"
+                 : ev.target.classList.contains("rng-x") ? "x" : "mover";
+      iniciarArrasto(b, modo, ev);
+    });
+    b.addEventListener("pointermove", ev=>{
+      if(!EDIT.on || EDIT.alvo!==b) return;
+      const dx=(ev.clientX-EDIT.sx)/escala, dy=(ev.clientY-EDIT.sy)/escala;
+      if(EDIT.modo==="mover"){
+        b.style.left = Math.max(2, Math.min(PW-EDIT.w0-2, EDIT.x0+dx))+"px";
+        b.style.top  = Math.max(2, Math.min(PH-EDIT.h0-2, EDIT.y0+dy))+"px";
+      }else{
+        const w = Math.max(110, Math.min(PW-10, EDIT.w0+dx));
+        b.style.width = w+"px";
+        if(EDIT.modo==="xy"){
+          const h = Math.max(40, EDIT.h0+dy);
+          b.style.height = h+"px";
+        }
+      }
+      clearTimeout(b._t); b._t=setTimeout(()=>{ medirPagina(b.closest(".pagina")); }, 120);
+    });
+    b.addEventListener("pointerup", ev=>{
+      if(EDIT.alvo===b){ EDIT.alvo=null; medirPagina(b.closest(".pagina")); salvarOverrides(); }
+    });
+    b.addEventListener("pointercancel", ()=>{ if(EDIT.alvo===b){ EDIT.alvo=null; medirPagina(b.closest(".pagina")); } });
+  });
+}
+function construirBarraEdit(){
+  if(document.getElementById("barra-edit")) return;
+  const bar=document.createElement("div"); bar.id="barra-edit";
+  bar.innerHTML = `<button id="ed-toggle" type="button">✎ Editar balões</button>
+    <button id="ed-export" type="button" style="display:none">⤓ Exportar JSON</button>
+    <button id="ed-reset" type="button" style="display:none">↺ Restaurar página</button>`;
+  document.body.appendChild(bar);
+  $("#ed-toggle").addEventListener("click", ()=>{
+    EDIT.on=!EDIT.on;
+    document.body.classList.toggle("editando", EDIT.on);
+    $("#ed-toggle").textContent = EDIT.on ? "✓ Concluir" : "✎ Editar balões";
+    $("#ed-export").style.display = EDIT.on?"":"none";
+    $("#ed-reset").style.display  = EDIT.on?"":"none";
+    if(EDIT.on) ativarEditor();
+    else medirTodos();
+  });
+  $("#ed-export").addEventListener("click", ()=>{
+    const dados = localStorage.getItem(LS_KEY)||"{}";
+    console.log("=== BALÕES EDITADOS (cole de volta com localStorage.setItem('hq_baloes_v1', ...)) ===");
+    console.log(dados);
+    try{ navigator.clipboard.writeText(dados); $("#ed-export").textContent="✓ Copiado!"; 
+      setTimeout(()=>$("#ed-export").textContent="⤓ Exportar JSON",1500); }catch(e){}
+  });
+  $("#ed-reset").addEventListener("click", ()=>{
+    try{
+      const dados = JSON.parse(localStorage.getItem(LS_KEY)||"{}");
+      delete dados[String(atual)];
+      localStorage.setItem(LS_KEY, JSON.stringify(dados));
+    }catch(e){}
+    location.reload();
+  });
+}
+
 /* ---------------- bootstrap: fontes → layout → páginas ---------------- */
 function boot(){
   if(bootFeito) return;
   const itensPorPagina = LayoutHQ.computarLayout(PAGINAS, LayoutHQ.criarMedidorCanvas());
   for(let i=0;i<PAGINAS.length;i++) construirPagina(i, itensPorPagina[i]);
   bootFeito = true;                     // só marca sucesso após construir
+  construirBarraEdit(); carregarOverrides();
   escalar();
   requestAnimationFrame(medirTodos);
   if(document.fonts && document.fonts.ready)

@@ -72,8 +72,8 @@ const PAGINAS = [
    {r:[30,660,500,270], rostos:[[40,665,450,260]], zonas:[[30,660,500,270]]},                                                // 1 close Nathan
    {r:[545,660,700,270], rostos:[[550,665,690,260]], zonas:[[545,660,700,270]]},                                              // 2 olhos dela
    {r:[30,950,1215,440], rostos:[[352,1032,56,64],[686,1150,50,58]], zonas:[[320,1098,150,270],[628,1148,198,290]]}, // 3 dois no quadro
-   {r:[30,1400,500,490], rostos:[[342,1440,54,60]], zonas:[[18,1400,288,490],[300,1502,145,318]]},                   // 4 OTS ombro dela
-   {r:[545,1400,700,490], rostos:[[615,1650,120,140]], zonas:[[585,1650,240,240],[985,1400,260,490]]}                 // 5 close aceno
+   {r:[30,1400,500,490], rostos:[[122,1595,58,55]], zonas:[[85,1640,185,205],[240,1690,190,70],[30,1755,470,135],[30,1700,80,185]]},                   // 4 OTS ombro dela
+   {r:[545,1400,700,490], rostos:[[615,1650,120,140]], zonas:[[585,1650,240,240]]}                 // 5 close aceno
   ],
   elementos:[
    {t:"fala", p:0, de:"sylvanas", ancora:[655, 95], texto:"Você sabe meu nome."},
@@ -81,12 +81,12 @@ const PAGINAS = [
    {t:"narra", p:3, texto:"A garganta fechou. Não de medo — ou não só. Aquilo era um curto-circuito entre o que é real e o que é história."},
    {t:"fala", p:3, de:"nathan", ancora:[378, 1085], texto:"Sei."},
    {t:"fala", p:3, de:"sylvanas", ancora:[708, 1170], texto:"Diga como."},
-   {t:"fala", p:3, de:"nathan", ancora:[210, 1000], texto:"Você não vai acreditar."},
-   {t:"fala", p:0, de:"sylvanas", ancora:[655, 95], texto:"Isso é irrelevante. Diga mesmo assim."},
-   {t:"fala", p:0, de:"nathan", ancora:[100, 120], tamanho:20, texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada."},
-   {t:"fala", p:5, de:"nathan", ancora:[675, 1720], texto:"Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
-   {t:"fala", p:5, de:"nathan", ancora:[675, 1720], texto:"Obrigado, aliás. Por isso."},
-   {t:"narra", p:3, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
+   {t:"fala", p:3, de:"nathan", ancora:[378, 1085], texto:"Você não vai acreditar."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[708, 1170], texto:"Isso é irrelevante. Diga mesmo assim."},
+   {t:"fala", p:4, de:"nathan", ancora:[150, 1615], tamanho:20, texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada."},
+   {t:"fala", p:5, de:"nathan", ancora:[675, 1655], xpref:"esq", texto:"Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
+   {t:"fala", p:5, de:"nathan", ancora:[675, 1655], xpref:"esq", texto:"Obrigado, aliás. Por isso."},
+   {t:"narra", p:5, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
   ]},
 /* ==================== PÁGINA 5 — O jogo (arte real) ==================== */
 { img:"img/page05.jpg",
@@ -146,7 +146,7 @@ const PAGINAS = [
    {r:[30,620,380,500], rostos:[[172,788,88,84]], zonas:[[85,745,285,155],[30,862,380,58]]},
    {r:[430,620,390,500], rostos:[[578,986,108,102]], zonas:[[515,1040,315,80]]},
    {r:[840,620,405,500], rostos:[[845,843,72,85]], zonas:[[840,925,180,190]]},
-   {r:[30,1140,590,750], rostos:[[75,1228,105,120],[318,1545,58,70]], zonas:[[60,1330,180,400],[80,1540,440,340]]},
+   {r:[30,1140,590,750], rostos:[[214,1514,132,108]], zonas:[[115,1590,385,300]]},
    {r:[650,1140,595,750], rostos:[[688,1682,105,115],[1075,1672,90,105]], zonas:[[665,1780,220,105],[1030,1770,215,115]]}
  ],
  elementos:[
@@ -214,7 +214,7 @@ const PAGINAS = [
    {r:[30,580,590,370], rostos:[[30,580,590,370]]},
    {r:[650,580,600,370], rostos:[[790,628,112,108]], zonas:[[690,760,300,110]]},
    {r:[30,970,590,330], rostos:[[30,970,590,330]]},
-   {r:[650,970,600,330], rostos:[[798,1000,64,58]], zonas:[[690,1040,270,240]]},
+   {r:[650,970,600,330], rostos:[[1022,1000,56,60]], zonas:[[655,1145,220,185],[845,1105,355,195],[975,975,130,130]]},
    {r:[30,1320,1215,570], rostos:[[300,1518,68,52],[618,1382,58,58]], zonas:[[240,1565,430,295],[555,1430,265,340],[61,1490,175,400]]}
  ],
  elementos:[
@@ -223,8 +223,8 @@ const PAGINAS = [
    {t:"narra", p:0, texto:"O olhar que ela deu não tinha raiva nem surpresa — só uma atenção súbita e muito precisa. Como quem reajusta a mira ao descobrir que o vento mudou."},
    {t:"fala", p:0, de:"nathan", ancora:[842, 150], tamanho:20, texto:"Prometer que eu vou correr e não voltar é uma promessa sobre a pessoa que eu sou."},
    {t:"fala", p:0, de:"nathan", ancora:[842, 150], tamanho:20, texto:"E eu prefiro não mentir sobre isso... no meu primeiro dia."},
-   {t:"fala", p:4, de:"sylvanas", ancora:[830, 1029], texto:"Hm."},
-   {t:"narra", p:4, texto:"Muito baixo. Quase inaudível. Ela voltou a andar. Ele a seguiu — três passos atrás, à esquerda."},
+   {t:"fala", p:5, de:"sylvanas", ancora:[120, 1700], texto:"Hm."},
+   {t:"narra", p:4, tamanho:16, texto:"Muito baixo. Quase inaudível. Ela voltou a andar. Ele a seguiu — três passos atrás, à esquerda."},
    {t:"narra", p:5, texto:"Estranhamente, isso não o assustou."},
    {t:"narra", p:5, texto:"Isso o deixou curioso."},
    {t:"narra", p:5, texto:"Durante quatro anos, ele carregara o rosto dela no braço. E naquela noite, a primeira de muitas, percebeu que não sabia absolutamente nada sobre a mulher que tinha salvo sua vida."},

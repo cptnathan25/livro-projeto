@@ -250,3 +250,16 @@ svg.rabichos{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z
   .navega{width:46px;height:84px;font-size:30px}
   #ant{left:6px}#prox{right:6px}
 }
+
+/* ---------- editor de balões (mover / redimensionar) ---------- */
+#barra-edit{position:fixed;top:10px;right:12px;z-index:80;display:flex;gap:8px}
+#barra-edit button{font-family:"Oswald","Saira Condensed",system-ui,sans-serif;font-size:14px;
+  background:rgba(16,13,22,.92);color:#ffdf4f;border:1px solid rgba(255,223,79,.55);
+  border-radius:8px;padding:8px 12px;cursor:pointer;letter-spacing:.02em}
+#barra-edit button:hover{background:#241a2e}
+body.editando .balao{pointer-events:auto;cursor:move;outline:2px dashed rgba(255,223,79,.85);outline-offset:3px}
+body.editando .balao .tx{height:100%}
+.rng{display:none;position:absolute;background:#ffdf4f;border:2px solid #17141c;z-index:6;box-shadow:0 2px 6px rgba(0,0,0,.5)}
+.rng-x{right:-8px;top:50%;width:15px;height:28px;margin-top:-14px;border-radius:6px;cursor:ew-resize}
+.rng-xy{right:-8px;bottom:-8px;width:16px;height:16px;border-radius:4px;cursor:nwse-resize}
+body.editando .balao .rng{display:block}
