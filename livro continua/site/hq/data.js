@@ -127,7 +127,7 @@ const PAGINAS = [
  elementos:[
    {t:"grito", p:0, de:"sylvanas", ancora:[355, 105], texto:"Levante-se."},
    {t:"narra", p:0, texto:"Ela o contornou por completo, avaliando o tecido do moletom, o zíper, a etiqueta na nuca, a meia imunda — e a ausência total de arma."},
-   {t:"fala", p:1, de:"sylvanas", ancora:[115, 705], texto:"Suas roupas são absurdas."},
+   {t:"fala", p:1, de:"sylvanas", ancora:[115, 705], fixo:[390, 586, 200], tamanho:20, texto:"Suas roupas são absurdas."},
    {t:"fala", p:2, de:"nathan", ancora:[825, 820], fixo:[680,590,200], texto:"Elas são de dormir."},
    {t:"fala", p:2, de:"nathan", ancora:[825, 825], fixo:[900,590,185], texto:"Você quer uma prova?"},
    {t:"fala", p:2, de:"sylvanas", ancora:[958, 815], fixo:[1100,590,120], texto:"Quero."},
@@ -203,7 +203,7 @@ const PAGINAS = [
    {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[91,1510,560], tamanho:20, texto:"O interrogatório continua. Simplesmente vai continuar enquanto caminhamos."},
    {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[677,1512,447], tamanho:20, texto:"Você anda três passos atrás de mim. À esquerda — não à direita."},
    {t:"fala", p:6, de:"nathan", ancora:[560,1700], fixo:[677,1620,278], tamanho:20, texto:"Por que não à direita?"},
-   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[975,1610,209], tamanho:20, texto:"Porque é o lado do qual eu atiro."},
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[975,1610,209], tamanho:16, texto:"Porque é o lado do qual eu atiro."},
    {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[91,1720,172], tamanho:16, texto:"Se eu mandar você correr, você corre. E não volta."},
    {t:"fala", p:6, de:"nathan", ancora:[548, 1710], fixo:[677,1740,170], tamanho:20, texto:"Essa eu não prometo."}
  ]},

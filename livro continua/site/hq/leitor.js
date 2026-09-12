@@ -6,7 +6,7 @@
    Rabichos são desenhados sobre os balões REAIS medidos no DOM.
    ============================================================ */
 const PW = 1280, PH = 1920;
-const VER = "20260911-23";
+const VER = "20260911-24";
 const NS = "http://www.w3.org/2000/svg";
 const COM_RABICHO = ["fala","grito","rouca","sussurro"];
 
@@ -176,10 +176,19 @@ function carregarOverrides(){
     document.querySelectorAll(".pagina").forEach(pag=>{
       const idx = pag.dataset.idx;
       (dados[idx]||[]).forEach(o=>{
-        const b = [...pag.querySelectorAll(".balao")].find(x=>
+        const cands = [...pag.querySelectorAll(".balao")].filter(x=>
           x.dataset.tipo!=="sfx" && x.querySelector(".tx") &&
           x.querySelector(".tx").textContent.trim()===o.tx);
-        if(!b) return;
+        if(!cands.length) return;
+        // textos podem se repetir no livro: aplica no balão mais próximo da posição salva
+        let alvo=cands[0], melhor=Infinity;
+        cands.forEach(c=>{
+          const dx=(parseFloat(c.style.left)||c.offsetLeft)-o.x;
+          const dy=(parseFloat(c.style.top))||c.offsetTop;
+          const d2=dx*dx+dy*dy;
+          if(d2<melhor){melhor=d2;alvo=c;}
+        });
+        const b=alvo;
         b.style.left=o.x+"px"; b.style.top=o.y+"px";
         b.style.width=o.w+"px";
         if(o.h) b.style.height=o.h+"px"; else b.style.height="";
