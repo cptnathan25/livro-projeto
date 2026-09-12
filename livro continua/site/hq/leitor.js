@@ -6,7 +6,7 @@
    Rabichos são desenhados sobre os balões REAIS medidos no DOM.
    ============================================================ */
 const PW = 1280, PH = 1920;
-const VER = "20260911-17";
+const VER = "20260911-18";
 const NS = "http://www.w3.org/2000/svg";
 const COM_RABICHO = ["fala","grito","rouca","sussurro"];
 
@@ -79,6 +79,7 @@ function construirPagina(idx, itens){
     const b = document.createElement("div");
     let cls = `balao ${e.t}`;
     if(e.de==="sylvanas") cls += " syl";
+    if(e.de==="nathan") cls += " nat";
     if(e.rouca) cls += " rouca";
     b.className = cls;
     b.dataset.tipo = e.t;
@@ -99,7 +100,8 @@ function construirPagina(idx, itens){
 
 /* ---------------- rabichos (medidos nos balões reais) ---------------- */
 function coresRabicho(b){
-  if(b.classList.contains("syl"))      return {col:"#241a2e", fill:"#f1ecf7"};
+  if(b.classList.contains("nat"))      return {col:"#17141c", fill:"#ffdf4f"};
+  if(b.classList.contains("syl"))      return {col:"#241a2e", fill:"#ffffff"};
   if(b.classList.contains("sussurro")) return {col:"#55505c", fill:"#ecebe7"};
   if(b.classList.contains("grito"))    return {col:"#17141c", fill:"#f6f1e6"};
   return {col:"#17141c", fill:"#fbf8f0"};

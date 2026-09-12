@@ -121,9 +121,13 @@ svg.rabichos{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z
 /* Sylvanas: duplo-eco — papel frio arroxeado, contorno escuro e halo espectral */
 .balao.syl{color:#20122a}
 .balao.syl .tx{
-  background:#f1ecf7;border-color:#241a2e;border-radius:14px 26px 14px 26px;
+  background:#ffffff;border-color:#241a2e;border-radius:14px 26px 14px 26px;
   box-shadow:0 3px 0 rgba(20,12,26,.3), 0 12px 26px rgba(0,0,0,.5),
              inset 0 0 0 1px rgba(122,82,150,.4), 0 0 0 2px rgba(120,80,150,.15);
+}
+/* Nathan: amarelo */
+.balao.nat .tx{
+  background:#ffdf4f;border-color:#17141c;
 }
 .balao.rouca .tx{font-style:italic;letter-spacing:.03em}
 /* grito — contorno irregular, profundidade por drop-shadow (não sofre clip) */

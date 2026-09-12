@@ -16,15 +16,15 @@ const PAGINAS = [
 { img:"img/page01.jpg",
   paineis:[
    {r:[30,30,1215,450]},                                             // 0 panorâmica
-   {r:[75,490,630,525], rostos:[[500,540,150,170]]},                 // 1 acordou
+   {r:[75,490,630,525], rostos:[[500,540,150,170]], zonas:[[240,660,320,350],[90,500,150,510]]},                 // 1 acordou
    {r:[710,490,490,325], zonas:[[712,640,486,170]]},                 // 2 pés
-   {r:[30,835,1215,745], rostos:[[510,1080,135,225]]},               // 3 sentado (grande)
-   {r:[75,1600,1130,285], rostos:[[340,1605,370,275]]}               // 4 close rosto
+   {r:[30,835,1215,745], rostos:[[520,1085,90,95]], zonas:[[505,1180,140,130],[270,1440,710,140]]},               // 3 sentado (grande)
+   {r:[75,1600,1130,285], rostos:[[340,1605,370,275]], zonas:[[75,1600,1130,285]]}               // 4 close rosto
   ],
   elementos:[
    {t:"narra", p:0, texto:"O último de que Nathan se lembrava era o brilho azulado do monitor apagando sozinho, às três e quarenta da manhã."},
-   {t:"narra", p:1, texto:"Acordou com o rosto apoiado em pedra. Fria. Áspera. Com cheiro de metal velho e coisa queimada há muito tempo."},
-   {t:"narra", p:2, texto:"Moletom cinza. Calça de pijama. Um pé descalço, o outro com meia."},
+   {t:"narra", p:0, texto:"Acordou com o rosto apoiado em pedra. Fria. Áspera. Com cheiro de metal velho e coisa queimada há muito tempo."},
+   {t:"narra", p:0, texto:"Moletom cinza. Calça de pijama. Um pé descalço, o outro com meia."},
    {t:"fala", p:3, de:"nathan", ancora:[545,1195], texto:"Certo... Isso é um sonho."},
    {t:"sussurro", p:3, de:"nathan", ancora:[615,1195], texto:"A Gorja... eu estou na Gorja."},
    {t:"sfx", x:1050, y:1820, w:180, texto:"CRRRACK", rot:-12, tamanho:34}
@@ -32,12 +32,12 @@ const PAGINAS = [
 /* ==================== PÁGINA 2 — A caçada (arte real) ==================== */
 { img:"img/page02.jpg",
   paineis:[
-   {r:[55,30,1170,500], rostos:[[760,170,115,115]], zonas:[[335,35,240,200]]}, // 0 guarda
-   {r:[55,545,470,490], rostos:[[235,680,100,100]]},                           // 1 desvio
-   {r:[540,545,685,490], rostos:[[590,645,105,105]], zonas:[[890,595,240,170]]},// 2 soco
-   {r:[25,1060,390,800], rostos:[[95,1235,95,95]], zonas:[[205,1085,200,210]]},// 3 raspão
-   {r:[430,1050,825,445], rostos:[[710,1095,85,85]]},                          // 4 corrida
-   {r:[430,1510,825,370], rostos:[[808,1610,130,112]], zonas:[[465,1535,310,270],[955,1690,165,125]]}// 5 martelada
+   {r:[55,30,1170,500], rostos:[[150,55,95,98],[760,170,115,115]], zonas:[[110,140,270,365],[660,285,280,215]]}, // 0 guarda
+   {r:[55,545,470,490], rostos:[[235,680,100,100]], zonas:[[100,780,335,250]]},                           // 1 desvio
+   {r:[540,545,685,490], rostos:[[590,645,105,105]], zonas:[[555,750,230,285],[890,545,335,490]]},// 2 soco
+   {r:[25,1060,390,800], rostos:[[95,1235,95,95]], zonas:[[205,1085,200,210],[40,1330,345,420]]},// 3 raspão
+   {r:[430,1050,825,445], rostos:[[710,1095,85,85]], zonas:[[670,1180,210,310]]},                          // 4 corrida
+   {r:[430,1510,825,370], rostos:[[808,1610,130,112]], zonas:[[440,1515,330,360],[770,1725,270,150]]}// 5 martelada
   ],
   elementos:[
    {t:"sfx", x:380, y:590, w:200, texto:"CRRRR", rot:-4, tamanho:40},
@@ -51,11 +51,11 @@ const PAGINAS = [
 /* ==================== PÁGINA 3 — As três flechas (arte: page03.jpg) ==================== */
 { img:"img/page03.jpg",
   paineis:[
-   {r:[30,30,600,495], rostos:[[450,235,95,75]], zonas:[[55,40,275,245]]},       // 0 golpe/salto
-   {r:[645,30,600,930], zonas:[[820,35,390,310],[690,690,460,250]]},             // 1 erguida p/ matar
+   {r:[30,30,600,495], rostos:[[450,235,95,75]], zonas:[[30,30,262,300],[290,315,300,185]]},       // 0 golpe/salto
+   {r:[645,30,600,930], zonas:[[690,60,555,700],[840,880,310,80]], rostos:[[882,802,74,74]]},             // 1 erguida p/ matar
    {r:[30,560,600,970], zonas:[[45,800,540,220]]},                               // 2 três flechas
-   {r:[30,1560,600,330], rostos:[[390,1610,95,85]], zonas:[[45,1565,270,295]]},  // 3 cai/dissolve
-   {r:[645,1560,600,330], rostos:[[775,1585,105,120],[665,1755,150,145]]}        // 4 Sylvanas surge
+   {r:[30,1560,600,330], rostos:[[390,1610,95,85]], zonas:[[45,1565,270,295],[330,1695,262,190]]},  // 3 cai/dissolve
+   {r:[645,1560,600,330], rostos:[[790,1588,55,60],[665,1755,150,145]], zonas:[[765,1650,125,62],[895,1700,350,190]]}        // 4 Sylvanas surge
   ],
   elementos:[
    {t:"narra", p:0, texto:"Inútil. Ele sabia que era inútil."},
@@ -69,50 +69,51 @@ const PAGINAS = [
 /* ==================== PÁGINA 4 — Sylvanas (arte: page04.jpg) ==================== */
 { img:"img/page04.jpg",
   paineis:[
-   {r:[30,30,1215,610], rostos:[[195,165,70,90],[795,42,50,75]], zonas:[[600,105,290,78]]},   // 0 encontro
-   {r:[30,660,500,270], rostos:[[40,665,450,260]]},                                                // 1 close Nathan
-   {r:[545,660,700,270], rostos:[[550,665,690,260]]},                                              // 2 olhos dela
-   {r:[30,950,1215,440], rostos:[[372,1052,55,80],[890,1022,45,65]], zonas:[[325,1050,140,255],[900,1125,44,66]]}, // 3 dois no quadro
-   {r:[30,1400,500,490], rostos:[[400,1478,50,78]], zonas:[[18,1418,228,448]]},                   // 4 OTS ombro dela
-   {r:[545,1400,700,490], rostos:[[595,1478,215,245]], zonas:[[950,1728,145,162]]}                 // 5 close aceno
+   {r:[30,30,1215,610], rostos:[[195,250,72,100],[628,58,60,72]], zonas:[[160,255,330,380],[520,55,360,560]]},   // 0 encontro
+   {r:[30,660,500,270], rostos:[[40,665,450,260]], zonas:[[30,660,500,270]]},                                                // 1 close Nathan
+   {r:[545,660,700,270], rostos:[[550,665,690,260]], zonas:[[545,660,700,270]]},                                              // 2 olhos dela
+   {r:[30,950,1215,440], rostos:[[352,1032,56,64],[686,1150,50,58]], zonas:[[320,1098,150,270],[628,1148,198,290]]}, // 3 dois no quadro
+   {r:[30,1400,500,490], rostos:[[342,1440,54,60]], zonas:[[18,1400,288,490],[300,1502,145,318]]},                   // 4 OTS ombro dela
+   {r:[545,1400,700,490], rostos:[[615,1650,120,140]], zonas:[[585,1650,240,240],[985,1400,260,490]]}                 // 5 close aceno
   ],
   elementos:[
-   {t:"fala", p:0, de:"sylvanas", ancora:[885,150], texto:"Você sabe meu nome."},
-   {t:"fala", p:0, de:"nathan", rouca:1, ancora:[250,275], texto:"Sylvanas."},
+   {t:"fala", p:0, de:"sylvanas", ancora:[655, 95], texto:"Você sabe meu nome."},
+   {t:"fala", p:0, de:"nathan", rouca:1, ancora:[230, 290], texto:"Sylvanas."},
    {t:"narra", p:3, texto:"A garganta fechou. Não de medo — ou não só. Aquilo era um curto-circuito entre o que é real e o que é história."},
-   {t:"fala", p:3, de:"nathan", ancora:[400,1105], texto:"Sei."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[900,1110], texto:"Diga como."},
-   {t:"fala", p:3, de:"nathan", ancora:[400,1110], texto:"Você não vai acreditar."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[900,1115], texto:"Isso é irrelevante. Diga mesmo assim."},
-   {t:"fala", p:4, de:"nathan", ancora:[430,1530], xpref:"dir", tamanho:20, texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada."},
-   {t:"fala", p:5, de:"nathan", ancora:[805,1655], texto:"Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
-   {t:"fala", p:5, de:"nathan", ancora:[700,1700], texto:"Obrigado, aliás. Por isso."},
+   {t:"fala", p:3, de:"nathan", ancora:[378, 1085], texto:"Sei."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[708, 1170], texto:"Diga como."},
+   {t:"fala", p:3, de:"nathan", ancora:[210, 1000], texto:"Você não vai acreditar."},
+   {t:"fala", p:0, de:"sylvanas", ancora:[655, 95], texto:"Isso é irrelevante. Diga mesmo assim."},
+   {t:"fala", p:0, de:"nathan", ancora:[100, 120], tamanho:20, texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada."},
+   {t:"fala", p:5, de:"nathan", ancora:[675, 1720], texto:"Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
+   {t:"fala", p:5, de:"nathan", ancora:[675, 1720], texto:"Obrigado, aliás. Por isso."},
    {t:"narra", p:3, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
   ]},
 /* ==================== PÁGINA 5 — O jogo (quadros provisórios) ==================== */
 /* ==================== PÁGINA 5 — O jogo (arte real) ==================== */
 { img:"img/page05.jpg",
  paineis:[
-   {r:[30,30,1215,585], rostos:[[195,95,75,85],[420,180,65,75]], zonas:[[265,115,370,485],[750,270,330,330]]},
-   {r:[30,630,590,310], rostos:[[95,692,112,122]]},
-   {r:[650,630,600,310], rostos:[[842,712,105,120]]},
-   {r:[30,960,630,410], rostos:[[855,1075,105,105],[30,1265,185,110]], zonas:[[810,1075,160,260]]},
-   {r:[670,960,580,200], rostos:[[730,982,270,172]]},
-   {r:[670,1180,580,190], rostos:[[795,1195,110,110]], zonas:[[690,1185,90,180]]},
-   {r:[30,1390,1215,500], rostos:[[425,1445,70,90],[675,1625,70,80]], zonas:[[390,1530,150,330],[650,1700,130,170]]}
+   {r:[30,30,1215,585], rostos:[[195,95,75,85],[420,180,65,75]], zonas:[[140,180,195,425],[390,255,122,350],[880,300,335,300]]},
+   {r:[30,630,590,310], rostos:[[458,798,80,84]], zonas:[[420,880,175,60],[400,825,60,80]]},
+   {r:[650,630,600,310], rostos:[[788,788,125,162]], zonas:[[680,930,300,10]]},
+   {r:[30,960,630,410], rostos:[[498,1042,84,92],[30,1265,185,110]], zonas:[[475,1035,160,235],[30,1210,205,158],[230,1300,400,68]]},
+   {r:[670,960,580,200], rostos:[[730,982,270,172]], zonas:[[670,960,580,200]]},
+   {r:[670,1180,580,190], rostos:[[795,1195,110,110]], zonas:[[680,1300,345,68]]},
+   {r:[30,1390,1215,500], rostos:[[96,1768,28,26],[868,1792,26,24]], zonas:[[78,1795,75,80],[848,1815,62,60]]}
  ],
  elementos:[
    {t:"fala", p:0, de:"sylvanas", ancora:[230, 185], texto:"Seu mundo."},
    {t:"fala", p:0, de:"nathan", ancora:[450, 225], texto:"Outro mundo. Não Azeroth. Não... nada disso."},
-   {t:"fala", p:1, de:"sylvanas", ancora:[190, 880], texto:"E nesse outro mundo... as pessoas conhecem o meu nome."},
-   {t:"fala", p:2, de:"nathan", ancora:[900, 880], texto:"Conhecem. Milhões delas."},
-   {t:"narra", p:2, texto:"O silêncio ficou muito mais frio."},
-   {t:"fala", p:2, de:"sylvanas", ancora:[900, 870], texto:"Explique."},
-   {t:"fala", p:3, de:"nathan", ancora:[120, 1300], texto:"No meu mundo, Azeroth existe dentro de um jogo. Chama-se World of Warcraft. As pessoas se sentam diante de uma máquina, controlam personagens, viajam por Ventobravo, Orgrimmar, Tirisfal... Eu passei anos fazendo isso."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[908, 1105], texto:"Um jogo."},
-   {t:"fala", p:3, de:"nathan", ancora:[125, 1305], texto:"Um jogo."},
+   {t:"fala", p:1, de:"sylvanas", ancora:[498, 828], texto:"E nesse outro mundo... as pessoas conhecem o meu nome."},
+   {t:"fala", p:2, de:"nathan", ancora:[852, 830], texto:"Conhecem. Milhões delas."},
+   {t:"narra", p:5, texto:"O silêncio ficou muito mais frio."},
+   {t:"fala", p:1, de:"sylvanas", ancora:[498, 828], texto:"Explique."},
+   {t:"fala", p:3, de:"nathan", ancora:[130, 1260], tamanho:20, texto:"No meu mundo, Azeroth existe dentro de um jogo. Chama-se World of Warcraft."},
+   {t:"fala", p:0, de:"nathan", ancora:[230, 290], tamanho:20, texto:"As pessoas se sentam diante de uma máquina, controlam personagens, viajam por Ventobravo, Orgrimmar, Tirisfal... Eu passei anos fazendo isso."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[530, 1090], texto:"Um jogo."},
+   {t:"fala", p:3, de:"nathan", ancora:[200, 1270], texto:"Um jogo."},
    {t:"fala", p:6, de:"sylvanas", ancora:[460, 1470], texto:"E dentro desse jogo existe alguém chamada Sylvanas Windrunner."},
-   {t:"fala", p:6, de:"nathan", ancora:[460, 1475], texto:"Existe a sua história inteira. Desde Quel'Thalas."},
+   {t:"fala", p:6, de:"nathan", ancora:[882, 1818], texto:"Existe a sua história inteira. Desde Quel'Thalas."},
    {t:"fala", p:6, de:"sylvanas", ancora:[460, 1535], texto:"Você é uma armadilha, um espião ou um lunático. Nenhuma das três hipóteses recomenda que eu o deixe vivo."},
    {t:"fala", p:6, de:"nathan", ancora:[710, 1700], texto:"Se eu fosse uma armadilha... eu teria vindo com sapatos."}
  ]},
@@ -221,7 +222,7 @@ const PAGINAS = [
    {r:[650,580,600,370], rostos:[[790,628,112,108]], zonas:[[690,760,300,110]]},
    {r:[30,970,590,330], rostos:[[30,970,590,330]]},
    {r:[650,970,600,330], rostos:[[798,1000,64,58]], zonas:[[690,1040,270,240]]},
-   {r:[30,1320,1215,570], rostos:[[300,1518,68,52],[618,1382,58,58]], zonas:[[240,1565,430,295],[555,1430,265,340]]}
+   {r:[30,1320,1215,570], rostos:[[300,1518,68,52],[618,1382,58,58]], zonas:[[240,1565,430,295],[555,1430,265,340],[61,1490,175,400]]}
  ],
  elementos:[
    {t:"fala", p:0, de:"sylvanas", ancora:[235, 205], tamanho:20, texto:"Você entende que não tem absolutamente nenhuma condição de me ajudar."},
@@ -230,7 +231,7 @@ const PAGINAS = [
    {t:"fala", p:0, de:"nathan", ancora:[842, 150], tamanho:20, texto:"Prometer que eu vou correr e não voltar é uma promessa sobre a pessoa que eu sou."},
    {t:"fala", p:0, de:"nathan", ancora:[842, 150], tamanho:20, texto:"E eu prefiro não mentir sobre isso... no meu primeiro dia."},
    {t:"fala", p:4, de:"sylvanas", ancora:[830, 1029], texto:"Hm."},
-   {t:"narra", p:5, texto:"Muito baixo. Quase inaudível. Ela voltou a andar. Ele a seguiu — três passos atrás, à esquerda."},
+   {t:"narra", p:4, texto:"Muito baixo. Quase inaudível. Ela voltou a andar. Ele a seguiu — três passos atrás, à esquerda."},
    {t:"narra", p:5, texto:"Estranhamente, isso não o assustou."},
    {t:"narra", p:5, texto:"Isso o deixou curioso."},
    {t:"narra", p:5, texto:"Durante quatro anos, ele carregara o rosto dela no braço. E naquela noite, a primeira de muitas, percebeu que não sabia absolutamente nada sobre a mulher que tinha salvo sua vida."},
