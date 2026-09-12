@@ -85,7 +85,7 @@ const PAGINAS = [
    {t:"fala", p:3, de:"sylvanas", ancora:[711, 1179], fixo:[866, 1248, 300], tamanho:20, texto:"Isso é irrelevante. Diga mesmo assim."},
    {t:"fala", p:4, de:"nathan", ancora:[150, 1615], tamanho:20, texto:"Eu dormi na minha casa. No meu mundo. Acordei aqui. Sem transição, sem portal, sem nada."},
    {t:"fala", p:5, de:"nathan", ancora:[675, 1655], xpref:"esq", texto:"Acordei de pijama numa pedra... e a primeira coisa que apareceu tentou me abrir ao meio."},
-   {t:"fala", p:5, de:"nathan", ancora:[675, 1655], xpref:"esq", texto:"Obrigado, aliás. Por isso."},
+   {t:"fala", p:5, de:"nathan", ancora:[700, 1790], xpref:"esq", texto:"Obrigado, aliás. Por isso."},
    {t:"narra", p:5, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
   ]},
 /* ==================== PÁGINA 5 — O jogo (arte real) ==================== */
@@ -108,12 +108,12 @@ const PAGINAS = [
    {t:"fala", p:1, de:"sylvanas", ancora:[498, 828], texto:"Explique."},
    {t:"fala", p:3, de:"nathan", ancora:[200,1258], fixo:[62,1000,352], tamanho:20, texto:"No meu mundo, Azeroth existe dentro de um jogo. Chama-se World of Warcraft."},
    {t:"fala", p:0, de:"nathan", ancora:[230, 290], tamanho:20, texto:"As pessoas se sentam diante de uma máquina, controlam personagens, viajam por Ventobravo, Orgrimmar, Tirisfal... Eu passei anos fazendo isso."},
-   {t:"fala", p:3, de:"sylvanas", ancora:[530, 1090], fixo:[62,1122,150], texto:"Um jogo."},
-   {t:"fala", p:3, de:"nathan", ancora:[200, 1270], fixo:[230,1122,150], texto:"Um jogo."},
-   {t:"fala", p:6, de:"sylvanas", ancora:[460, 1470], fixo:[91,1416,678], texto:"E dentro desse jogo existe alguém chamada Sylvanas Windrunner."},
+   {t:"fala", p:3, de:"sylvanas", ancora:[530, 1090], fixo:[290,1122,150], texto:"Um jogo."},
+   {t:"fala", p:3, de:"nathan", ancora:[200, 1270], fixo:[275,1207,150], texto:"Um jogo."},
+   {t:"fala", p:6, de:"sylvanas", ancora:[460, 1470], fixo:[91,1416,678], ancora:[105, 1775], texto:"E dentro desse jogo existe alguém chamada Sylvanas Windrunner."},
    {t:"fala", p:6, de:"nathan", ancora:[882, 1818], fixo:[560,1521,447], texto:"Existe a sua história inteira. Desde Quel'Thalas."},
-   {t:"fala", p:6, de:"sylvanas", ancora:[460, 1535], fixo:[250,1626,500], texto:"Você é uma armadilha, um espião ou um lunático. Nenhuma das três hipóteses recomenda que eu o deixe vivo."},
-   {t:"fala", p:6, de:"nathan", ancora:[710, 1700], fixo:[250,1770,447], texto:"Se eu fosse uma armadilha... eu teria vindo com sapatos."}
+   {t:"fala", p:6, de:"sylvanas", ancora:[460, 1535], fixo:[270,1626,500], texto:"Você é uma armadilha, um espião ou um lunático. Nenhuma das três hipóteses recomenda que eu o deixe vivo."},
+   {t:"fala", p:6, de:"nathan", ancora:[868, 1800], fixo:[250,1770,447], texto:"Se eu fosse uma armadilha... eu teria vindo com sapatos."}
  ]},
 /* ==================== PÁGINA 6 — A tatuagem (arte real) ==================== */
 { img:"img/page06.jpg",
@@ -125,7 +125,7 @@ const PAGINAS = [
    {r:[30,1410,1215,480], rostos:[[120,1428,145,190],[340,1420,140,180]], zonas:[[265,1675,100,110],[150,1700,150,160],[170,1470,520,320]]}
  ],
  elementos:[
-   {t:"grito", p:0, de:"sylvanas", ancora:[355, 105], texto:"Levante-se."},
+   {t:"grito", p:0, de:"sylvanas", ancora:[650, 120], texto:"Levante-se."},
    {t:"narra", p:0, texto:"Ela o contornou por completo, avaliando o tecido do moletom, o zíper, a etiqueta na nuca, a meia imunda — e a ausência total de arma."},
    {t:"fala", p:1, de:"sylvanas", ancora:[115, 705], fixo:[390, 586, 200], tamanho:20, texto:"Suas roupas são absurdas."},
    {t:"fala", p:2, de:"nathan", ancora:[825, 820], fixo:[680,590,200], texto:"Elas são de dormir."},
@@ -201,11 +201,11 @@ const PAGINAS = [
    {t:"grito", p:5, de:"sylvanas", ancora:[728, 1215], texto:"Você vem comigo."},
    {t:"fala", p:5, de:"nathan", ancora:[1105, 1255], texto:"Assim? Sem mais interrogatório?"},
    {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[91,1510,560], tamanho:20, texto:"O interrogatório continua. Simplesmente vai continuar enquanto caminhamos."},
-   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[677,1512,447], tamanho:20, texto:"Você anda três passos atrás de mim. À esquerda — não à direita."},
-   {t:"fala", p:6, de:"nathan", ancora:[560,1700], fixo:[677,1620,278], tamanho:20, texto:"Por que não à direita?"},
-   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[975,1610,209], tamanho:16, texto:"Porque é o lado do qual eu atiro."},
-   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[91,1720,172], tamanho:16, texto:"Se eu mandar você correr, você corre. E não volta."},
-   {t:"fala", p:6, de:"nathan", ancora:[548, 1710], fixo:[677,1740,170], tamanho:20, texto:"Essa eu não prometo."}
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[750,1510,404], tamanho:20, texto:"Você anda três passos atrás de mim. À esquerda — não à direita."},
+   {t:"fala", p:6, de:"nathan", ancora:[560,1700], fixo:[91,1610,170], tamanho:20, texto:"Por que não à direita?"},
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[91,1710,175], tamanho:16, ancora:[388, 1700], texto:"Porque é o lado do qual eu atiro."},
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], fixo:[677,1700,280], tamanho:16, ancora:[388, 1760], texto:"Se eu mandar você correr, você corre. E não volta."},
+   {t:"fala", p:6, de:"nathan", ancora:[560, 1760], fixo:[970,1795,170], tamanho:16, texto:"Essa eu não prometo."}
  ]},
 /* ==================== PÁGINA 10 — Fecho (arte real) ==================== */
 { img:"img/page10.jpg",
@@ -222,7 +222,7 @@ const PAGINAS = [
    {t:"fala", p:0, de:"nathan", ancora:[830,150], fixo:[352,191,330], texto:"Entendo perfeitamente. Hoje."},
    {t:"narra", p:0, fixo:[352,292,290], tamanho:16, texto:"O olhar que ela deu não tinha raiva nem surpresa — só uma atenção súbita e muito precisa. Como quem reajusta a mira ao descobrir que o vento mudou."},
    {t:"fala", p:0, de:"nathan", ancora:[842, 150], fixo:[1000,300,162], tamanho:20, texto:"Prometer que eu vou correr e não voltar é uma promessa sobre a pessoa que eu sou."},
-   {t:"fala", p:0, de:"nathan", ancora:[842, 150], fixo:[420,448,300], tamanho:16, texto:"E eu prefiro não mentir sobre isso... no meu primeiro dia."},
+   {t:"fala", p:0, de:"nathan", ancora:[842, 150], fixo:[420,448,300], tamanho:16, ancora:[842, 420], texto:"E eu prefiro não mentir sobre isso... no meu primeiro dia."},
    {t:"fala", p:5, de:"sylvanas", ancora:[120, 1700], fixo:[91,1349,110], texto:"Hm."},
    {t:"narra", p:4, tamanho:16, texto:"Muito baixo. Quase inaudível. Ela voltou a andar. Ele a seguiu — três passos atrás, à esquerda."},
    {t:"narra", p:5, fixo:[870,1395,243], texto:"Estranhamente, isso não o assustou."},

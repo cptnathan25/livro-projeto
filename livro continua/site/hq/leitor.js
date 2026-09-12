@@ -6,7 +6,7 @@
    Rabichos são desenhados sobre os balões REAIS medidos no DOM.
    ============================================================ */
 const PW = 1280, PH = 1920;
-const VER = "20260911-24";
+const VER = "20260911-25";
 const NS = "http://www.w3.org/2000/svg";
 const COM_RABICHO = ["fala","grito","rouca","sussurro"];
 
@@ -168,7 +168,7 @@ function mostrar(i){
 
 /* ---------------- editor de balões (mover / redimensionar) ---------------- */
 const EDIT = { on:false, alvo:null, modo:null, sx:0, sy:0, x0:0, y0:0, w0:0, h0:0 };
-const LS_KEY = "hq_baloes_v1";
+const LS_KEY = "hq_baloes_v2";
 
 function carregarOverrides(){
   try{
@@ -283,7 +283,7 @@ function construirBarraEdit(){
   });
   $("#ed-export").addEventListener("click", ()=>{
     const dados = localStorage.getItem(LS_KEY)||"{}";
-    console.log("=== BALÕES EDITADOS (cole de volta com localStorage.setItem('hq_baloes_v1', ...)) ===");
+    console.log("=== BALÕES EDITADOS (cole de volta com localStorage.setItem('hq_baloes_v2', ...)) ===");
     console.log(dados);
     try{ navigator.clipboard.writeText(dados); $("#ed-export").textContent="✓ Copiado!"; 
       setTimeout(()=>$("#ed-export").textContent="⤓ Exportar JSON",1500); }catch(e){}
