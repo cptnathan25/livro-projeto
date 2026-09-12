@@ -198,8 +198,8 @@ const PAGINAS = [
    {r:[30,1490,1215,400], rostos:[[368,1696,40,34],[532,1704,40,32]], zonas:[[310,1728,100,150],[495,1738,95,135]]}
  ],
  elementos:[
-   {t:"fala", p:0, de:"sylvanas", ancora:[255, 175], texto:"Você não pode ficar aqui."},
-   {t:"fala", p:1, de:"nathan", ancora:[700, 445], texto:"Concordo plenamente. Como eu saio?"},
+   {t:"fala", p:0, de:"sylvanas", ancora:[258, 135], texto:"Você não pode ficar aqui."},
+   {t:"fala", p:1, de:"nathan", texto:"Concordo plenamente. Como eu saio?"},
    {t:"fala", p:2, de:"sylvanas", ancora:[180, 645], texto:"Você não sai. Isto é a Gorja — não há portas. Aquela criatura tinha companhia. Elas sempre têm."},
    {t:"fala", p:3, de:"sylvanas", ancora:[188, 925], tamanho:20, texto:"Você luta. Desviou do primeiro golpe, não recuou depois, atacou uma articulação. Foi tudo terrivelmente insuficiente. Mas não foi burro."},
    {t:"fala", p:3, de:"nathan", ancora:[388, 925], tamanho:20, texto:"Eu treinei caratê desde os oito anos. Serve para brigas de rua... não para aquilo."},
