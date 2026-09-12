@@ -94,10 +94,10 @@ const PAGINAS = [
 { img:"img/page05.jpg",
  paineis:[
    {r:[30,30,1215,585], rostos:[[195,95,75,85],[420,180,65,75]], zonas:[[265,115,370,485],[750,270,330,330]]},
-   {r:[30,630,590,310], rostos:[[95,700,190,185]]},
-   {r:[650,630,600,310], rostos:[[842,702,138,170]]},
+   {r:[30,630,590,310], rostos:[[95,692,112,122]]},
+   {r:[650,630,600,310], rostos:[[842,712,105,120]]},
    {r:[30,960,630,410], rostos:[[855,1075,105,105],[30,1265,185,110]], zonas:[[810,1075,160,260]]},
-   {r:[670,960,580,200], rostos:[[730,975,420,175]]},
+   {r:[670,960,580,200], rostos:[[730,982,270,172]]},
    {r:[670,1180,580,190], rostos:[[795,1195,110,110]], zonas:[[690,1185,90,180]]},
    {r:[30,1390,1215,500], rostos:[[425,1445,70,90],[675,1625,70,80]], zonas:[[390,1530,150,330],[650,1700,130,170]]}
  ],
@@ -121,10 +121,10 @@ const PAGINAS = [
 { img:"img/page06.jpg",
  paineis:[
    {r:[30,30,1215,510], rostos:[[630,55,85,85],[875,260,75,70]], zonas:[[200,95,180,330],[580,40,230,160],[810,330,270,180]]},
-   {r:[30,560,590,370], rostos:[[85,635,60,70],[350,735,50,60]], zonas:[[60,700,140,220],[115,595,205,290],[330,780,195,145]]},
-   {r:[650,560,600,370], rostos:[[800,805,50,55],[930,800,55,60]], zonas:[[780,795,110,130],[910,790,120,135]]},
-   {r:[30,950,1215,440], rostos:[[100,995,140,190],[500,1085,65,90]], zonas:[[480,1170,150,220],[230,1230,290,160],[225,1215,265,185],[60,1150,230,220]]},
-   {r:[30,1410,1215,480], rostos:[[100,1425,165,230],[355,1415,150,210]], zonas:[[265,1675,100,110],[150,1700,150,160],[170,1470,520,320]]}
+   {r:[30,560,590,370], rostos:[[90,630,60,72],[345,730,58,66]], zonas:[[60,700,140,220],[115,595,205,290],[330,780,195,145]]},
+   {r:[650,560,600,370], rostos:[[795,798,55,60],[925,795,60,62]], zonas:[[780,795,110,130],[910,790,120,135]]},
+   {r:[30,950,1215,440], rostos:[[105,990,115,155],[498,1082,70,92]], zonas:[[480,1170,150,220],[230,1230,290,160],[225,1215,265,185],[60,1150,230,220]]},
+   {r:[30,1410,1215,480], rostos:[[120,1428,145,190],[340,1420,140,180]], zonas:[[265,1675,100,110],[150,1700,150,160],[170,1470,520,320]]}
  ],
  elementos:[
    {t:"grito", p:0, de:"sylvanas", ancora:[355, 105], texto:"Levante-se."},
@@ -145,12 +145,12 @@ const PAGINAS = [
 /* ==================== PÁGINA 7 — A resposta (arte real) ==================== */
 { img:"img/page07.jpg",
  paineis:[
-   {r:[30,55,1215,550], rostos:[[245,115,180,220]], zonas:[[430,270,120,120]]},
-   {r:[30,620,380,500], rostos:[[85,675,180,280]]},
-   {r:[430,620,390,500], rostos:[[535,655,170,250]]},
-   {r:[840,620,405,500], rostos:[[845,845,70,80]], zonas:[[840,925,180,190]]},
-   {r:[30,1140,590,750], rostos:[[95,1235,90,100],[315,1555,45,55]], zonas:[[60,1330,180,400],[80,1540,440,340]]},
-   {r:[650,1140,595,750], rostos:[[690,1690,90,105],[1080,1680,80,100]], zonas:[[665,1780,220,105],[1030,1770,215,115]]}
+   {r:[30,55,1215,550], rostos:[[215,140,190,200]], zonas:[[430,270,120,120]]},
+   {r:[30,620,380,500], rostos:[[85,700,195,240]]},
+   {r:[430,620,390,500], rostos:[[520,665,180,240]]},
+   {r:[840,620,405,500], rostos:[[845,843,72,85]], zonas:[[840,925,180,190]]},
+   {r:[30,1140,590,750], rostos:[[75,1228,105,120],[318,1545,58,70]], zonas:[[60,1330,180,400],[80,1540,440,340]]},
+   {r:[650,1140,595,750], rostos:[[688,1682,105,115],[1075,1672,90,105]], zonas:[[665,1780,220,105],[1030,1770,215,115]]}
  ],
  elementos:[
    {t:"fala", p:0, de:"nathan", ancora:[335, 335], texto:"Porque a sua história me acompanhou num período em que eu não estava bem. Você era a personagem que não pedia desculpa por continuar existindo depois de ter perdido tudo. Isso importava pra mim. Numa época em que eu não sabia como fazer isso."},
@@ -166,11 +166,11 @@ const PAGINAS = [
 { img:"img/page08.jpg",
  paineis:[
    {r:[30,30,590,580], rostos:[[525,70,75,80]], zonas:[[445,55,175,520]]},
-   {r:[650,30,600,580], rostos:[[795,105,220,260]]},
-   {r:[30,630,1215,330], rostos:[[500,680,400,180]]},
-   {r:[30,980,590,410], rostos:[[175,1015,190,250]]},
-   {r:[650,980,600,410], rostos:[[985,1035,125,115]], zonas:[[940,1150,310,240]]},
-   {r:[30,1420,1215,470], rostos:[[175,1555,40,45],[435,1545,40,50]]}
+   {r:[650,30,600,580], rostos:[[775,98,250,275]]},
+   {r:[30,630,1215,330], rostos:[[515,672,370,205]]},
+   {r:[30,980,590,410], rostos:[[168,1012,185,230]]},
+   {r:[650,980,600,410], rostos:[[978,1030,140,125]], zonas:[[940,1150,310,240]]},
+   {r:[30,1420,1215,470], rostos:[[170,1550,55,58],[428,1542,55,62]]}
  ],
  elementos:[
    {t:"fala", p:0, de:"sylvanas", ancora:[540, 120], texto:"E ainda assim escolheu carregar o meu rosto no seu corpo."},
@@ -188,13 +188,13 @@ const PAGINAS = [
 /* ==================== PÁGINA 9 — A caminhada (arte real) ==================== */
 { img:"img/page09.jpg",
  paineis:[
-   {r:[30,30,590,450], rostos:[[130,105,45,55],[220,100,70,80]], zonas:[[190,145,230,310],[410,110,260,350]]},
-   {r:[650,30,600,450], rostos:[[785,85,170,185]], zonas:[[655,295,360,180]]},
-   {r:[30,500,1215,300], rostos:[[145,555,75,110]], zonas:[[215,600,120,90]]},
-   {r:[30,820,1215,310], rostos:[[165,895,45,55],[370,905,40,45]], zonas:[[130,880,190,240],[350,890,110,230]]},
-   {r:[30,1150,590,320], rostos:[[540,1230,40,50]], zonas:[[510,1220,110,230]]},
-   {r:[650,1150,600,320], rostos:[[700,1180,55,70]], zonas:[[680,1170,180,290]]},
-   {r:[30,1490,1215,400], rostos:[[195,1525,55,70],[345,1495,85,95]], zonas:[[150,1680,140,60],[330,1600,160,260]]}
+   {r:[30,30,590,450], rostos:[[130,100,52,62],[218,95,80,88]], zonas:[[190,145,230,310],[410,110,260,350]]},
+   {r:[650,30,600,450], rostos:[[782,82,178,192]], zonas:[[655,295,360,180]]},
+   {r:[30,500,1215,300], rostos:[[142,552,85,115]], zonas:[[215,600,120,90]]},
+   {r:[30,820,1215,310], rostos:[[158,888,58,65],[362,900,52,58]], zonas:[[130,880,190,240],[350,890,110,230]]},
+   {r:[30,1150,590,320], rostos:[[532,1225,55,60]], zonas:[[510,1220,110,230]]},
+   {r:[650,1150,600,320], rostos:[[692,1175,68,80]], zonas:[[680,1170,180,290]]},
+   {r:[30,1490,1215,400], rostos:[[368,1696,40,34],[532,1704,40,32]], zonas:[[310,1728,100,150],[495,1738,95,135]]}
  ],
  elementos:[
    {t:"fala", p:0, de:"sylvanas", ancora:[255, 175], texto:"Você não pode ficar aqui."},
@@ -205,30 +205,31 @@ const PAGINAS = [
    {t:"fala", p:4, de:"sylvanas", ancora:[560, 1250], texto:"O corpo já sabe obedecer. Isso poupa meses."},
    {t:"grito", p:5, de:"sylvanas", ancora:[728, 1215], texto:"Você vem comigo."},
    {t:"fala", p:5, de:"nathan", ancora:[1105, 1255], texto:"Assim? Sem mais interrogatório?"},
-   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1550], tamanho:20, texto:"O interrogatório continua. Simplesmente vai continuar enquanto caminhamos."},
-   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1555], tamanho:20, texto:"Você anda três passos atrás de mim. À esquerda — não à direita."},
-   {t:"fala", p:6, de:"nathan", ancora:[222, 1580], tamanho:20, texto:"Por que não à direita?"},
-   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1560], tamanho:20, texto:"Porque é o lado do qual eu atiro."},
-   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1565], tamanho:20, texto:"Se eu mandar você correr, você corre. E não volta."},
-   {t:"fala", p:6, de:"nathan", ancora:[222, 1585], tamanho:20, texto:"Essa eu não prometo."}
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], tamanho:20, texto:"O interrogatório continua. Simplesmente vai continuar enquanto caminhamos."},
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], tamanho:20, texto:"Você anda três passos atrás de mim. À esquerda — não à direita."},
+   {t:"fala", p:6, de:"nathan", ancora:[548, 1710], tamanho:20, texto:"Por que não à direita?"},
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], tamanho:20, texto:"Porque é o lado do qual eu atiro."},
+   {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], tamanho:20, texto:"Se eu mandar você correr, você corre. E não volta."},
+   {t:"fala", p:6, de:"nathan", ancora:[548, 1710], tamanho:20, texto:"Essa eu não prometo."}
  ]},
 /* ==================== PÁGINA 10 — Fechamento (quadros provisórios) ==================== */
 /* ==================== PÁGINA 10 — Fecho (arte real) ==================== */
 { img:"img/page10.jpg",
  paineis:[
-   {r:[40,40,1200,520], rostos:[[175,85,95,110],[385,75,75,90]]},
-   {r:[30,580,590,370], rostos:[[100,600,450,330]]},
-   {r:[650,580,600,370], rostos:[[825,615,130,140]], zonas:[[750,750,320,180]]},
-   {r:[30,970,590,330], rostos:[[80,980,480,310]]},
-   {r:[650,970,600,330], rostos:[[785,995,90,100]], zonas:[[700,1080,250,200],[690,1140,500,150]]},
-   {r:[30,1320,1215,570], rostos:[[350,1375,65,80],[155,1555,70,80]], zonas:[[330,1462,220,248],[200,1620,260,170]]}
+   {r:[40,40,1200,520], rostos:[[182,148,66,74],[788,108,86,74]], zonas:[[70,120,205,400],[770,100,190,420]]},
+   {r:[30,580,590,370], rostos:[[30,580,590,370]]},
+   {r:[650,580,600,370], rostos:[[790,628,112,108]], zonas:[[690,760,300,110]]},
+   {r:[30,970,590,330], rostos:[[30,970,590,330]]},
+   {r:[650,970,600,330], rostos:[[798,1000,64,58]], zonas:[[690,1040,270,240]]},
+   {r:[30,1320,1215,570], rostos:[[300,1518,68,52],[618,1382,58,58]], zonas:[[240,1565,430,295],[555,1430,265,340]]}
  ],
  elementos:[
-   {t:"fala", p:0, de:"sylvanas", ancora:[220, 185], texto:"Você entende que não tem absolutamente nenhuma condição de me ajudar."},
-   {t:"fala", p:0, de:"nathan", ancora:[420, 165], texto:"Entendo perfeitamente. Hoje."},
+   {t:"fala", p:0, de:"sylvanas", ancora:[235, 205], tamanho:20, texto:"Você entende que não tem absolutamente nenhuma condição de me ajudar."},
+   {t:"fala", p:0, de:"nathan", ancora:[235, 205], texto:"Entendo perfeitamente. Hoje."},
    {t:"narra", p:0, texto:"O olhar que ela deu não tinha raiva nem surpresa — só uma atenção súbita e muito precisa. Como quem reajusta a mira ao descobrir que o vento mudou."},
-   {t:"fala", p:0, de:"nathan", ancora:[430, 150], texto:"Prometer que eu vou correr e não voltar é uma promessa sobre a pessoa que eu sou. E eu prefiro não mentir sobre isso... no meu primeiro dia."},
-   {t:"fala", p:4, de:"sylvanas", ancora:[830, 1060], texto:"Hm."},
+   {t:"fala", p:0, de:"nathan", ancora:[842, 150], tamanho:20, texto:"Prometer que eu vou correr e não voltar é uma promessa sobre a pessoa que eu sou."},
+   {t:"fala", p:0, de:"nathan", ancora:[842, 150], tamanho:20, texto:"E eu prefiro não mentir sobre isso... no meu primeiro dia."},
+   {t:"fala", p:4, de:"sylvanas", ancora:[830, 1029], texto:"Hm."},
    {t:"narra", p:5, texto:"Muito baixo. Quase inaudível. Ela voltou a andar. Ele a seguiu — três passos atrás, à esquerda."},
    {t:"narra", p:5, texto:"Estranhamente, isso não o assustou."},
    {t:"narra", p:5, texto:"Isso o deixou curioso."},
