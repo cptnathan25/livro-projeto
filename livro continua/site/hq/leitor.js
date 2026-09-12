@@ -6,7 +6,7 @@
    Rabichos são desenhados sobre os balões REAIS medidos no DOM.
    ============================================================ */
 const PW = 1280, PH = 1920;
-const VER = "20260911-25";
+const VER = "20260911-26";
 const NS = "http://www.w3.org/2000/svg";
 const COM_RABICHO = ["fala","grito","rouca","sussurro"];
 
@@ -50,6 +50,7 @@ function construirPagina(idx, itens){
     if(e.t === "sfx"){
       const b = document.createElement("div");
       b.className = `balao sfx${e.fogo ? " fogo" : ""}`;
+      b.dataset.tipo = "sfx";   // exclui do editor e dos overrides
       b.style.setProperty("--i", i);
       if(e.rot) b.style.setProperty("--rot", e.rot+"deg");
       const inner = document.createElement("div");
@@ -66,6 +67,7 @@ function construirPagina(idx, itens){
     if(e.t === "letreiro"){
       const b = document.createElement("div");
       b.className = "balao letreiro";
+      b.dataset.tipo = "letreiro";   // exclui do editor e dos overrides
       b.style.setProperty("--i", i);
       const inner = document.createElement("div");
       inner.className = "tx";
@@ -177,7 +179,7 @@ function carregarOverrides(){
       const idx = pag.dataset.idx;
       (dados[idx]||[]).forEach(o=>{
         const cands = [...pag.querySelectorAll(".balao")].filter(x=>
-          x.dataset.tipo!=="sfx" && x.querySelector(".tx") &&
+          x.dataset.tipo!=="sfx" && x.dataset.tipo!=="letreiro" && x.querySelector(".tx") &&
           x.querySelector(".tx").textContent.trim()===o.tx);
         if(!cands.length) return;
         // textos podem se repetir no livro: aplica no balão mais próximo da posição salva
@@ -202,7 +204,7 @@ function salvarOverrides(){
     document.querySelectorAll(".pagina").forEach(pag=>{
       const idx = pag.dataset.idx; const lista=[];
       pag.querySelectorAll(".balao").forEach(b=>{
-        if(b.dataset.tipo==="sfx"||!b.dataset.ed) return;
+        if(b.dataset.tipo==="sfx"||b.dataset.tipo==="letreiro"||!b.dataset.ed) return;
         lista.push({ tx:b.querySelector(".tx").textContent.trim(),
           x:Math.round(parseFloat(b.style.left)||0),
           y:Math.round(parseFloat(b.style.top)||0),
@@ -233,7 +235,7 @@ function iniciarArrasto(b, modo, ev){
 }
 function ativarEditor(){
   document.querySelectorAll(".pagina .balao").forEach(b=>{
-    if(b.dataset.tipo==="sfx") return;
+    if(b.dataset.tipo==="sfx"||b.dataset.tipo==="letreiro") return;
     prepararEdicao(b);
     if(b.dataset.evt) return;
     b.dataset.evt="1";
