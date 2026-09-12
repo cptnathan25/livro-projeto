@@ -5,7 +5,7 @@
    LEGIBILIDADE > POSICIONAMENTO > TAMANHO):
    • Margem fixa de 5% das bordas de cada QUADRO — nenhum balão
      toca ou ultrapassa a borda do quadro.
-   • Zona de proteção de rostos: 5% da largura do quadro.
+   • Proteção de rostos: 8% da largura do quadro (zonas de corpo: 3%).
    • Zona de proteção de mãos/armas/objetos: 3% da largura.
    • Máx. 25 palavras por balão de fala / 30 por narração —
      textos maiores são DIVIDIDOS automaticamente em pontos

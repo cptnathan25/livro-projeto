@@ -9,7 +9,6 @@
    máx. 25 palavras (fala) / 30 (narração), área máx. 25%.
    SFX e letreiro ficam manuais (efeitos pintados na ação).
    Mapeamento de arte: page03.jpg = "As três flechas" ·
-   page04.jpg = "Sylvanas". Páginas 5-10: quadros provisórios
    (arte em produção) — reajustar zonas quando a arte chegar. */
 const PAGINAS = [
 /* ==================== PÁGINA 1 — O despertar (arte real) ==================== */
@@ -89,7 +88,6 @@ const PAGINAS = [
    {t:"fala", p:5, de:"nathan", ancora:[675, 1720], texto:"Obrigado, aliás. Por isso."},
    {t:"narra", p:3, texto:"Ela não reagiu ao agradecimento. Nem para aceitar, nem para desprezar."}
   ]},
-/* ==================== PÁGINA 5 — O jogo (quadros provisórios) ==================== */
 /* ==================== PÁGINA 5 — O jogo (arte real) ==================== */
 { img:"img/page05.jpg",
  paineis:[
@@ -117,7 +115,6 @@ const PAGINAS = [
    {t:"fala", p:6, de:"sylvanas", ancora:[460, 1535], texto:"Você é uma armadilha, um espião ou um lunático. Nenhuma das três hipóteses recomenda que eu o deixe vivo."},
    {t:"fala", p:6, de:"nathan", ancora:[710, 1700], texto:"Se eu fosse uma armadilha... eu teria vindo com sapatos."}
  ]},
-/* ==================== PÁGINA 6 — A tatuagem (quadros provisórios) ==================== */
 /* ==================== PÁGINA 6 — A tatuagem (arte real) ==================== */
 { img:"img/page06.jpg",
  paineis:[
@@ -142,27 +139,25 @@ const PAGINAS = [
    {t:"narra", p:4, texto:"A mão dela era fria. Não fria de morto — fria de coisa que parou de precisar ser quente."},
    {t:"fala", p:4, de:"sylvanas", ancora:[455, 1585], texto:"Por quê?"}
  ]},
-/* ==================== PÁGINA 7 — A resposta (quadros provisórios) ==================== */
 /* ==================== PÁGINA 7 — A resposta (arte real) ==================== */
 { img:"img/page07.jpg",
  paineis:[
    {r:[30,55,1215,550], rostos:[[215,140,190,200]], zonas:[[430,270,120,120]]},
-   {r:[30,620,380,500], rostos:[[85,700,195,240]]},
-   {r:[430,620,390,500], rostos:[[520,665,180,240]]},
+   {r:[30,620,380,500], rostos:[[172,788,88,84]], zonas:[[85,745,285,155],[30,862,380,58]]},
+   {r:[430,620,390,500], rostos:[[578,986,108,102]], zonas:[[515,1040,315,80]]},
    {r:[840,620,405,500], rostos:[[845,843,72,85]], zonas:[[840,925,180,190]]},
    {r:[30,1140,590,750], rostos:[[75,1228,105,120],[318,1545,58,70]], zonas:[[60,1330,180,400],[80,1540,440,340]]},
    {r:[650,1140,595,750], rostos:[[688,1682,105,115],[1075,1672,90,105]], zonas:[[665,1780,220,105],[1030,1770,215,115]]}
  ],
  elementos:[
    {t:"fala", p:0, de:"nathan", ancora:[335, 335], texto:"Porque a sua história me acompanhou num período em que eu não estava bem. Você era a personagem que não pedia desculpa por continuar existindo depois de ter perdido tudo. Isso importava pra mim. Numa época em que eu não sabia como fazer isso."},
-   {t:"fala", p:1, de:"sylvanas", ancora:[175, 905], texto:"Personagem."},
-   {t:"fala", p:2, de:"nathan", ancora:[625, 855], texto:"É a palavra errada. Eu sei."},
+   {t:"fala", p:1, de:"sylvanas", ancora:[214, 826], texto:"Personagem."},
+   {t:"fala", p:2, de:"nathan", ancora:[628, 1030], texto:"É a palavra errada. Eu sei."},
    {t:"fala", p:3, de:"sylvanas", ancora:[878, 880], texto:"É a palavra exata. E é por isso que ela é insuportável."},
    {t:"narra", p:4, texto:"Ela se afastou dois passos e olhou para o horizonte de costelas de ferro. Por um momento, ele viu — realmente viu — o quanto ela estava cansada."},
    {t:"fala", p:5, de:"sylvanas", ancora:[735, 1725], texto:"Então você sabe. Sobre Quel'Thalas. Sobre Arthas. Sobre o que eu fiz depois. Sobre a Torre de Lordaeron. Sobre tudo."},
    {t:"fala", p:5, de:"nathan", ancora:[1120, 1720], texto:"Sei."}
  ]},
-/* ==================== PÁGINA 8 — História e pessoa (quadros provisórios) ==================== */
 /* ==================== PÁGINA 8 — História e pessoa (arte real) ==================== */
 { img:"img/page08.jpg",
  paineis:[
@@ -185,7 +180,6 @@ const PAGINAS = [
   {t:"fala", p:5, de:"nathan", ancora:[455, 1545], texto:"Mas conhecer a história de alguém não significa conhecer a pessoa. Eu nunca ouvi você respirar antes de hoje."},
    {t:"narra", p:5, texto:"O vento da Gorja passou entre eles. Sylvanas não respondeu. Levou muito tempo para não responder."}
  ]},
-/* ==================== PÁGINA 9 — A caminhada (quadros provisórios) ==================== */
 /* ==================== PÁGINA 9 — A caminhada (arte real) ==================== */
 { img:"img/page09.jpg",
  paineis:[
@@ -213,7 +207,6 @@ const PAGINAS = [
    {t:"fala", p:6, de:"sylvanas", ancora:[388, 1700], tamanho:20, texto:"Se eu mandar você correr, você corre. E não volta."},
    {t:"fala", p:6, de:"nathan", ancora:[548, 1710], tamanho:20, texto:"Essa eu não prometo."}
  ]},
-/* ==================== PÁGINA 10 — Fechamento (quadros provisórios) ==================== */
 /* ==================== PÁGINA 10 — Fecho (arte real) ==================== */
 { img:"img/page10.jpg",
  paineis:[
