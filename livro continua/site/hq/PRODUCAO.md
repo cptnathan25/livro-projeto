@@ -73,7 +73,23 @@ O posicionamento de fala/narração agora é **automático** (`layout.js` + `dat
 3. Conferir com o validador (Node): rodar `layout.computarLayout` com
    `criarMedidorEstimado` e auditar margens/rostos/zonas/área/sobreposição.
 
+## Cânone de aparência — Sylvanas (decisões do autor, v27/v28)
+
+- **Capa**: marrom-rust ESCURO, mesma cor do capuz (nunca preta). Corrigido em
+  v28 nos quadros P4q0, P5q0, P5q3, P6q0 e P6q1.
+- **Sem capuz (cabelo solto) é INTENCIONAL** nos quadros P7q5, P8q0, P8q2,
+  P10q0, P10q4 e nos closes P5q4/P10q1/P10q3: escolha narrativa nos momentos
+  de vulnerabilidade/confronto íntimo. NÃO "corrigir" em regenerações futuras.
+- **Marcas escuras sob os olhos**: finas/sutis, sempre presentes; em regens
+  pedir "thin subtle streaks, width of the eyebrow line" e conferir em crops.
+- Referência visual canônica do capítulo: **P9** (capuz rust, marcas finas,
+  ombreiras com caveiras, arco).
+- Método para regenerar quadros no futuro: recortar região generosa do quadro,
+  regenerar com instrução de preservação pixel-faithful ("pure color edit,
+  nothing else"), conferir antes|depois (reprovar pose/elementos novos),
+  colar por paste restrito ao retângulo do quadro e validar diffs.
+
 ## Site publicado
 
 GitHub Pages (via workflow `deploy-pages.yml`): https://cptnathan25.github.io/livro-projeto/
-— capa do site; HQ em `/hq/ler.html`.
+— capa do site; HQ em `/hq/ler.html` (atual: **v28**, `20260911-28`).
