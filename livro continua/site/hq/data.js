@@ -169,14 +169,14 @@ const PAGINAS = [
    {r:[30,1420,1215,470], rostos:[[170,1550,55,58],[428,1542,55,62]]}
  ],
  elementos:[
-   {t:"fala", p:0, de:"sylvanas", ancora:[540, 120], texto:"E ainda assim escolheu carregar o meu rosto no seu corpo."},
-   {t:"fala", p:1, de:"nathan", ancora:[900, 305], texto:"Sim."},
+   {t:"fala", p:0, de:"sylvanas", ancora:[548, 142], texto:"E ainda assim escolheu carregar o meu rosto no seu corpo."},
+   {t:"fala", p:1, de:"nathan", ancora:[895, 330], fixo:[743,418,150], texto:"Sim."},
    {t:"fala", p:2, de:"sylvanas", ancora:[800, 780], fixo:[897,655,284], texto:"Você não faz ideia de quem eu sou."},
    {t:"narra", p:2, texto:"Havia nos olhos dela algo que ele só entenderia meses depois: desprezo — não por ele, mas pela possibilidade de ser admirada."},
    {t:"fala", p:3, de:"nathan", ancora:[270, 1205], texto:"Não. Não faço mesmo."},
    {t:"narra", p:3, texto:"Ela franziu a testa, minimamente. Não era a resposta esperada."},
-   {t:"fala", p:4, de:"nathan", ancora:[1080, 1200], fixo:[698,1002,221], tamanho:20, texto:"Eu conheço a sua história — isso é diferente."},
-  {t:"fala", p:4, de:"nathan", ancora:[1067, 1160], fixo:[734,1150,190], tamanho:17, texto:"Sei datas, nomes, batalhas, coisas que você fez, coisas que fizeram com você."},
+   {t:"fala", p:4, de:"nathan", ancora:[1080, 1200], fixo:[750,1082,180], tamanho:16, texto:"Eu conheço a sua história — isso é diferente."},
+  {t:"fala", p:4, de:"nathan", ancora:[1055, 1250], fixo:[752,1190,180], tamanho:16, texto:"Sei datas, nomes, batalhas, coisas que você fez, coisas que fizeram com você."},
   {t:"fala", p:5, de:"nathan", ancora:[455, 1545], texto:"Mas conhecer a história de alguém não significa conhecer a pessoa. Eu nunca ouvi você respirar antes de hoje."},
    {t:"narra", p:5, texto:"O vento da Gorja passou entre eles. Sylvanas não respondeu. Levou muito tempo para não responder."}
  ]},
