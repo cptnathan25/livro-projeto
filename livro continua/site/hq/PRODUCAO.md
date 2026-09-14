@@ -82,6 +82,10 @@ O posicionamento de fala/narração agora é **automático** (`layout.js` + `dat
   de vulnerabilidade/confronto íntimo. NÃO "corrigir" em regenerações futuras.
 - **Marcas escuras sob os olhos**: finas/sutis, sempre presentes; em regens
   pedir "thin subtle streaks, width of the eyebrow line" e conferir em crops.
+- **Página 8: mantida como está por decisão do autor** (v30 reverteu as
+  intervenções da v29): capa de P8q0 permanece no tom escuro original e o
+  close de P8q2 permanece SEM as marcas sob os olhos. NÃO re-corrigir em
+  auditorias futuras.
 - Referência visual canônica do capítulo: **P9** (capuz rust, marcas finas,
   ombreiras com caveiras, arco).
 - Método para regenerar quadros no futuro: recortar região generosa do quadro,
